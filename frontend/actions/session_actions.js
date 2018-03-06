@@ -11,7 +11,6 @@ export const signup = (user) => {
 };
 
 export const login = (user) => {
-  debugger
   return (dispatch) => {
     return APIUtil.login(user).then((currentUser) => dispatch(receiveCurrentUser(currentUser)),
     (errors) => dispatch(receiveErrors(errors)));
