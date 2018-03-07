@@ -1,15 +1,183 @@
 /*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- */
+* This is a manifest file that'll be compiled into application.css, which will include all the files
+* listed below.
+*
+* Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+* vendor/assets/stylesheets directory can be referenced here using a relative path.
+*
+* You're free to add application-wide styles to this file and they'll appear at the bottom of the
+* compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+* files in this directory. Styles in this file should be added after the last require_* statement.
+* It is generally better to create a new file per style scope.
+*
+*= require_tree .
+*= require_self
+*/
+
+
+/*
+RESETS
+*/
+html, body, div, span, h1, h2, h3, h4, a, ol, ul, li, form, label, article, aside, figure, figcaption, footer, header, nav {
+ margin: 0;
+ padding: 0;
+ border: 0;
+ font-size: 100%;
+ font: inherit;
+ vertical-align: baseline;
+}
+
+body {
+ line-height: 1.5;
+}
+
+ol, ul {
+ list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: #1db954;
+}
+
+h1 {
+  font-size: 45px;
+  font-weight: 500;
+  color: #1db954;
+  /* text-shadow: 0 0 0.5px white; */
+}
+
+h2 {
+  font-size: 28px;
+  font-weight: 500;
+}
+
+h3 {
+  font-size: 25px;
+  font-weight: 200;
+}
+
+/*
+  greeting page
+*/
+
+.greeting-BLACKround {
+  background-color: black;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  z-index: -2;
+}
+
+.greeting-background {
+  height: 100%;
+  width: 100%;
+  opacity: 0.35;
+  position: absolute;
+  z-index: -1;
+}
+
+.errors {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  color: #ff6666;
+}
+
+.splash-flexbox {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  color: #e0e0e0;
+  font-family: proxima_nova,Helvetica Neue,Helvetica,Arial,sans-serif;
+}
+
+.greeting-cont {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  height: 325px;
+  width: 350px;
+}
+
+.greeting-cont input {
+  height: 45px;
+  width: 235px;
+  font-size: 17px;
+  text-align: center;
+  border: 0.5px solid black;
+}
+
+.main-logo {
+  margin-top: 40px;
+  letter-spacing: 1px;
+  font-weight: 500;
+}
+
+.signup-link {
+  display: flex;
+  color: white;
+  background-color: #1db954;
+  border: 0.5px solid black;
+  height: 45px;
+  width: 200px;
+  margin-top: 5px;
+  border-radius: 20px;
+  justify-content: center;
+  align-items: center;
+}
+
+#account-question {
+  color: #bfbfbf;
+  font-size: 13px;
+  letter-spacing: 1.5px;
+}
+
+.login-link {
+  display: flex;
+  color: black;
+  background-color: white;
+  border: 0.5px solid black;
+  height: 45px;
+  width: 200px;
+  margin-bottom: 60px;
+  border-radius: 20px;
+  justify-content: center;
+  align-items: center;
+}
+
+#submit-button {
+  color: white;
+  background-color: #1db954;
+  border: 0.5px solid black;
+  height: 45px;
+  width: 200px;
+  border-radius: 20px;
+  width: 235px;
+}
+
+#submit-button:hover {
+  background-color: #047a3d;
+  cursor: pointer;
+}
+
+.signup-link:hover {
+  background-color: #047a3d;
+  cursor: pointer;
+}
+
+.login-link:hover {
+  background-color: #a5a5a5;
+  cursor: pointer;
+}
+
+.welcome-message {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 325px;
+  width: 600px;
+}
