@@ -181,3 +181,12 @@ h3 {
   height: 325px;
   width: 600px;
 }
+
+.welcome-bullets strong {
+  color: #1db954
+}
+
+.welcome-bullets {
+  font-weight: 335;
+  letter-spacing: 0.4px;
+}
