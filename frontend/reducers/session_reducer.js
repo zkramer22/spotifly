@@ -8,6 +8,6 @@ export default (state = {}, action) => {
       const currentUser = action.currentUser;
       return merge({}, { currentUser });
     default:
-    return state;
+      return state;
   }
 };

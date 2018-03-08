@@ -64,7 +64,7 @@ end
 # //////////
 playlist_list = [
   ["Favs", 1],
-  ["Jams", 1],
+  ["Jams", 2],
   ["Cool Remixes", 2]
 ]
 playlist_list.each do |name, creator_id|
