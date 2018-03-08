@@ -1,12 +1,19 @@
 class User < ApplicationRecord
-
-  attr_reader :password
-
   validates :email_address, :password_digest, :session_token, presence: true
   validates :email_address, uniqueness: true
   validates :password, length: { minimum: 6 }, allow_nil: true
 
+  has_many :created_playlists,
+    class_name: :Playlist,
+    foreign_key: :creator_id
+
+  has_many :followed_playlists,
+    class_name: :Follow,
+    foreign_key: :follower_id
+
   after_initialize :ensure_session_token
+
+  attr_reader :password
 
   def self.find_by_credentials(email_address, password)
     user = User.find_by(email_address: email_address)

@@ -6,4 +6,28 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-User.create!(email_address: 'zkramer22@gmail.com', password: 'qwerty')
+# //////
+# USERS
+# //////
+user_list = [
+  ['userA', 'qwerty'],
+  ['userB', 'asdfgh'],
+  ['userC', 'zxcvbn']
+]
+user_list.each do |email_address, password|
+  User.create!(email_address: email_address, password: password)
+end
+# /////////////////////////////////////////////////////////////////////
+
+# //////
+# TRACKS
+# //////
+
+# track_list =
+
+# track_list.each do |name, album_id, ord, audio|
+#   Track.create!(name: name, album_id: album_id, ord: ord, audio: audio)
+# end
+
+
+# /////////////////////////////////////////
