@@ -101,6 +101,8 @@ h3 {
   justify-content: space-around;
   height: 325px;
   width: 350px;
+  margin-right: 30px;
+  border-right: 0.5px solid white;
 }
 
 .greeting-cont input {
@@ -183,7 +185,7 @@ h3 {
 }
 
 .welcome-bullets strong {
-  color: #1db954
+  color: #1db954;
 }
 
 .welcome-bullets {

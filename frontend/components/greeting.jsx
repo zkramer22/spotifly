@@ -24,9 +24,9 @@ const Greeting = ({currentUser, logout}) => {
         <h1>Music takes flight.</h1>
         <h3>Listen to zillions of songs for free.</h3>
         <br></br>
-        <ul>
-          <li>&#10003; Search & discover music anytime, anywhere</li>
-          <li>&#10003; Create playlists of your favorites</li>
+        <ul className="welcome-bullets">
+          <li><strong>&#10003;</strong> Search & discover music anytime, anywhere</li>
+          <li><strong>&#10003;</strong> Create playlists of your favorites</li>
         </ul>
       </div>
     </div>
