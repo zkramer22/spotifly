@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+import { persistStore, autoRehydrate } from 'redux-persist';
+
 import Root from './components/root';
 import configureStore from './store/store';
 
@@ -19,14 +21,15 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // WINDOW TESTING
-  window.getState = store.getState;
+  // window.getState = store.getState;
   window.dispatch = store.dispatch;
-  window.login = login;
+  // window.login = login;
   window.logout = logout;
-  window.signup = signup;
-  window.requestAllPlaylists = requestAllPlaylists;
-  window.requestSinglePlaylist = requestSinglePlaylist;
+  // window.signup = signup;
+  // window.requestAllPlaylists = requestAllPlaylists;
+  // window.requestSinglePlaylist = requestSinglePlaylist;
 
   const root = document.getElementById('root');
+
   ReactDOM.render(<Root store={ store }/>, root);
 });

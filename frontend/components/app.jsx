@@ -17,7 +17,7 @@ const App = () => (
     { /* Combine Playlist, Artist, Album, Track, and SideNav containers into the CollectionContainer */ }
     { /* <Route path="/collection" component={ CollectionContainer } */ }
     <Route exact path="/collection/playlists/:playlistId" component={ PlaylistDetailContainer } />
-    <Route path="/collection/playlists" component={ PlaylistIndexContainer } />
+    <Route exact path="/collection/playlists" component={ PlaylistIndexContainer } />
   </div>
 );
 

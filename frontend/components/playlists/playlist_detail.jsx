@@ -2,15 +2,29 @@ import React from 'react';
 import values from 'lodash/values';
 
 class PlaylistDetail extends React.Component {
-  componentDidMount() {
+  constructor(props) {
+    super(props)
+    this.state = {
+      playlist: [],
+      tracks: []
+    };
+  }
 
-    this.props.requestSinglePlaylist(this.props.match.params.playlistId)
+  componentDidMount() {
+    this.props.requestSinglePlaylist(this.props.match.params.playlistId);
     // make sure playlistId is passed from CollectionContainer or PlaylistContainer
   }
 
+  componentWillReceiveProps(nextProps) {
+    if (this.props.match.params.playlistId !== nextProps.match.params.playlistId) {
+      this.props.requestSinglePlaylist(this.props.match.params.playlistId)
+    }
+  }
+
   render() {
+    // TODO: Write a Damn Conditional and render loading screen if shit isnt ready 
+
     const { playlist, tracks } = this.props;
-    debugger
 
     return (
       <section className="playlist-detail-container">
@@ -27,7 +41,7 @@ class PlaylistDetail extends React.Component {
         <div className="playlist-detail-tracks">
           <ol className="playlist-tracklist">
             { Object.values(tracks).map(track => {
-              return <li>track.name</li>
+              return <li key={track.id}>{track.name}</li>
             }) }
           </ol>
         </div>

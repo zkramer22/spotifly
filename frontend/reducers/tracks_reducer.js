@@ -6,8 +6,6 @@ export default (state = {}, action) => {
 
   let tracks;
 
-
-
   switch (action.type) {
     case RECEIVE_PLAYLIST:
       tracks = action.payload.tracks;

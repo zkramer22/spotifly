@@ -8,8 +8,8 @@ const msp = (state, ownProps) => {
   const playlist = state.entities.playlists[ownProps.match.params.playlistId];
 
   return {
-    playlist,
-    tracks: state.entities.tracks
+    playlist: playlist || [],
+    tracks: state.entities.tracks || []
   };
 };
 
