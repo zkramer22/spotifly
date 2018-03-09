@@ -8,6 +8,8 @@ export default (state = {}, action) => {
 
   let playlist;
 
+
+
   switch (action.type) {
     case RECEIVE_ALL_PLAYLISTS:
       return merge({}, state, action.playlists)

@@ -1,5 +1,5 @@
 class Track < ApplicationRecord
-  validates :name, :artist_id, presence: true
+  validates :name, :artist_id, :album_id, presence: true
 
   has_attached_file :audio
   validates_attachment_content_type :audio, content_type: /\Aaudio\/.*\Z/

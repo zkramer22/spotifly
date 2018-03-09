@@ -35,6 +35,8 @@ const Greeting = ({currentUser, logout}) => {
 
 export default Greeting;
 
+/* TODO: Here is the logic for currentUser being logged in.
+          Not sure if this is necessary anymore */
 /*
   currentUser ? (
     <div>

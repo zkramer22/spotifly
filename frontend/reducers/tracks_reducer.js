@@ -6,11 +6,13 @@ export default (state = {}, action) => {
 
   let tracks;
 
+
+
   switch (action.type) {
     case RECEIVE_PLAYLIST:
-      debugger
       tracks = action.payload.tracks;
-      return merge({}, state, tracks)
+      return merge({}, tracks)
+      // used to merge current state
     default:
       return state;
   }

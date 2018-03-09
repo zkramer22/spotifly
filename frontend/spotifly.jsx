@@ -27,7 +27,6 @@ document.addEventListener('DOMContentLoaded', () => {
   window.requestAllPlaylists = requestAllPlaylists;
   window.requestSinglePlaylist = requestSinglePlaylist;
 
-
   const root = document.getElementById('root');
   ReactDOM.render(<Root store={ store }/>, root);
 });
