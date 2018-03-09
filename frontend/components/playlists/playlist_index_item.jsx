@@ -3,18 +3,19 @@ import { Link } from 'react-router-dom';
 
 const PlaylistIndexItem = ({ playlist }) => {
   return (
-    <li className="playlist-index-item">
-      <Link to={`/collection/playlists/${playlist.id}`}>
+    <div>
+      <Link
+        className="playlist-index-item"
+        to={`/collection/playlists/${playlist.id}`}>
         {/* <img src={ playlist.image } alt={ playlist.name }/> */}
         <img
-          style={{height: "100px", width: "100px"}}
           className="playlist-index-item-coverart"
-          src="http://freevector.co/wp-content/uploads/2011/01/8710-spotify-logo-button1.png"
+          src="https://images.complex.com/complex/images/c_fill,g_center,w_1200/fl_lossy,pg_1,q_auto/mqlimq5ifprz3klcoxpt/spotify-logo"
           alt="meh" />
-        <span>{ playlist.name }</span>
-        {/*<span>{ playlist.creator.email_address }</span>*/}
+        <span style={{padding: "5px 0 2.5px 0"}}>{ playlist.name }</span>
+        <span style={{ fontWeight:"200", color: "lightgrey"}}>{ playlist.creator_id }</span>
       </Link>
-    </li>
+    </div>
   );
 };
 

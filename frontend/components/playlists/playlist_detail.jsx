@@ -1,14 +1,8 @@
 import React from 'react';
-import values from 'lodash/values';
+import PlaylistIndexItem from './playlist_index_item';
+import TrackIndexItem from '../tracks/track_index_item';
 
 class PlaylistDetail extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      playlist: [],
-      tracks: []
-    };
-  }
 
   componentDidMount() {
     this.props.requestSinglePlaylist(this.props.match.params.playlistId);
@@ -22,30 +16,32 @@ class PlaylistDetail extends React.Component {
   }
 
   render() {
-    // TODO: Write a Damn Conditional and render loading screen if shit isnt ready 
-
     const { playlist, tracks } = this.props;
 
     return (
-      <section className="playlist-detail-container">
-        <div className="playlist-detail-info">
-          <img
-            style={{height: "100px", width: "100px"}}
-            className="playlist-index-item-coverart"
-            src="http://freevector.co/wp-content/uploads/2011/01/8710-spotify-logo-button1.png"
-            alt="meh" />
-          <strong>{ playlist.name }</strong>
-          {/* <span>{ playlist.creator.name }</span> */}
-        </div>
+      <div className="playlist-index-flexbox">
+        <section className="playlist-detail-container">
+          <div className="playlist-detail-info">
+            <img
+              className="playlist-index-item-coverart"
+              src="https://images.complex.com/complex/images/c_fill,g_center,w_1200/fl_lossy,pg_1,q_auto/mqlimq5ifprz3klcoxpt/spotify-logo"
+              alt="meh" />
+            <h2>{ playlist.name }</h2>
 
-        <div className="playlist-detail-tracks">
-          <ol className="playlist-tracklist">
-            { Object.values(tracks).map(track => {
-              return <li key={track.id}>{track.name}</li>
-            }) }
-          </ol>
-        </div>
-      </section>
+          </div>
+
+          { /* TODO: This is a link. How can I fix that? */ }
+          {/*}<PlaylistIndexItem className="playlist-detail-info" playlist={ playlist } /> */}
+
+          <div className="playlist-detail-tracks">
+            <ol className="playlist-tracklist">
+              { Object.values(tracks).map((track, i) => {
+                return <TrackIndexItem key={ track.id } track={ track } i={i} />
+              }) }
+            </ol>
+          </div>
+        </section>
+      </div>
     );
   }
 }

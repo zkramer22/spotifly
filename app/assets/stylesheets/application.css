@@ -15,9 +15,9 @@
 */
 
 
-/*
-RESETS
-*/
+/*/////////////////////////////////////////////////
+////////////////////  RESET  //////////////////////
+/////////////////////////////////////////////////*/
 html, body, div, span, h1, h2, h3, h4, a, ol, ul, li, form, label, article, aside, figure, figcaption, footer, header, nav {
  margin: 0;
  padding: 0;
@@ -29,10 +29,15 @@ html, body, div, span, h1, h2, h3, h4, a, ol, ul, li, form, label, article, asid
 
 body {
  line-height: 1.5;
+ color: white;
 }
 
-ol, ul {
+ul {
  list-style: none;
+}
+
+ol {
+  list-style: decimal inside;
 }
 
 a {
@@ -57,17 +62,18 @@ h3 {
   font-weight: 200;
 }
 
-/*
-  greeting page
-*/
-
-.greeting-BLACKround {
+.BLACKround {
   background-color: black;
   height: 100%;
   width: 100%;
   position: absolute;
-  z-index: -2;
+  z-index: -10;
 }
+
+/*/////////////////////////////////////////////////
+////////////////  greeting page  //////////////////
+/////////////////////////////////////////////////*/
+
 
 .greeting-background {
   height: 100%;
@@ -191,4 +197,112 @@ h3 {
 .welcome-bullets {
   font-weight: 335;
   letter-spacing: 0.4px;
+}
+
+/*/////////////////////////////////////////////////
+////////////////  playlists  //////////////////////
+/////////////////////////////////////////////////*/
+
+.playlist-index-flexbox {
+  position: absolute;
+  display: flex;
+  height: 100%;
+  width: 100%;
+  justify-content: center;
+  background: #a90329; /* Old browsers */
+  background: -moz-linear-gradient(top, #a90329 0%, #000000 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, #a90329 0%,#000000 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, #a90329 0%,#000000 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a90329', endColorstr='#000000',GradientType=0 ); /* IE6-9 */
+  font-family: proxima_nova,Helvetica Neue,Helvetica,Arial,sans-serif;
+}
+
+.playlist-index-container {
+  height: auto;
+  width: 70%;
+}
+
+.playlist-index {
+  display: flex;
+  justify-content: center;
+}
+
+.playlist-index-item img {
+  height: 120px;
+  width: 120px;
+  -webkit-box-shadow: 0px 24px 190px -6px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 24px 190px -6px rgba(0,0,0,0.75);
+  box-shadow: 0px 24px 190px -6px rgba(0,0,0,0.75);
+}
+
+.playlist-index-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 175px;
+  width: 130px;
+  /* padding: 10px 10px; */
+  margin: 10px 10px;
+  color: white;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.playlist-detail-container {
+  display: flex;
+  height: auto;
+  width: 90%;
+}
+
+.playlist-detail-container img {
+  height: 250px;
+  width: 250px;
+  -webkit-box-shadow: 0px 24px 190px -20px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 24px 190px -20px rgba(0,0,0,0.75);
+  box-shadow: 0px 24px 190px -20px rgba(0,0,0,0.75);
+}
+
+.playlist-detail-tracks {
+  padding: 10px;
+  height: auto;
+  width: 100%;
+}
+
+.playlist-detail-info {
+  padding: 10px;
+  text-align: center;
+}
+
+.track-index-highlight {
+  position: relative;
+  z-index: 0;
+  height: 60px;
+  padding: 5px 5px 0 15px;
+  -webkit-transition: background-color 0.25s ease-out;
+  -moz-transition: background-color 0.25s ease-out;
+  -o-transition: background-color 0.25s ease-out;
+  transition: background-color 0.25s ease-out;
+}
+
+.track-index-highlight:hover {
+  background-color: #2b2b2b;
+  opacity: 0.7;
+}
+
+.track-number-button {
+  position: relative;
+  z-index: 2;
+  font-weight: 200;
+  color: lightgrey;
+  padding-right: 20px;
+}
+
+.track-index-item {
+  position: relative;
+  z-index: 2;
+  width: auto;
+  margin: 5px 0 15px 0;
+  font-weight: 250;
+  letter-spacing: 0.8px;
 }

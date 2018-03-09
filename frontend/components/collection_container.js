@@ -5,7 +5,7 @@ import Collection from './home_page';
 
 const msp = store = => {
   return {
-
+    
   };
 };
 
@@ -14,3 +14,5 @@ const mdp = dispatch => {
 
   };
 };
+
+export default connect(msp, mdp)(Collection);

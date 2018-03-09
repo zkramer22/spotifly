@@ -43,7 +43,7 @@ class SessionForm extends React.Component {
   render() {
     return (
       <div className="splash-flexbox">
-        <div className="greeting-BLACKround">
+        <div className="BLACKround">
           <img
             className="greeting-background"
             src="https://images2.alphacoders.com/267/267922.jpg"

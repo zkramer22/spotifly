@@ -10,11 +10,15 @@ class PlaylistIndex extends React.Component {
   render() {
     const { playlists } = this.props;
     return (
-      <section>
-        <ul>
-          { playlists.map(playlist => <PlaylistIndexItem key={ playlist.id } playlist={ playlist } />) }
-        </ul>
-      </section>
+      <div className="BLACKround">
+        <div className="playlist-index-flexbox">
+          <section className="playlist-index-container">
+            <div className="playlist-index">
+              { playlists.map(playlist => <PlaylistIndexItem key={ playlist.id } playlist={ playlist } />) }
+            </div>
+          </section>
+        </div>
+      </div>
     );
   }
 };
