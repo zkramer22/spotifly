@@ -1,6 +1,8 @@
 import React from 'react';
 
 import PlaylistIndexItem from './playlist_index_item';
+import Topbar from '../topbar';
+import { openModal } from "../../actions/modal_actions";
 
 class PlaylistIndex extends React.Component {
   componentDidMount() {
@@ -8,7 +10,7 @@ class PlaylistIndex extends React.Component {
   }
 
   render() {
-    const { playlists } = this.props;
+    const { playlists, openModal } = this.props;
     return (
       <div className="BLACKround">
         <div className="playlist-index-flexbox">
@@ -17,6 +19,7 @@ class PlaylistIndex extends React.Component {
               { playlists.map(playlist => <PlaylistIndexItem key={ playlist.id } playlist={ playlist } />) }
             </div>
           </section>
+          <Topbar openModal={ openModal }/>
         </div>
       </div>
     );

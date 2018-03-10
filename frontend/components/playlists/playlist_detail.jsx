@@ -27,6 +27,9 @@ class PlaylistDetail extends React.Component {
               src="https://images.complex.com/complex/images/c_fill,g_center,w_1200/fl_lossy,pg_1,q_auto/mqlimq5ifprz3klcoxpt/spotify-logo"
               alt="meh" />
             <h2>{ playlist.name }</h2>
+            <h4 style={{ fontWeight:"200", color: "lightgrey"}}>
+              { playlist.email_address }
+            </h4>
 
           </div>
 

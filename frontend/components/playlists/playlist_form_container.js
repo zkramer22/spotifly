@@ -7,14 +7,14 @@ import PlaylistForm from './playlist_form';
 // WHAT AM I PASSIN THRU HERE? //
 const msp = (state) => {
   return {
-    playlist: {},
+    currentUser: state.session.currentUser,
     formType: 'create'
   };
 };
 
 const mdp = dispatch => {
   return {
-    processForm: playlistName => dispatch(createPlaylist(playlistName)),
+    processForm: playlist => dispatch(createPlaylist(playlist)),
     closeModal: () => dispatch(closeModal())
   };
 };

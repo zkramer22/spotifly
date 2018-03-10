@@ -9,19 +9,29 @@ import SignUpFormContainer from './session_form/signup_form_container';
 import LogInFormContainer from './session_form/login_form_container';
 import PlaylistIndexContainer from './playlists/playlist_index_container';
 import PlaylistDetailContainer from './playlists/playlist_detail_container';
-import Sidebar from './sidebar';
+import SidebarContainer from './sidebar_container';
+import Topbar from './topbar';
 
 const App = () => (
   <div>
     <Modal />
     <Route
-      exact path="/" component={ GreetingContainer } />
+      exact path="/"
+      component={ GreetingContainer } />
     <AuthRoute
-      exact path="/login" component={ LogInFormContainer } />
+      exact path="/login"
+      component={ LogInFormContainer } />
     <AuthRoute
-      exact path="/signup" component={ SignUpFormContainer } />
-    { /* Combine Playlist, Artist, Album, Track, and SideNav containers into the CollectionContainer */ }
-    { /* <Route path="/collection" component={ CollectionContainer } */ }
+      exact path="/signup"
+      component={ SignUpFormContainer } />
+    <Route
+      path="/collection"
+      component={ SidebarContainer } />
+    { /*
+      <Route
+        path="/collection"
+        component={ Topbar} />
+    */ }
     <Route
       exact path="/collection/playlists/:playlistId"
       component={ PlaylistDetailContainer } />

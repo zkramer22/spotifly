@@ -3,7 +3,7 @@ import { closeModal } from '../actions/modal_actions';
 import { connect } from 'react-redux';
 import PlaylistFormContainer from './playlists/playlist_form_container';
 
-function Modal({modal, closeModal}) {
+function Modal({ modal, closeModal }) {
   if (!modal) {
     return null;
   }
@@ -11,6 +11,7 @@ function Modal({modal, closeModal}) {
   switch (modal) {
     case 'create':
       component = <PlaylistFormContainer />;
+      break;
     // case 'delete':
     //   component = <PlaylistDeleteContainer />;
     default:

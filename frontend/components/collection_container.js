@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import Collection from './home_page';
+import Collection from './collection';
 
 const msp = store = => {
   return {

@@ -18,6 +18,7 @@
 /*/////////////////////////////////////////////////
 ////////////////////  RESET  //////////////////////
 /////////////////////////////////////////////////*/
+
 html, body, div, span, h1, h2, h3, h4, a, ol, ul, li, form, label, article, aside, figure, figcaption, footer, header, nav {
  margin: 0;
  padding: 0;
@@ -30,6 +31,7 @@ html, body, div, span, h1, h2, h3, h4, a, ol, ul, li, form, label, article, asid
 body {
  line-height: 1.5;
  color: white;
+ font-family: proxima_nova,Helvetica Neue,Helvetica,Arial,sans-serif;
 }
 
 ul {
@@ -74,7 +76,6 @@ h3 {
 ////////////////  greeting page  //////////////////
 /////////////////////////////////////////////////*/
 
-
 .greeting-background {
   height: 100%;
   width: 100%;
@@ -97,7 +98,6 @@ h3 {
   height: 100%;
   width: 100%;
   color: #e0e0e0;
-  font-family: proxima_nova,Helvetica Neue,Helvetica,Arial,sans-serif;
 }
 
 .greeting-cont {
@@ -200,6 +200,32 @@ h3 {
 }
 
 /*/////////////////////////////////////////////////
+////////////////  modal  //////////////////////////
+/////////////////////////////////////////////////*/
+
+.playlist-form-container {
+
+}
+
+.modal-background {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  opacity: 0.8;
+  background-color: black;
+  z-index: 10;
+}
+
+.modal-child {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/*/////////////////////////////////////////////////
 ////////////////  playlists  //////////////////////
 /////////////////////////////////////////////////*/
 
@@ -218,18 +244,20 @@ h3 {
 }
 
 .playlist-index-container {
+  display: flex;
   height: auto;
   width: 70%;
 }
 
 .playlist-index {
   display: flex;
-  justify-content: center;
+  flex-wrap: wrap;
+  width: 100%;
 }
 
 .playlist-index-item img {
-  height: 120px;
-  width: 120px;
+  height: 140px;
+  width: 140px;
   -webkit-box-shadow: 0px 24px 190px -6px rgba(0,0,0,0.75);
   -moz-box-shadow: 0px 24px 190px -6px rgba(0,0,0,0.75);
   box-shadow: 0px 24px 190px -6px rgba(0,0,0,0.75);

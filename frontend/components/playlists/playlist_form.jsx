@@ -6,25 +6,28 @@ class PlaylistForm extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      playlistName: ""
+      name: "",
+      creator_id: this.props.currentUser.id
     };
+    this.updateName = this.updateName.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   updateName(e) {
-    this.setState({ playlistName: e.currentTarget.value })
+    this.setState({ name: e.currentTarget.value })
   }
 
   handleSubmit(e) {
     e.preventDefault();
-    const playlistName = Object.assign({}, this.state);
-    this.props.processForm(playlistName)
+    const playlist = Object.assign({}, this.state);
+    this.props.processForm(playlist).then((response) => {
+      this.props.history.push(`/collection/playlists/${response.payload.playlist.id}`)});
   }
 
   render() {
     return (
       <div className="playlist-form-container">
-        <div onClick={ this.props.closeModal } className="close-x">X</div>
+        <span onClick={ this.props.closeModal } className="close-x">X</span>
         <br/>
         <h1>Create new playlist </h1>
         <form onSubmit={ this.handleSubmit } className="playlist-form-box">
@@ -43,4 +46,4 @@ class PlaylistForm extends React.Component {
   }
 }
 
-export default withRouter(SessionForm);
+export default withRouter(PlaylistForm);
