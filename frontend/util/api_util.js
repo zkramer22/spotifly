@@ -19,3 +19,10 @@ export const createPlaylist = playlist => {
     data: { playlist }
   });
 };
+
+export const deletePlaylist = id => {
+  return $.ajax({
+    method: "DELETE",
+    url: `api/playlists/${id}`
+  });
+};

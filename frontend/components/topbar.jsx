@@ -10,7 +10,12 @@ const Topbar = ({ openModal }) => {
           // <Link to="/collection/albums">ALBUMS</Link>
           // <Link to="/collection/tracks">TRACKS</Link>
         }
-        <button onClick={ () => openModal('create') }>NEW PLAYLIST</button>
+        <div className="new-playlist-button-container">
+          <button
+            className="new-playlist-button"
+            onClick={ () => openModal('create') }>NEW PLAYLIST
+          </button>
+        </div>
       </nav>
   );
 // add modal to button above

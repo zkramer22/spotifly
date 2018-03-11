@@ -71,7 +71,7 @@ class SessionForm extends React.Component {
             placeholder="password"/>
 
           <input
-            id="submit-button"
+            className="submit-button"
             type="submit"
             value={ this.props.formType } />
 

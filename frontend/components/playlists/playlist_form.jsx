@@ -11,6 +11,7 @@ class PlaylistForm extends React.Component {
     };
     this.updateName = this.updateName.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleEnter = this.handleEnter.bind(this);
   }
 
   updateName(e) {
@@ -24,23 +25,48 @@ class PlaylistForm extends React.Component {
       this.props.history.push(`/collection/playlists/${response.payload.playlist.id}`)});
   }
 
+  handleEnter(e) {
+    const keyCode = (e.keyCode ? e.keyCode : e.which);
+    if (keyCode == '13') { this.handleSubmit(e) }
+  }
+
   render() {
     return (
       <div className="playlist-form-container">
-        <span onClick={ this.props.closeModal } className="close-x">X</span>
-        <br/>
-        <h1>Create new playlist </h1>
-        <form onSubmit={ this.handleSubmit } className="playlist-form-box">
-          <h3>Playlist Name</h3>
-          <input
-            type="text"
-            value={ this.state.playlistName }
-            onChange={ this.updateName }
-            className="playlist-input"
-          />
-          <br/>
-          <input className="playlist-submit" type="submit" value="create" />
-        </form>
+        <div className="close-x-container">
+          <span
+            onClick={ this.props.closeModal }
+            className="close-x">X</span>
+        </div>
+
+        <div className="playlist-form-wrapper">
+          <h1>Create new playlist </h1>
+          <form onSubmit={ this.handleSubmit } onKeyPress={ this.handleEnter } className="playlist-form">
+            <span style={{ fontSize: "12px", letterSpacing: "1px" }}>Playlist Name</span>
+            <input
+              className="playlist-input"
+              type="text"
+              value={ this.state.playlistName }
+              onChange={ this.updateName }
+              placeholder="Start typing..."
+              />
+            <div className="playlist-button-group">
+              <div className="playlist-cancel-container">
+                <button
+                  className="playlist-cancel-button"
+                  onClick={ this.props.closeModal }>CANCEL
+                </button>
+              </div>
+              <div className="playlist-submit-container">
+                <input
+                  id="create-playlist"
+                  type="submit"
+                  value="CREATE" />
+              </div>
+            </div>
+          </form>
+
+        </div>
       </div>
     );
   }

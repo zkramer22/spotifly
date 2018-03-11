@@ -14,7 +14,6 @@
 *= require_self
 */
 
-
 /*/////////////////////////////////////////////////
 ////////////////////  RESET  //////////////////////
 /////////////////////////////////////////////////*/
@@ -50,8 +49,6 @@ a {
 h1 {
   font-size: 45px;
   font-weight: 500;
-  color: #1db954;
-  /* text-shadow: 0 0 0.5px white; */
 }
 
 h2 {
@@ -162,9 +159,8 @@ h3 {
   background-color: #1db954;
   border: 0.5px solid black;
   height: 45px;
-  width: 200px;
-  border-radius: 20px;
   width: 235px;
+  border-radius: 20px;
 }
 
 #submit-button:hover {
@@ -190,6 +186,10 @@ h3 {
   width: 600px;
 }
 
+.welcome-message h1 {
+  color: #1db954;
+}
+
 .welcome-bullets strong {
   color: #1db954;
 }
@@ -203,26 +203,180 @@ h3 {
 ////////////////  modal  //////////////////////////
 /////////////////////////////////////////////////*/
 
-.playlist-form-container {
-
-}
-
 .modal-background {
   position: fixed;
   top: 0;
   bottom: 0;
   right: 0;
   left: 0;
-  opacity: 0.8;
-  background-color: black;
+  background-color: rgba(0,0,0,.9);
   z-index: 10;
 }
 
 .modal-child {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+
+.playlist-form-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  color: white;
+  letter-spacing: 0.8px;
+  text-transform: none;
+}
+
+.close-x-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 60px;
+}
+
+.close-x {
+  font-size: 30px;
+}
+
+.close-x:hover {
+  font-size: 40px;
+}
+
+.playlist-form-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.playlist-form {
+  background-color: #282828;
+  padding-top: 26px;
+  height: 122px;
+  width: 100%;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.playlist-form span, input[type=text] {
+  padding-left: 40px;
+}
+
+.playlist-input {
+  background-color: transparent;
+  border: none;
+  caret-color: #1db954;
+  width: 100%;
+  height: 60px;
+  font-size: 50px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: white;
+}
+
+.playlist-input:focus, .playlist-input:hover {
+  outline: 0;
+}
+
+.playlist-button-group {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.playlist-submit-container, .playlist-cancel-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 170px;
+  height: 60px;
+}
+
+.playlist-cancel-button {
+  background-color: transparent;
+  color: white;
+  height: 42px;
+  width: 150px;
+  border-radius: 20px;
+  letter-spacing: 2px;
+}
+
+.playlist-cancel-button:hover {
+  height: 45px;
+  width: 160px;
+  border-radius: 25px;
+}
+
+#create-playlist {
+  color: white;
+  background-color: #1db954;
+  border: 0.5px solid black;
+  height: 42px;
+  width: 150px;
+  border-radius: 20px;
+  letter-spacing: 2px;
+}
+
+#create-playlist:hover {
+  background-color: #24d863;
+  height: 45px;
+  width: 160px;
+  border-radius: 25px;
+}
+
+/*/////////////////////////////////////////////////
+///////////////////  topbar  //////////////////////
+/////////////////////////////////////////////////*/
+
+.topbar {
+  display: flex;
+  justify-content: flex-end;
+  margin: 20px 20px 20px 20px;
+}
+
+.new-playlist-button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 38px;
+  width: 160px;
+}
+
+.new-playlist-button {
+  color: white;
+  background-color: #1db954;
+  border: none;
+  height: 32px;
+  width: 150px;
+  border-radius: 20px;
+  letter-spacing: 2px;
+  -webkit-box-shadow: 0px 24px 190px -6px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 24px 190px -6px rgba(0,0,0,0.75);
+  box-shadow: 0px 24px 190px -6px rgba(0,0,0,0.75);
+}
+
+.new-playlist-button:hover {
+  background-color: #24d863;
+  height: 35px;
+  width: 160px;
+  border-radius: 25px;
+}
+
+/*/////////////////////////////////////////////////
+//////////////////  sidebar  //////////////////////
+/////////////////////////////////////////////////*/
+
+.sidebar {
+  display: flex;
 }
 
 /*/////////////////////////////////////////////////
@@ -230,28 +384,28 @@ h3 {
 /////////////////////////////////////////////////*/
 
 .playlist-index-flexbox {
+  /* display: flex; */
   position: absolute;
-  display: flex;
-  height: 100%;
   width: 100%;
-  justify-content: center;
-  background: #a90329; /* Old browsers */
-  background: -moz-linear-gradient(top, #a90329 0%, #000000 100%); /* FF3.6-15 */
+  /* justify-content: center; */
+  /* background: #a90329; /* Old browsers */ */
+  /* background: -moz-linear-gradient(top, #a90329 0%, #000000 100%); /* FF3.6-15 */
   background: -webkit-linear-gradient(top, #a90329 0%,#000000 100%); /* Chrome10-25,Safari5.1-6 */
   background: linear-gradient(to bottom, #a90329 0%,#000000 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a90329', endColorstr='#000000',GradientType=0 ); /* IE6-9 */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a90329', endColorstr='#000000',GradientType=0 );
   font-family: proxima_nova,Helvetica Neue,Helvetica,Arial,sans-serif;
 }
 
 .playlist-index-container {
   display: flex;
-  height: auto;
-  width: 70%;
+  height: 100%;
+  width: 100%;
 }
 
 .playlist-index {
   display: flex;
   flex-wrap: wrap;
+  height: 100%;
   width: 100%;
 }
 
@@ -268,13 +422,16 @@ h3 {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 175px;
   width: 130px;
-  /* padding: 10px 10px; */
-  margin: 10px 10px;
+  padding: 10px 10px 0 10px;
+  margin: 10px 10px 0 10px;
   color: white;
   font-size: 13px;
   font-weight: 600;
+}
+
+.playlist-index-item-container {
+  text-align: center;
 }
 
 .playlist-detail-container {
@@ -307,15 +464,17 @@ h3 {
   z-index: 0;
   height: 60px;
   padding: 5px 5px 0 15px;
-  -webkit-transition: background-color 0.25s ease-out;
+  transition-property: background-color;
+  transition-duration: .2s;
+  transition-timing-function: linear;
+  /* -webkit-transition: background-color 0.25s ease-out;
   -moz-transition: background-color 0.25s ease-out;
   -o-transition: background-color 0.25s ease-out;
-  transition: background-color 0.25s ease-out;
+  transition: background-color 0.25s ease-out; */
 }
 
 .track-index-highlight:hover {
-  background-color: #2b2b2b;
-  opacity: 0.7;
+  background-color: rgba(0,0,0,.3);
 }
 
 .track-number-button {

@@ -14,12 +14,12 @@ class PlaylistIndex extends React.Component {
     return (
       <div className="BLACKround">
         <div className="playlist-index-flexbox">
+          <Topbar openModal={ openModal }/>
           <section className="playlist-index-container">
             <div className="playlist-index">
               { playlists.map(playlist => <PlaylistIndexItem key={ playlist.id } playlist={ playlist } />) }
             </div>
           </section>
-          <Topbar openModal={ openModal }/>
         </div>
       </div>
     );
