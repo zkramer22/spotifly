@@ -308,6 +308,7 @@ h3 {
   width: 150px;
   border-radius: 20px;
   letter-spacing: 2px;
+  outline: none;
 }
 
 .playlist-cancel-button:hover {
@@ -324,6 +325,7 @@ h3 {
   width: 150px;
   border-radius: 20px;
   letter-spacing: 2px;
+  outline: none;
 }
 
 #create-playlist:hover, #delete-playlist:hover {
@@ -362,6 +364,7 @@ h3 {
   -webkit-box-shadow: 0px 24px 190px -6px rgba(0,0,0,0.75);
   -moz-box-shadow: 0px 24px 190px -6px rgba(0,0,0,0.75);
   box-shadow: 0px 24px 190px -6px rgba(0,0,0,0.75);
+  outline: none;
 }
 
 .new-playlist-button:hover, .delete-playlist-button:hover {
@@ -426,7 +429,21 @@ h3 {
   border-top: 1px solid hsla(0,0%,100%,.3);
 }
 
-/* rgb(188, 188, 188, 0.5) */
+.logout-button {
+  background-color: transparent;
+  transition: color .2s linear, background-color .2s linear;
+  /* transition-duration: .2s; */
+  /* transition-timing-function: linear; */
+  color: hsla(0,0%,100%,.6);
+  height: 30px;
+  width: 65px;
+  border-radius: 11px;
+}
+
+.logout-button:hover {
+  background-color: white;
+  color: #f44242;
+}
 
 /*/////////////////////////////////////////////////
 ////////////////  playlists  //////////////////////
@@ -517,29 +534,75 @@ h3 {
   transition-property: background-color;
   transition-duration: .2s;
   transition-timing-function: linear;
-  /* -webkit-transition: background-color 0.25s ease-out;
-  -moz-transition: background-color 0.25s ease-out;
-  -o-transition: background-color 0.25s ease-out;
-  transition: background-color 0.25s ease-out; */
 }
 
 .track-index-highlight:hover {
   background-color: rgba(0,0,0,.3);
 }
 
+.track-index-highlight:focus {
+  background-color: rgba(0,0,0,.3);
+}
+
 .track-number-button {
-  position: relative;
-  z-index: 2;
   font-weight: 200;
   color: lightgrey;
   padding-right: 20px;
 }
 
 .track-index-item {
-  position: relative;
-  z-index: 2;
   width: auto;
   margin: 5px 0 15px 0;
   font-weight: 250;
   letter-spacing: 0.8px;
+}
+
+/*/////////////////////////////////////////////////
+///////////////////  search  //////////////////////
+/////////////////////////////////////////////////*/
+
+.search-index-flexbox {
+  position: absolute;
+  width: 100%;
+  min-height: 100%;
+}
+
+.left-spacing-exact {
+  margin-left: 250px;
+}
+
+.search-form-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.search-form {
+  background-color: #282828;
+  padding-top: 26px;
+  height: 122px;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.search-form span, .search-form input[type=text] {
+  padding-left: 30px;
+}
+
+.search-input {
+  background-color: transparent;
+  border: none;
+  caret-color: #1db954;
+  width: 100%;
+  height: 60px;
+  font-size: 50px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: white;
+}
+
+.search-input:focus, .search-input:hover {
+  outline: 0;
 }

@@ -1,5 +1,7 @@
 import React from 'react';
 
+// TODO: heres the play icon <i class="fas fa-play"></i>
+
 const TrackIndexItem = ({ track, i }) => {
   return (
     <div className="track-index-highlight">

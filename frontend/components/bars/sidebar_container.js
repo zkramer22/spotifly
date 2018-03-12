@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { logout } from '../../actions/session_actions';
 import Sidebar from './sidebar';
 
 const msp = state => {
@@ -12,7 +13,7 @@ const msp = state => {
 
 const mdp = dispatch => {
   return {
-
+    logout: () => dispatch(logout())
   };
 };
 

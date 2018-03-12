@@ -48,7 +48,7 @@ class PlaylistForm extends React.Component {
               value={ this.state.playlistName }
               onChange={ this.updateName }
               placeholder="Start typing..."
-              autofocus="autofocus"
+              autoFocus="autofocus"
               />
             <div className="playlist-button-group">
               <div className="playlist-cancel-container">

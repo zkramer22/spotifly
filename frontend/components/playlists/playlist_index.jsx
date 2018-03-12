@@ -2,7 +2,6 @@ import React from 'react';
 
 import PlaylistIndexItem from './playlist_index_item';
 import Topbar from '../bars/topbar';
-import SidebarContainer from '../bars/sidebar_container';
 import { openModal } from "../../actions/modal_actions";
 
 class PlaylistIndex extends React.Component {
