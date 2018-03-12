@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   validates :email_address, :password_digest, :session_token, presence: true
   validates :email_address, uniqueness: true
-  validates :password, length: { minimum: 6 }, allow_nil: true
+  validates :password, length: { minimum: 6, allow_nil: true }
 
   has_many :created_playlists,
     class_name: :Playlist,
@@ -10,6 +10,8 @@ class User < ApplicationRecord
   has_many :followed_playlists,
     class_name: :Follow,
     foreign_key: :follower_id
+
+  has_many :searches
 
   after_initialize :ensure_session_token
 

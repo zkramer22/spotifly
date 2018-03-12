@@ -1,18 +1,20 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { withRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { fetchResults } from '../../actions/search_actions';
 
 class Search extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-
+      query: ''
     };
+    this.updateQuery = this.updateQuery.bind(this);
   }
 
-
-// TODO: DONT FORGET onUpdate class method, onChange input field prop, etc.
-
+  updateQuery(e) {
+    this.setState({ query: e.currentTarget.value });
+    this.props.fetchResults(this.state);
+  }
 
   render() {
     return (
@@ -29,8 +31,10 @@ class Search extends React.Component {
                 <input
                 className="search-input"
                 type="text"
+                onChange={ this.updateQuery }
                 placeholder="Start typing..."
                 autoFocus="autofocus"
+                value={ this.state.query }
                 />
               </form>
             </div>
@@ -41,4 +45,10 @@ class Search extends React.Component {
   }
 }
 
-export default withRouter(Search);
+const mdp = dispatch => {
+  return {
+    fetchResults: query => dispatch(fetchResults(query))
+  };
+};
+
+export default connect(null, mdp)(Search);

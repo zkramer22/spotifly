@@ -1,12 +1,14 @@
 class Track < ApplicationRecord
-  validates :name, :artist_id, :album_id, presence: true
+  validates :name, :album_id, presence: true
 
   has_attached_file :audio
   validates_attachment_content_type :audio, content_type: /\Aaudio\/.*\Z/
 
-  belongs_to :artist
-
   belongs_to :album
+
+  has_one :artist,
+    through: :album,
+    source: :artist
 
   has_many :track_playlists,
     class_name: :TrackPlaylist,
@@ -16,4 +18,12 @@ class Track < ApplicationRecord
     through: :track_playlists,
     source: :playlist
 
+  def self.search(query)
+    joins(:artist, :album)
+      .where('LOWER(tracks.name) ~* :query OR
+              LOWER(artists.name) ~* :query OR
+              LOWER(albums.name) ~* :query',
+              query: query)
+      .limit(30)
+  end
 end
