@@ -9,8 +9,8 @@ import SignUpFormContainer from './session_form/signup_form_container';
 import LogInFormContainer from './session_form/login_form_container';
 import PlaylistIndexContainer from './playlists/playlist_index_container';
 import PlaylistDetailContainer from './playlists/playlist_detail_container';
-import SidebarContainer from './sidebar_container';
-import Topbar from './topbar';
+import SidebarContainer from './bars/sidebar_container';
+import Topbar from './bars/topbar';
 
 const App = () => (
   <div>
@@ -25,19 +25,17 @@ const App = () => (
       exact path="/signup"
       component={ SignUpFormContainer } />
     <Route
-      path="/collection"
-      component={ SidebarContainer } />
-    { /*
-      <Route
-        path="/collection"
-        component={ Topbar} />
-    */ }
-    <Route
       exact path="/collection/playlists/:playlistId"
       component={ PlaylistDetailContainer } />
     <Route
       exact path="/collection/playlists"
       component={ PlaylistIndexContainer } />
+    <Route
+      path="/search"
+      component={SidebarContainer} />
+    <Route
+      path="/collection"
+      component={ SidebarContainer } />
   </div>
 );
 

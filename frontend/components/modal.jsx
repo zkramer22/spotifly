@@ -2,8 +2,9 @@ import React from 'react';
 import { closeModal } from '../actions/modal_actions';
 import { connect } from 'react-redux';
 import PlaylistFormContainer from './playlists/playlist_form_container';
+import PlaylistDeleteContainer from './playlists/playlist_delete_container';
 
-function Modal({ modal, closeModal }) {
+const Modal = ({ modal, closeModal }) => {
   if (!modal) {
     return null;
   }
@@ -12,14 +13,13 @@ function Modal({ modal, closeModal }) {
     case 'create':
       component = <PlaylistFormContainer />;
       break;
-    // case 'delete':
-    //   component = <PlaylistDeleteContainer />;
+    case 'delete':
+      component = <PlaylistDeleteContainer />;
+      break;
     default:
       return null;
   }
 
-  // Prob wanna just make an "X" to click on, instead of letting the user
-  // close the modal by clicking anywhere.
   return (
     <div className="modal-background" onClick={closeModal}>
       <div className="modal-child" onClick={e => e.stopPropagation()}>
@@ -27,9 +27,9 @@ function Modal({ modal, closeModal }) {
       </div>
     </div>
   );
-}
+};
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
     modal: state.ui.modal
   };

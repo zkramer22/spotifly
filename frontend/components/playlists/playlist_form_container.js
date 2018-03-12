@@ -4,7 +4,6 @@ import { createPlaylist } from '../../actions/playlist_actions';
 import { openModal, closeModal } from '../../actions/modal_actions';
 import PlaylistForm from './playlist_form';
 
-// WHAT AM I PASSIN THRU HERE? //
 const msp = (state) => {
   return {
     currentUser: state.session.currentUser,

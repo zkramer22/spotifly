@@ -29,8 +29,9 @@ class Api::PlaylistsController < ApplicationController
   end
 
   def destroy
-    @playlist = current_user.playlists.find(params[:id])
-    @playlist.destroy
+    @playlists = Playlist.all.where(creator_id: current_user.id)
+    @playlist = Playlist.find(params[:id])
+    @playlist.destroy!
     render "api/playlists/index"
   end
 

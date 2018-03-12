@@ -1,32 +1,27 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 
-class PlaylistForm extends React.Component {
+class PlaylistDelete extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      name: "",
-      creator_id: this.props.currentUser.id
+      playlistId: this.props.playlists[0].id
     };
-    this.updateName = this.updateName.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleEnter = this.handleEnter.bind(this);
   }
 
-  updateName(e) {
-    this.setState({ name: e.currentTarget.value })
-  }
-
   handleSubmit(e) {
     e.preventDefault();
-    const playlist = Object.assign({}, this.state);
-    this.props.processForm(playlist).then((response) => {
-      this.props.history.push(`/collection/playlists/${response.payload.playlist.id}`)});
+    const playlistId = this.state.playlistId
+    this.props.processForm(playlistId).then((response) => {
+      this.props.history.push("/collection/playlists/")
+    });
   }
 
   handleEnter(e) {
     const keyCode = (e.keyCode ? e.keyCode : e.which);
-    if (keyCode == '13') { this.handleSubmit(e) }
+    if (keyCode == '13') { null }
   }
 
   render() {
@@ -39,17 +34,13 @@ class PlaylistForm extends React.Component {
         </div>
 
         <div className="playlist-form-wrapper">
-          <h1>Create new playlist </h1>
-          <form onSubmit={ this.handleSubmit } onKeyPress={ this.handleEnter } className="playlist-form">
-            <span style={{ fontSize: "12px", letterSpacing: "1px" }}>Playlist Name</span>
-            <input
-              className="playlist-input"
-              type="text"
-              value={ this.state.playlistName }
-              onChange={ this.updateName }
-              placeholder="Start typing..."
-              autofocus="autofocus"
-              />
+          <h1>Do you really want to delete this playlist?</h1>
+
+          <form
+            onSubmit={ this.handleSubmit }
+            onKeyPress={ this.handleEnter }
+            className="delete-playlist-form">
+
             <div className="playlist-button-group">
               <div className="playlist-cancel-container">
                 <button
@@ -59,9 +50,9 @@ class PlaylistForm extends React.Component {
               </div>
               <div className="playlist-submit-container">
                 <input
-                  id="create-playlist"
+                  id="delete-playlist"
                   type="submit"
-                  value="CREATE" />
+                  value="DELETE" />
               </div>
             </div>
           </form>
@@ -72,4 +63,4 @@ class PlaylistForm extends React.Component {
   }
 }
 
-export default withRouter(PlaylistForm);
+export default withRouter(PlaylistDelete);
