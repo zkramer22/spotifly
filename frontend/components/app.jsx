@@ -10,7 +10,7 @@ import LogInFormContainer from './session_form/login_form_container';
 import PlaylistIndexContainer from './playlists/playlist_index_container';
 import PlaylistDetailContainer from './playlists/playlist_detail_container';
 import SidebarContainer from './bars/sidebar_container';
-import Search from './search/search';
+import SearchForm from './search/search_form';
 
 const App = () => (
   <div>
@@ -31,10 +31,10 @@ const App = () => (
       exact path="/collection/playlists"
       component={ PlaylistIndexContainer } />
     <Route
-      path="/search"
-      component={ Search } />
+      path="/searches"
+      component={ SearchForm } />
     <Route
-      path="/search"
+      path="/searches"
       component={SidebarContainer} />
     <Route
       path="/collection"

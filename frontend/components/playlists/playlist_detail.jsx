@@ -1,6 +1,7 @@
 import React from 'react';
 import PlaylistIndexItem from './playlist_index_item';
-import TrackIndexItem from '../tracks/track_index_item';
+// import TrackIndexItem from '../tracks/track_index_item';
+import TrackIndex from '../tracks/track_index';
 import Topbar from '../bars/topbar';
 
 class PlaylistDetail extends React.Component {
@@ -23,6 +24,7 @@ class PlaylistDetail extends React.Component {
       <div className="playlist-index-flexbox">
         <div className="left-spacing">
           <Topbar openModal={ openModal } modalType={ deleteType } />
+
           <section className="playlist-detail-container">
             <div className="playlist-detail-info">
               <img
@@ -33,18 +35,10 @@ class PlaylistDetail extends React.Component {
               <h4 style={{ fontWeight:"200", color: "lightgrey"}}>
                 { playlist.email_address }
               </h4>
-
             </div>
 
-            { /* TODO: This is a link. How can I fix that? */ }
-            {/*}<PlaylistIndexItem className="playlist-detail-info" playlist={ playlist } /> */}
-
             <div className="playlist-detail-tracks">
-              <ol className="playlist-tracklist">
-                { Object.values(tracks).map((track, i) => {
-                  return <TrackIndexItem key={ track.id } track={ track } i={i} />
-                }) }
-              </ol>
+              <TrackIndex tracks={ tracks }/>
             </div>
           </section>
         </div>
@@ -54,3 +48,24 @@ class PlaylistDetail extends React.Component {
 }
 
 export default PlaylistDetail;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//

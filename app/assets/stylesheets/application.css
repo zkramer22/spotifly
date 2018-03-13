@@ -64,9 +64,10 @@ h3 {
 .BLACKround {
   background-color: black;
   min-height: 100%;
-  width: 100%;
+  min-width: 100%;
   position: absolute;
   z-index: -10;
+  overflow: auto;
 }
 
 /*/////////////////////////////////////////////////
@@ -74,11 +75,13 @@ h3 {
 /////////////////////////////////////////////////*/
 
 .greeting-background {
-  height: 100%;
-  width: 100%;
+  background: url("https://images2.alphacoders.com/267/267922.jpg") no-repeat;
+  background-size:cover;
+  min-height: 1080px;
   opacity: 0.35;
-  position: absolute;
+  /* position: relative; */
   z-index: -1;
+  overflow: hidden;
 }
 
 .errors {
@@ -114,6 +117,10 @@ h3 {
   font-size: 17px;
   text-align: center;
   border: 0.5px solid black;
+  border-radius: 20px;
+  background-color: rgba(255,255,255, .7);
+  outline: none;
+
 }
 
 .main-logo {
@@ -184,6 +191,7 @@ h3 {
   justify-content: center;
   height: 325px;
   width: 600px;
+  margin-left: 32px;
 }
 
 .welcome-message h1 {
@@ -390,9 +398,9 @@ h3 {
   top: 0;
   left: 0;
   bottom: 0;
-  min-height: 90%;
+  min-height: 100%;
   width: 220px;
-  padding: 15px 15px 0 15px;
+  padding: 0 15px 0 15px;
   background-color: rgba(0, 0, 0, .6);
 }
 
@@ -431,9 +439,7 @@ h3 {
 
 .logout-button {
   background-color: transparent;
-  transition: color .2s linear, background-color .2s linear;
-  /* transition-duration: .2s; */
-  /* transition-timing-function: linear; */
+  transition: color .15s linear, background-color .15s linear;
   color: hsla(0,0%,100%,.6);
   height: 30px;
   width: 65px;
@@ -526,35 +532,54 @@ h3 {
   text-align: center;
 }
 
+/*/////////////////////////////////////////////////
+///////////////////  tracks  //////////////////////
+/////////////////////////////////////////////////*/
+
 .track-index-highlight {
   position: relative;
   z-index: 0;
   height: 60px;
   padding: 5px 5px 0 15px;
-  transition-property: background-color;
-  transition-duration: .2s;
-  transition-timing-function: linear;
+  transition: background-color .2s linear;
 }
 
 .track-index-highlight:hover {
   background-color: rgba(0,0,0,.3);
 }
 
-.track-index-highlight:focus {
+.track-index-highlight:target {
   background-color: rgba(0,0,0,.3);
 }
 
 .track-number-button {
   font-weight: 200;
-  color: lightgrey;
+  color: hsla(0,0%,100%,.6);
   padding-right: 20px;
 }
 
-.track-index-item {
+.track-name {
   width: auto;
   margin: 5px 0 15px 0;
   font-weight: 250;
   letter-spacing: 0.8px;
+}
+
+.track-artist-name {
+  margin-left: 29px;
+}
+
+.track-artist-name, .track-album-name {
+  font-weight: 300;
+  letter-spacing: 0.7px;
+  transition: color .15s linear, text-decoration .15s linear;
+  color: hsla(0,0%,100%,.6);
+}
+
+.track-artist-name:hover, .track-album-name:hover {
+  color: white;
+  cursor: pointer;
+  text-decoration: underline;
 }
 
 /*/////////////////////////////////////////////////
@@ -584,7 +609,6 @@ h3 {
   padding-top: 26px;
   height: 122px;
   width: 100%;
-  margin-bottom: 20px;
 }
 
 .search-form span, .search-form input[type=text] {
@@ -595,7 +619,7 @@ h3 {
   background-color: transparent;
   border: none;
   caret-color: #1db954;
-  width: 100%;
+  /* width: 100%; */
   height: 60px;
   font-size: 50px;
   font-weight: 600;
@@ -605,4 +629,14 @@ h3 {
 
 .search-input:focus, .search-input:hover {
   outline: 0;
+}
+
+.search-result-index {
+  font
+  height: auto;
+  padding: 10px 10px 10px 0;
+}
+
+.search-result-index .track-index-highlight:hover {
+  background-color: rgba(225, 225, 225, .25);
 }

@@ -4,11 +4,10 @@ import { Link } from 'react-router-dom';
 const Greeting = ({currentUser, logout}) => {
   return (
     <div className="splash-flexbox">
+
       <div className="BLACKround">
-        <img
-          className="greeting-background"
-          src="https://images2.alphacoders.com/267/267922.jpg"
-          alt="picNotHere"/>
+        <div className="greeting-background">
+        </div>
       </div>
 
       <div className="greeting-cont">

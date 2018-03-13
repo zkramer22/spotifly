@@ -10,7 +10,7 @@ const msp = (state, ownProps) => {
 
   return {
     playlist: playlist || [],
-    tracks: state.entities.tracks || []
+    tracks: playlist.tracks || []
   };
 };
 

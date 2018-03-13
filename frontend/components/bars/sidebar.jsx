@@ -22,13 +22,14 @@ class Sidebar extends React.Component {
 
     return (
       <div className="sidebar">
+        <br/>
         <img
           className="sidebar-logo"
           src="https://www.numerama.com/content/uploads/2016/01/spotify.png"
           style={{marginBottom: "10px"}}/>
 
         <div className="sidebar-link-container">
-          <Link to="/search">
+          <Link to="/searches">
             <span style={{ marginRight: "140px" }}>Search</span>
             <i className="fa fa-search"></i>
           </Link>

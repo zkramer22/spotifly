@@ -235,7 +235,7 @@ track_list = [
   ["Little Damage", 19, 5, URI("https://s3.us-east-2.amazonaws.com/spotifly-audio/music/mat-zo/05+Little+Damage.m4a")],
   ["Pyramid Scheme (feat. Chuck D)", 19, 6, URI("https://s3.us-east-2.amazonaws.com/spotifly-audio/music/mat-zo/06+Pyramid+Scheme+(feat.+Chuck+D).m4a")],
   ["The Sky (feat. Linnea Schossow)", 19, 7, URI("https://s3.us-east-2.amazonaws.com/spotifly-audio/music/mat-zo/07+The+Sky+(feat.+Linnea+Schossow).m4a")],
-  ["Like It Used To Be", 8, 19, URI("https://s3.us-east-2.amazonaws.com/spotifly-audio/music/mat-zo/08+Like+It+Used+To+Be.m4a")],
+  ["Like It Used To Be", 19, 8, URI("https://s3.us-east-2.amazonaws.com/spotifly-audio/music/mat-zo/08+Like+It+Used+To+Be.m4a")],
   ["Time On Your Side (feat. Janai)", 19, 9, URI("https://s3.us-east-2.amazonaws.com/spotifly-audio/music/mat-zo/09+Time+On+Your+Side+(feat.+Janai).m4a")],
   ["Moderate Stimulation", 19, 10, URI("https://s3.us-east-2.amazonaws.com/spotifly-audio/music/mat-zo/10+Moderate+Stimulation.m4a")],
   ["Lucid Dreams", 19, 11, URI("https://s3.us-east-2.amazonaws.com/spotifly-audio/music/mat-zo/11+Lucid+Dreams.m4a")],

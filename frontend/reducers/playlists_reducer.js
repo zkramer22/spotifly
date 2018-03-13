@@ -15,7 +15,7 @@ export default (state = {}, action) => {
       return merge({}, state, action.playlists)
     case RECEIVE_PLAYLIST:
       playlist = action.payload.playlist
-      return merge({}, { [playlist.id]: playlist });
+      return merge({}, state, { [playlist.id]: playlist });
     case REMOVE_PLAYLIST:
       let newState = merge({}, state);
       delete newState[action.playlistId];

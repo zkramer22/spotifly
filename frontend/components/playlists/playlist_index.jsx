@@ -5,6 +5,7 @@ import Topbar from '../bars/topbar';
 import { openModal } from "../../actions/modal_actions";
 
 class PlaylistIndex extends React.Component {
+
   componentDidMount() {
     this.props.requestAllPlaylists();
   }

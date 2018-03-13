@@ -43,11 +43,10 @@ class SessionForm extends React.Component {
   render() {
     return (
       <div className="splash-flexbox">
+
         <div className="BLACKround">
-          <img
-            className="greeting-background"
-            src="https://images2.alphacoders.com/267/267922.jpg"
-            alt="picNotHere"/>
+          <div className="greeting-background">
+          </div>
         </div>
 
         <form className="greeting-cont" onSubmit={ this.handleSubmit }>
@@ -62,7 +61,8 @@ class SessionForm extends React.Component {
             type="text"
             value={ this.state.email_address }
             onChange={ this.updateEmail }
-            placeholder="email address"/>
+            placeholder="email address"
+            autoFocus="autofocus"/>
 
           <input
             type="password"

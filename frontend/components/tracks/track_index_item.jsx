@@ -6,7 +6,9 @@ const TrackIndexItem = ({ track, i }) => {
   return (
     <div className="track-index-highlight">
       <span className="track-number-button">{ i + 1 }</span>
-      <span className="track-index-item">{ track.name }</span>
+      <span className="track-name">{ track.name }</span><br/>
+      <span className="track-artist-name">{ track.artist }</span><span>{" • "}</span>
+      <span className="track-album-name">{ track.album }</span>
     </div>
   );
 };
