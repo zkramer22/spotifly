@@ -1,8 +1,10 @@
 import React from 'react';
+import { Route } from 'react-router-dom';
 import { closeModal } from '../actions/modal_actions';
 import { connect } from 'react-redux';
 import PlaylistFormContainer from './playlists/playlist_form_container';
 import PlaylistDeleteContainer from './playlists/playlist_delete_container';
+import PlaylistAddTrack from './playlists/playlist_add_track';
 
 const Modal = ({ modal, closeModal }) => {
   if (!modal) {
@@ -14,7 +16,12 @@ const Modal = ({ modal, closeModal }) => {
       component = <PlaylistFormContainer />;
       break;
     case 'delete':
-      component = <PlaylistDeleteContainer />;
+      component = <Route
+        path='/collection/playlists/:playlistId'
+        component={ PlaylistDeleteContainer } />;
+      break;
+    case 'add':
+      component = <PlaylistAddTrack />
       break;
     default:
       return null;
@@ -29,16 +36,16 @@ const Modal = ({ modal, closeModal }) => {
   );
 };
 
-const mapStateToProps = (state) => {
+const msp = (state) => {
   return {
     modal: state.ui.modal
   };
 };
 
-const mapDispatchToProps = dispatch => {
+const mdp = dispatch => {
   return {
     closeModal: () => dispatch(closeModal())
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Modal);
+export default connect(msp, mdp)(Modal);

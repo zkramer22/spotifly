@@ -1,21 +1,20 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { deletePlaylist } from '../../actions/playlist_actions';
+import { openModal, closeModal } from '../../actions/modal_actions';
 
 class PlaylistDelete extends React.Component {
   constructor(props) {
-    super(props)
-    this.state = {
-      playlistId: this.props.playlists[0].id
-    };
+    super(props);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleEnter = this.handleEnter.bind(this);
   }
 
   handleSubmit(e) {
     e.preventDefault();
-    const playlistId = this.state.playlistId
-    this.props.processForm(playlistId).then((response) => {
-      this.props.history.push("/collection/playlists/")
+    this.props.processForm().then(response => {
+      this.props.closeModal();
+      this.props.history.push("/collection/playlists/");
     });
   }
 
@@ -55,6 +54,7 @@ class PlaylistDelete extends React.Component {
                   value="DELETE" />
               </div>
             </div>
+
           </form>
 
         </div>
@@ -63,4 +63,21 @@ class PlaylistDelete extends React.Component {
   }
 }
 
-export default withRouter(PlaylistDelete);
+const mdp = (dispatch, ownProps) => {
+  return {
+    processForm: () => dispatch(deletePlaylist(ownProps.match.params.playlistId)),
+    closeModal: () => dispatch(closeModal())
+  };
+};
+
+export default connect(null, mdp)(PlaylistDelete);
+
+
+// const msp = (state) => {
+//   return {
+//     playlists: Object.values(state.entities.playlists)
+//   };
+// };
+
+// when allowing playlist deletion from playlistIndex, perhaps use state
+// to set a "playlistToDelete" or something

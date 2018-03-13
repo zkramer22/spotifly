@@ -17,11 +17,11 @@ class PlaylistDetail extends React.Component {
   }
 
   render() {
-    const { playlist, tracks, openModal } = this.props;
+    const { playlist, tracks, openModal, trackIndexType } = this.props;
     const deleteType = "delete";
 
     return (
-      <div className="playlist-index-flexbox">
+      <div className="playlist-index-flexbox random-gradient">
         <div className="left-spacing">
           <Topbar openModal={ openModal } modalType={ deleteType } />
 
@@ -38,7 +38,7 @@ class PlaylistDetail extends React.Component {
             </div>
 
             <div className="playlist-detail-tracks">
-              <TrackIndex tracks={ tracks }/>
+              <TrackIndex type={ trackIndexType } tracks={ tracks }/>
             </div>
           </section>
         </div>

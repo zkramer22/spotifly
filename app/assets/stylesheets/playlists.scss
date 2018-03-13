@@ -1,0 +1,18 @@
+// Place all the styles related to the api/playlists controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.playlist-index-flexbox {
+
+  position: absolute;
+  width: 100%;
+  min-height: 100%;
+  background: -webkit-linear-gradient(top, #a90329 0%,#000000 100%);
+  background: linear-gradient(to bottom, #a90329 0%,#000000 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a90329', endColorstr='#000000',GradientType=0 );
+  font-family: proxima_nova,Helvetica Neue,Helvetica,Arial,sans-serif;
+}
+
+.random-gradient {
+  background-image: linear-gradient(rgb(111, 19, 94), rgb(13, 2, 11) 85%);
+}

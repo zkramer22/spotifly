@@ -7,7 +7,7 @@ import Root from './components/root';
 import configureStore from './store/store';
 
 import { login, logout, signup } from './actions/session_actions';
-import { requestAllPlaylists, requestSinglePlaylist } from './actions/playlist_actions';
+import { requestAllPlaylists, requestSinglePlaylist, addTrackToPlaylist } from './actions/playlist_actions';
 import { fetchResults } from './actions/search_actions';
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -24,7 +24,8 @@ document.addEventListener('DOMContentLoaded', () => {
   // WINDOW TESTING
   window.getState = store.getState;
   window.dispatch = store.dispatch;
-  window.fetchResults = fetchResults;
+  // window.fetchResults = fetchResults;
+  // window.addTrackToPlaylist = addTrackToPlaylist;
   // window.login = login;
   // window.signup = signup;
   // window.requestAllPlaylists = requestAllPlaylists;

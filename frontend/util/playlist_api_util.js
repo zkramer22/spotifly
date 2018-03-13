@@ -26,3 +26,18 @@ export const deletePlaylist = id => {
     url: `api/playlists/${id}`
   });
 };
+
+export const addTrackToPlaylist = (trackId, playlistId) => {
+  return $.ajax({
+    method: "POST",
+    url: "api/track_playlists",
+    data: { trackId: trackId, playlistId: playlistId }
+  });
+};
+
+export const deleteTrackFromPlaylist = (trackId, playlistId) => {
+  return $.ajax({
+    method: "DELETE",
+    url: "api/track_playlists"
+  });
+};

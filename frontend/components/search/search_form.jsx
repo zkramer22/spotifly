@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { fetchResults, clearResults } from '../../actions/search_actions';
 import { Redirect } from 'react-router-dom';
+import { openModal } from '../../actions/modal_actions';
 
 import TrackIndex from '../tracks/track_index';
 
@@ -33,7 +34,7 @@ class SearchForm extends React.Component {
   }
 
   render() {
-    const { tracks, trackIds } = this.props;
+    const { tracks, trackIds, trackIndexType, openModal } = this.props;
 
     let trackItems = {};
 
@@ -65,7 +66,7 @@ class SearchForm extends React.Component {
             </div>
 
             <div className="search-result-index">
-              <TrackIndex tracks={ trackItems }/>
+              <TrackIndex openModal={ openModal } type={ trackIndexType } tracks={ trackItems }/>
             </div>
 
           </div>
@@ -77,13 +78,15 @@ class SearchForm extends React.Component {
 
 const msp = state => {
   return {
+    trackIndexType: "search",
     tracks: state.entities.tracks || [],
     trackIds: state.ui.searches.tracks || []
   };
-}
+};
 
 const mdp = dispatch => {
   return {
+    openModal: modal => dispatch(openModal(modal)),
     fetchResults: query => dispatch(fetchResults(query)),
     clearResults: () => dispatch(clearResults())
   };

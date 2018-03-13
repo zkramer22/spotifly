@@ -11,7 +11,9 @@ class User < ApplicationRecord
     class_name: :Follow,
     foreign_key: :follower_id
 
-  has_many :searches
+  has_many :searches,
+    class_name: :Search,
+    foreign_key: :user_id;
 
   after_initialize :ensure_session_token
 

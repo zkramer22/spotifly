@@ -6,11 +6,12 @@ import { selectPlaylistTracks } from '../../reducers/selectors';
 import { openModal } from '../../actions/modal_actions';
 
 const msp = (state, ownProps) => {
-  const playlist = state.entities.playlists[ownProps.match.params.playlistId];
+  const playlist = state.entities.playlists[ownProps.match.params.playlistId] || {};
 
   return {
-    playlist: playlist || [],
-    tracks: playlist.tracks || []
+    trackIndexType: "playlist",
+    playlist: playlist,
+    tracks: selectPlaylistTracks(state, playlist)
   };
 };
 

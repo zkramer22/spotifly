@@ -3,7 +3,7 @@ import { withRouter } from 'react-router-dom';
 
 class PlaylistForm extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       name: "",
       creator_id: this.props.currentUser.id
@@ -45,7 +45,7 @@ class PlaylistForm extends React.Component {
             <input
               className="playlist-input"
               type="text"
-              value={ this.state.playlistName }
+              value={ this.state.name }
               onChange={ this.updateName }
               placeholder="Start typing..."
               autoFocus="autofocus"
