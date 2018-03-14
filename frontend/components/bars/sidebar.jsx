@@ -42,12 +42,10 @@ class Sidebar extends React.Component {
           </Link>
         </div>
 
-        <div className="sidebar-link-container">
-          <Link to="/collection/playlists">
-            <span style={{ marginRight: "105px" }}>
-              { currentUser.email_address }
-            </span>
-          </Link>
+        <div className="sidebar-link-container user-logout">
+          <span style={{ marginRight: "105px" }}>
+            { currentUser.email_address }
+          </span>
           <button
             className="logout-button"
             onClick={ this.handleLogout }>LOGOUT

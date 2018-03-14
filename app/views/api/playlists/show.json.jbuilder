@@ -4,8 +4,7 @@ json.playlist do
 end
 
 
-# bust the n + 1 query with .includes !!!!
-
+# bust the n + 1 query with .includes !
 json.tracks do
   @playlist.tracks.includes(:artist, :album).each do |track|
     json.set! track.id do

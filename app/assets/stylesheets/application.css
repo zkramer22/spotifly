@@ -78,26 +78,29 @@ h3 {
   overflow: hidden;
 }
 
-/* width */
-::-webkit-scrollbar {
+/* custom scrollbar */
+{
+  /* width */
+  ::-webkit-scrollbar {
     width: 10px;
-}
+  }
 
-/* Track */
-::-webkit-scrollbar-track {
+  /* Track */
+  ::-webkit-scrollbar-track {
     background: transparent;
-}
+  }
 
-/* Handle */
-::-webkit-scrollbar-thumb {
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
     background: black;
     border: 1px solid #999;
     border-radius: 4.5px;
-}
+  }
 
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
     background: #555;
+  }
 }
 
 /*/////////////////////////////////////////////////
@@ -514,6 +517,15 @@ h3 {
   color: #f44242;
 }
 
+.user-logout span {
+  color: hsla(0,0%,100%,.6);
+}
+
+.user-logout {
+  position: absolute;
+  bottom: 100px;
+}
+
 /*/////////////////////////////////////////////////
 ////////////////  playlists  //////////////////////
 /////////////////////////////////////////////////*/
@@ -616,7 +628,7 @@ h3 {
   transform: scale(1.2);
 }
 
-.playlist-shadow-box {
+/* .playlist-shadow-box {
   position: absolute;
   z-index: 0;
   height: 170px;
@@ -624,11 +636,11 @@ h3 {
   top: 88px;
   background-color: transparent;
   transition: background-color .3s linear;
-}
+} */
 
-.playlist-shadow-box:hover {
+/* .playlist-shadow-box:hover {
   background-color: rgba(0,0,0,.3);
-}
+} */
 
 /*/////////////////////////////////////////////////
 ///////////////////  tracks  //////////////////////
@@ -711,7 +723,7 @@ h3 {
 .delete-button-icon:hover i {
   cursor: pointer;
   font-size: 28px;
-  color: #ff6666;
+  color: #ff2d2d;
   box-shadow: 0px 24px 190px -20px #ff6666;
 }
 

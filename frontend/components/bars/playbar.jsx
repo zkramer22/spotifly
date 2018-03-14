@@ -3,12 +3,18 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 
+import { receiveCurrentTrack } from '../../actions/track_actions';
+
 class Playbar extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
 
     };
+  }
+
+  componentWillReceiveProps() {
+    // stop old song and play new song when currentTrack changes
   }
 
   render() {
@@ -27,7 +33,7 @@ class Playbar extends React.Component {
               <div className="now-playing-artist">Artistperson</div>
             </div>
 
-            <div className="now-playing-add-button-container">              
+            <div className="now-playing-add-button-container">
               <div className="now-playing-add-button">
                 <i className="fa fa-plus"></i>
               </div>
@@ -35,7 +41,7 @@ class Playbar extends React.Component {
           </div>
 
           <div className="audio-container">
-            <audio controls>
+            <audio controls src={this.props.currentTrack.trackUrl}>
 
             </audio>
           </div>
@@ -54,13 +60,13 @@ class Playbar extends React.Component {
 
 const msp = state => {
   return {
-
+    currentTrack: state.entities.tracks[state.ui.currentTrack] || {}
   };
 };
 
 const mdp = dispatch => {
   return {
-
+    // receiveCurrentTrack: trackId => dispatch(receiveCurrentTrack(trackId))
   };
 };
 
