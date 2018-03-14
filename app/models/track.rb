@@ -25,4 +25,6 @@ class Track < ApplicationRecord
               LOWER(albums.name) ~* :query',
               query: query).limit(30)
   end
+
+  
 end

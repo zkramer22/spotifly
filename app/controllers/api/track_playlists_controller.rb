@@ -12,12 +12,14 @@ class Api::TrackPlaylistsController < ApplicationController
   end
 
   def destroy
-    # @track_playlist = current_user.created_playlists.track_playlists.find(
-    #   track_id: params[:trackId],
-    #   playlist_id: params[:playlistId]
-    # )
-    # @track_playlist.destroy!
-    #
+    @playlist = current_user.created_playlists.find(params[:id])
+
+    @track_playlist = @playlist.track_playlists.find_by(
+      track_id: params[:trackId],
+      playlist_id: @playlist.id
+    )
+    @track_playlist.destroy!
+    render json: { trackId: @track_playlist.track_id, playlistId: @playlist.id }
   end
   #
   def track_playlist_params

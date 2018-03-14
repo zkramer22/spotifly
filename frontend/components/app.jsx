@@ -7,10 +7,11 @@ import Modal from './modal';
 import GreetingContainer from './greeting/greeting_container';
 import SignUpFormContainer from './session_form/signup_form_container';
 import LogInFormContainer from './session_form/login_form_container';
+import SearchForm from './search/search_form';
 import PlaylistIndexContainer from './playlists/playlist_index_container';
 import PlaylistDetailContainer from './playlists/playlist_detail_container';
 import SidebarContainer from './bars/sidebar_container';
-import SearchForm from './search/search_form';
+import Playbar from './bars/playbar';
 
 const App = () => (
   <div>
@@ -39,6 +40,12 @@ const App = () => (
     <Route
       path="/collection"
       component={ SidebarContainer } />
+    <Route
+      path="/collection"
+      component={ Playbar } />
+    <Route
+      path="/searches"
+      component={ Playbar } />
   </div>
 );
 

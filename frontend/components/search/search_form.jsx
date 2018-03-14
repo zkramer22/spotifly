@@ -25,7 +25,7 @@ class SearchForm extends React.Component {
     } else {
       this.timeout = setTimeout(() => {
         return this.props.fetchResults(this.state);
-      }, 1000);
+      }, 800);
     }
   }
 

@@ -10,16 +10,20 @@ const Greeting = ({currentUser, logout}) => {
         </div>
       </div>
 
-      <div className="greeting-cont">
+      <div
+        id="greeting-cont"
+        className="greeting-cont">
         <div className="main-logo">
           <h2>Spotifly</h2>
         </div>
         <Link className="signup-link" to='/signup'>Signup</Link>
         <div id="account-question">-- ALREADY HAVE AN ACCOUNT? --</div>
-        <Link className="login-link" to='/login'>Login</Link>
+          <Link id="login-link-button" className="login-link" to='/login'>Login</Link>
       </div>
 
-      <div className="welcome-message">
+      <div
+        id="welcome-message"
+        className="welcome-message">
         <h1>Music takes flight.</h1>
         <h3>Listen to zillions of songs for free.</h3>
         <br></br>

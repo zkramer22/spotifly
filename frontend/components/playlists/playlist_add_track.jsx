@@ -58,7 +58,7 @@ class PlaylistAddTrack extends React.Component {
                   className="playlist-index-item-container"
                   key={i}
                   playlistid={ playlist.id }>
-                  <div className="playlist-index-item">
+                  <div className="add-playlist-index-item">
                     <img
                       src="https://images.complex.com/complex/images/c_fill,g_center,w_1200/fl_lossy,pg_1,q_auto/mqlimq5ifprz3klcoxpt/spotify-logo"
                       onClick={ this.handleSubmit(playlist) }/>

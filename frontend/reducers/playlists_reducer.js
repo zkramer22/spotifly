@@ -3,12 +3,15 @@ import {
   RECEIVE_ALL_PLAYLISTS,
   RECEIVE_PLAYLIST,
   REMOVE_PLAYLIST,
-  RECEIVE_TRACK_PLAYLIST } from '../actions/playlist_actions';
+  RECEIVE_TRACK_PLAYLIST,
+  REMOVE_TRACK_PLAYLIST
+} from '../actions/playlist_actions';
 
 export default (state = {}, action) => {
   Object.freeze(state);
 
   let playlist;
+  let newState = merge({}, state);
 
   switch (action.type) {
     case RECEIVE_ALL_PLAYLISTS:
@@ -17,12 +20,14 @@ export default (state = {}, action) => {
       playlist = action.payload.playlist
       return merge({}, state, { [playlist.id]: playlist });
     case RECEIVE_TRACK_PLAYLIST:
-
-    // TODO: come back here, not sure if i need to change the action to give me a TrackPlaylist object
-
       return state;
+    case REMOVE_TRACK_PLAYLIST:
+      let playlist = newState[action.playlistId];
+      let trackIds = playlist.track_ids;
+      let index = trackIds.indexOf(action.trackId);
+      trackIds.splice(index, 1);
+      return newState;
     case REMOVE_PLAYLIST:
-      let newState = merge({}, state);
       delete newState[action.playlistId];
       return newState;
     default:

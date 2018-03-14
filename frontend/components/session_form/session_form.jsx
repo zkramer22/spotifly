@@ -49,7 +49,10 @@ class SessionForm extends React.Component {
           </div>
         </div>
 
-        <form className="greeting-cont" onSubmit={ this.handleSubmit }>
+        <form id="greeting-cont"
+          className="greeting-cont"
+          onSubmit={ this.handleSubmit }
+          >
           <div className="main-logo">
             <h2>Spotifly</h2>
           </div>

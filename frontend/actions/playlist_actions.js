@@ -3,9 +3,12 @@ import * as APIUtil from '../util/playlist_api_util';
 export const RECEIVE_ALL_PLAYLISTS = "RECEIVE_ALL_PLAYLISTS";
 export const RECEIVE_PLAYLIST = "RECEIVE_PLAYLIST";
 export const REMOVE_PLAYLIST = "REMOVE_PLAYLIST";
-export const RECEIVE_TRACK_PLAYLIST = "RECEIVE_TRACK_PLAYLIST";
+
 export const PUT_TRACK_IN_STATE = "PUT_TRACK_IN_STATE";
 export const REMOVE_TRACK_FROM_STATE = "REMOVE_TRACK_FROM_STATE";
+export const RECEIVE_TRACK_PLAYLIST = "RECEIVE_TRACK_PLAYLIST";
+export const REMOVE_TRACK_PLAYLIST = "REMOVE_TRACK_PLAYLIST";
+
 
 export const receiveAllPlaylists = playlists => {
   return {
@@ -48,6 +51,14 @@ export const removeTrackFromState = () => {
   };
 };
 
+export const removeTrackPlaylist = ({ trackId, playlistId }) => {
+  return {
+    type: REMOVE_TRACK_PLAYLIST,
+    trackId,
+    playlistId
+  };
+};
+
 export const requestAllPlaylists = () => dispatch => {
   return APIUtil.fetchAllPlaylists().then(playlists => {
     return dispatch(receiveAllPlaylists(playlists));
@@ -72,10 +83,14 @@ export const deletePlaylist = playlistId => dispatch => {
   });
 };
 
-export const addTrackToPlaylist = (playlistId) => (dispatch, getState) => {
+export const addTrackToPlaylist = playlistId => (dispatch, getState) => {
   return APIUtil.addTrackToPlaylist(getState().ui.addTrack, playlistId).then(trackPlaylist => {
     return dispatch(receiveTrackPlaylist(trackPlaylist));
   });
 };
 
-// export const removeTrackFromPlaylist = 
+export const removeTrackFromPlaylist = (trackId, playlistId) => dispatch => {
+  return APIUtil.deleteTrackFromPlaylist(trackId, playlistId).then(trackPlaylist => {
+    return dispatch(removeTrackPlaylist(trackPlaylist));
+  });
+};
