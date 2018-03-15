@@ -10,12 +10,6 @@ class PlaylistDetail extends React.Component {
     this.props.requestSinglePlaylist(this.props.match.params.playlistId);
   }
 
-  componentWillReceiveProps(nextProps) {
-    if (this.props.match.params.playlistId !== nextProps.match.params.playlistId) {
-      this.props.requestSinglePlaylist(this.props.match.params.playlistId)
-    }
-  }
-
   render() {
     const { playlist, tracks, openModal, trackIndexType } = this.props;
     const deleteType = "delete";
@@ -39,7 +33,11 @@ class PlaylistDetail extends React.Component {
               </div>
 
               <div className="playlist-detail-tracks">
-                <TrackIndex playlistId={ this.props.match.params.playlistId } type={ trackIndexType } tracks={ tracks }/>
+                <TrackIndex
+                  openModal={ openModal }
+                  playlistId={ this.props.match.params.playlistId }
+                  type={ trackIndexType }
+                  tracks={ tracks }/>
               </div>
             </section>
           </div>
@@ -51,23 +49,8 @@ class PlaylistDetail extends React.Component {
 
 export default PlaylistDetail;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//
+// componentWillReceiveProps(nextProps) {
+//   if (this.props.match.params.playlistId !== nextProps.match.params.playlistId) {
+//     this.props.requestSinglePlaylist(this.props.match.params.playlistId)
+//   }
+// }

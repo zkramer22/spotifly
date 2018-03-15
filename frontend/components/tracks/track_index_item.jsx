@@ -1,39 +1,42 @@
 import React from 'react';
 import { connect } from 'react-redux';
-
 import { openModal } from '../../actions/modal_actions';
+import { receiveCurrentTrack } from '../../actions/track_actions';
 import {
   putTrackInState,
   removeTrackFromPlaylist
 } from '../../actions/playlist_actions';
-import { receiveCurrentTrack } from '../../actions/track_actions';
 
 class TrackIndexItem extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      playing: false,
-      canPlay: false
-    }
+    this.state = { playing: false };
     this.togglePlay = this.togglePlay.bind(this);
   }
 
-// this will actually be in Playbar component. This component's methods
-// should simply set the currentTrack and send that to Playbar.
+  componentWillReceiveProps(nextProps) {
+    if (this.props.track.id !== nextProps.currentTrack) {
+      this.setState({ playing: false });
+    }
+  }
 
-  togglePlay() {
+  togglePlay(trackId) {
     if (this.state.playing) {
-      this.audio.pause();
       this.setState({ playing: false })
-    } else if (this.state.canPlay) {
-      this.audio.play();
-      this.setState({ playing: true })
+    } else {
+      this.props.receiveCurrentTrack(trackId);
+      this.setState({ playing: true });
     }
   }
 
   render() {
-    const { removeTrackFromPlaylist, putTrackInState, openModal, type, track, num } = this.props;
+    const { removeTrackFromPlaylist,
+      putTrackInState,
+      openModal,
+      type, track, num } = this.props;
+
     let addButton;
+
     if (type === "search") {
       addButton = (
         <div className="add-button-icon"
@@ -59,12 +62,16 @@ class TrackIndexItem extends React.Component {
       <div className="track-index-highlight">
         {
           this.state.playing ?
-          <i class="fa fa-pause" onClick={this.togglePlay}></i> :
-          <i className="fa fa-play" onClick={this.togglePlay}></i>
+          <i className="fa fa-pause" onClick={() => {
+              this.togglePlay(track.id)
+            }}>
+          </i>
+          :
+          <i className="fa fa-play" onClick={() => {
+              this.togglePlay(track.id)
+            }}>
+          </i>
         }
-
-        <audio src={ track.trackUrl } ref={tag => this.audio = tag } onCanPlayThrough={() => this.setState({canPlay: true})}>
-        </audio>
 
         <div className="track-number-button">
           { num + 1 }
@@ -84,8 +91,15 @@ class TrackIndexItem extends React.Component {
   }
 }
 
+const msp = state => {
+  return {
+    currentTrack: state.ui.currentTrack || {}
+  };
+};
+
 const mdp = (dispatch, ownProps) => {
   return {
+    removeCurrentTrack: () => dispatch(removeCurrentTrack()),
     receiveCurrentTrack: trackId => dispatch(receiveCurrentTrack(trackId)),
     removeTrackFromPlaylist: () => dispatch(removeTrackFromPlaylist(ownProps.track.id, ownProps.playlistId)),
     openModal: () => dispatch(openModal('add')),
@@ -93,4 +107,4 @@ const mdp = (dispatch, ownProps) => {
   };
 };
 
-export default connect(null, mdp)(TrackIndexItem);
+export default connect(msp, mdp)(TrackIndexItem);

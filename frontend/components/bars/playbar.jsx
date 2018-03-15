@@ -5,6 +5,10 @@ import { withRouter } from 'react-router-dom';
 
 import { receiveCurrentTrack } from '../../actions/track_actions';
 
+
+// this.audio.pause();
+// this.audio.play();
+
 class Playbar extends React.Component {
   constructor(props) {
     super(props);
@@ -13,8 +17,8 @@ class Playbar extends React.Component {
     };
   }
 
-  componentWillReceiveProps() {
-    // stop old song and play new song when currentTrack changes
+  componentWillReceiveProps(nextProps) {
+    this.audio.play();
   }
 
   render() {
@@ -41,15 +45,18 @@ class Playbar extends React.Component {
           </div>
 
           <div className="audio-container">
-            <audio controls src={this.props.currentTrack.trackUrl}>
-
+            <audio
+              controls
+              autoPlay
+              src={ this.props.currentTrack.trackUrl }
+              ref={tag => this.audio = tag }>
             </audio>
           </div>
 
           <div className="extra-controls">
             <i className="fa fa-list-ul"></i>
-            <i class="fa fa-desktop"></i>
-            <i class="fa fa-volume-up"></i>
+            <i className="fa fa-desktop"></i>
+            <i className="fa fa-volume-up"></i>
           </div>
 
       </footer>
@@ -66,8 +73,10 @@ const msp = state => {
 
 const mdp = dispatch => {
   return {
-    // receiveCurrentTrack: trackId => dispatch(receiveCurrentTrack(trackId))
+    receiveCurrentTrack: trackId => dispatch(receiveCurrentTrack(trackId))
   };
 };
 
 export default connect(msp, mdp)(Playbar);
+
+// onCanPlayThrough={ () => this.setState({ canPlay: true }) }

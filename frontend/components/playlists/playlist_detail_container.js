@@ -4,6 +4,7 @@ import PlaylistDetail from './playlist_detail';
 import { requestSinglePlaylist, deletePlaylist } from '../../actions/playlist_actions';
 import { selectPlaylistTracks } from '../../reducers/selectors';
 import { openModal } from '../../actions/modal_actions';
+import { receiveCurrentTrack, removeCurrentTrack } from '../../actions/track_actions';
 
 const msp = (state, ownProps) => {
   const playlist = state.entities.playlists[ownProps.match.params.playlistId] || {};
@@ -17,6 +18,8 @@ const msp = (state, ownProps) => {
 
 const mdp = dispatch => {
   return {
+    receiveCurrentTrack: trackId => dispatch(receiveCurrentTrack(trackId)),
+    removeCurrentTrack: trackId => dispatch(removeCurrentTrack()),
     requestSinglePlaylist: id => dispatch(requestSinglePlaylist(id)),
     deletePlaylist: playlistId => dispatch(deletePlaylist(playlistId)),
     openModal: modal => dispatch(openModal(modal))

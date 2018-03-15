@@ -79,7 +79,6 @@ h3 {
 }
 
 /* custom scrollbar */
-{
   /* width */
   ::-webkit-scrollbar {
     width: 10px;
@@ -101,7 +100,6 @@ h3 {
   ::-webkit-scrollbar-thumb:hover {
     background: #555;
   }
-}
 
 /*/////////////////////////////////////////////////
 ////////////////  greeting page  //////////////////
@@ -778,7 +776,7 @@ h3 {
 .search-result-index {
   font
   height: auto;
-  padding: 10px 10px 10px 0;
+  padding: 10px 10px 102px 0;
 }
 
 .search-result-index .track-index-highlight:hover {

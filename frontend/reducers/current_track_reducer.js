@@ -1,5 +1,3 @@
-import { merge } from 'lodash';
-
 import { RECEIVE_CURRENT_TRACK } from '../actions/track_actions';
 
 export default (state = null, action) => {
