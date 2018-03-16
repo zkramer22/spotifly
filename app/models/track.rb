@@ -24,6 +24,7 @@ class Track < ApplicationRecord
               LOWER(artists.name) ~* :query OR
               LOWER(albums.name) ~* :query',
               query: query)
+      # .sort('tracks.name')
   end
 
 

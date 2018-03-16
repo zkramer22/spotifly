@@ -12,6 +12,7 @@ class Playbar extends React.Component {
   constructor(props) {
     super(props);
     this.setVolume = this.setVolume.bind(this);
+    this.setProgress = this.setProgress.bind(this);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -25,6 +26,18 @@ class Playbar extends React.Component {
   setVolume(val) {
     const player = document.getElementById('playbar-audio');
     player.volume = val / 100;
+  }
+
+  setProgress() {
+    let progress = document.getElementById('progress-control');
+    if (this.props.currentTrack.playing === true) {
+      let time = setInterval(() => {
+        progress.value = this.audio.currentTime / this.audio.duration;
+      }, 100);
+    } else if (this.props.currentTrack.playing === false) {
+      return 0;
+      clearInterval(time);
+    }
   }
 
   render() {
@@ -84,7 +97,9 @@ class Playbar extends React.Component {
 
             <div className="playbar-control-bar">
               <div className="progress-bar">
-                <progress max="100" value="80"></progress>
+                <span>0:00</span>
+                <progress id="progress-control" max="1" value={ this.setProgress() }></progress>
+                <span>{ currentTrack.playing ? `${Math.floor(this.audio.duration)}` : "0" }</span>
               </div>
             </div>
 
@@ -133,3 +148,12 @@ const mdp = dispatch => {
 };
 
 export default connect(msp, mdp)(Playbar);
+
+
+//
+// <div class="meter orange nostripes">
+//   <span style={{ width: "33.3%" }}></span>
+// </div>
+// <pre><code>&lt;div class=&quot;meter orange nostripes&quot;&gt;
+// &lt;span style=&quot;width: 33.3%&quot;&gt;&lt;/span&gt;
+// &lt;/div&gt;</code></pre>

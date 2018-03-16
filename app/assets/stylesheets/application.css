@@ -994,6 +994,16 @@ progress[value] {
   border-radius: 15px;
 }
 
+progress[value]::-webkit-progress-thumb {
+  height: 20px;
+  width: 20px;
+  background-color: yellow;
+}
+
+
+
+
+
 progress[value]::-webkit-progress-bar {
   background-color: #eee;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
@@ -1047,6 +1057,18 @@ progress[value]::-webkit-progress-value {
 #volume-control:hover {
   color: #1db954;
 }
+
+/*  *//*  *//*  *//*  *//*  *//*  *//*  */
+/* this is the godforsaken progress bar */
+/*  *//*  *//*  *//*  *//*  *//*  *//*  */
+
+
+
+/* ------------------------------------ */
+
+/*  *//*  *//*  *//*  *//*  *//*  *//*  */
+/*  this is the godforsaken volume bar  */
+/*  *//*  *//*  *//*  *//*  *//*  *//*  */
 
 input[type=range] {
   -webkit-appearance: none;
