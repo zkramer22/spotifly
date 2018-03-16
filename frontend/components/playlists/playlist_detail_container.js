@@ -18,8 +18,6 @@ const msp = (state, ownProps) => {
 
 const mdp = dispatch => {
   return {
-    receiveCurrentTrack: trackId => dispatch(receiveCurrentTrack(trackId)),
-    removeCurrentTrack: trackId => dispatch(removeCurrentTrack()),
     requestSinglePlaylist: id => dispatch(requestSinglePlaylist(id)),
     deletePlaylist: playlistId => dispatch(deletePlaylist(playlistId)),
     openModal: modal => dispatch(openModal(modal))

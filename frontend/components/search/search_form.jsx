@@ -80,7 +80,9 @@ const msp = state => {
   return {
     trackIndexType: "search",
     tracks: state.entities.tracks || [],
-    trackIds: state.ui.searches.tracks || []
+    trackIds: state.ui.searches.tracks || [],
+    trackInfo: state.entities.tracks[state.ui.currentTrack.id] || {},
+    currentTrack: state.ui.currentTrack
   };
 };
 

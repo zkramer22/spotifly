@@ -13,3 +13,5 @@ const Root = ({ store }) => (
 );
 
 export default Root;
+
+//  React router package and connect don't play along well....

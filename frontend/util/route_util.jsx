@@ -12,8 +12,6 @@ const Auth = ({ component: Component, path, loggedIn, exact }) => (
   )} />
 );
 
-// TODO: line 10: make sure we redirect to the user's home library upon login.
-
 const msp = state => (
   {loggedIn: Boolean(state.session.currentUser)}
 );

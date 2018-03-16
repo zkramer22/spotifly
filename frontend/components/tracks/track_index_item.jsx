@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { openModal } from '../../actions/modal_actions';
-import { receiveCurrentTrack } from '../../actions/track_actions';
+import { receiveCurrentTrack, pauseCurrentTrack } from '../../actions/track_actions';
 import {
   putTrackInState,
   removeTrackFromPlaylist
@@ -14,14 +14,33 @@ class TrackIndexItem extends React.Component {
     this.togglePlay = this.togglePlay.bind(this);
   }
 
+  componentDidMount() {
+    if (this.props.currentTrack.playing) {
+      if (this.props.track.id === this.props.currentTrack.id) {
+        this.setState({ playing: true });
+      }
+    }
+  }
+
   componentWillReceiveProps(nextProps) {
-    if (this.props.track.id !== nextProps.currentTrack) {
+    if (this.props.track.id !== nextProps.currentTrack.id) {
       this.setState({ playing: false });
+    }
+
+    if (nextProps.currentTrack.playing === false) {
+      this.setState({ playing: false });
+    }
+
+    if (nextProps.currentTrack.playing === true) {
+      if (nextProps.currentTrack.id === this.props.track.id) {
+        this.setState({ playing: true });
+      }
     }
   }
 
   togglePlay(trackId) {
     if (this.state.playing) {
+      this.props.pauseCurrentTrack();
       this.setState({ playing: false })
     } else {
       this.props.receiveCurrentTrack(trackId);
@@ -30,30 +49,31 @@ class TrackIndexItem extends React.Component {
   }
 
   render() {
-    const { removeTrackFromPlaylist,
-      putTrackInState,
-      openModal,
-      type, track, num } = this.props;
+    const { removeTrackFromPlaylist, putTrackInState, openModal,
+            type, track, num } = this.props;
 
-    let addButton;
-
+    let addOrDeleteButton;
     if (type === "search") {
-      addButton = (
-        <div className="add-button-icon"
-          onClick={ () => {
-            openModal();
-            putTrackInState();
-          }}>
-          <i className="fa fa-plus"></i>
+      addOrDeleteButton = (
+        <div className="add-or-delete-button-container">
+          <div className="add-button-icon"
+            onClick={ () => {
+              openModal();
+              putTrackInState();
+            }}>
+            <i className="material-icons">add</i>
+          </div>
         </div>
       );
-    } else {
-      addButton = (
-        <div className="delete-button-icon"
-          onClick={ () => {
-            removeTrackFromPlaylist();
-          }}>
-          <i className="fa fa-times"></i>
+    } else if (type === "playlist") {
+      addOrDeleteButton = (
+        <div className="add-or-delete-button-container">
+          <div className="delete-button-icon"
+            onClick={ () => {
+              removeTrackFromPlaylist();
+            }}>
+            <i id="index-delete" className="material-icons">close</i>
+          </div>
         </div>
       );
     }
@@ -62,16 +82,21 @@ class TrackIndexItem extends React.Component {
       <div className="track-index-highlight">
         {
           this.state.playing ?
-          <i className="fa fa-pause" onClick={() => {
-              this.togglePlay(track.id)
-            }}>
-          </i>
+          <div>
+            <i id="index-pause" className="material-icons" onClick={() => {
+                this.togglePlay(track.id)
+              }}>pause
+            </i>
+          </div>
           :
-          <i className="fa fa-play" onClick={() => {
-              this.togglePlay(track.id)
-            }}>
-          </i>
+          <div>
+            <i id="index-play" className="material-icons" onClick={() => {
+                this.togglePlay(track.id)
+              }}>play_arrow
+            </i>
+          </div>
         }
+
 
         <div className="track-number-button">
           { num + 1 }
@@ -84,7 +109,7 @@ class TrackIndexItem extends React.Component {
         </div>
 
         <div className="add-to-playlist-button">
-          { addButton }
+          { addOrDeleteButton }
         </div>
       </div>
     );
@@ -99,7 +124,7 @@ const msp = state => {
 
 const mdp = (dispatch, ownProps) => {
   return {
-    removeCurrentTrack: () => dispatch(removeCurrentTrack()),
+    pauseCurrentTrack: () => dispatch(pauseCurrentTrack()),
     receiveCurrentTrack: trackId => dispatch(receiveCurrentTrack(trackId)),
     removeTrackFromPlaylist: () => dispatch(removeTrackFromPlaylist(ownProps.track.id, ownProps.playlistId)),
     openModal: () => dispatch(openModal('add')),

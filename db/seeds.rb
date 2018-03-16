@@ -8,12 +8,16 @@
 
 require 'uri'
 
+# reset db manually. Heroku doesn't like db:reset. Pain in the arse
+User.destroy_all
+Artist.destroy_all
+Album.destroy_all
+Track.destroy_all
+
 # /////////////////////////////////////////////////////////////////////
 # //////
 # USERS
 # //////
-
-
 user_list = [
   ['userA', 'qwerty'],
   ['userB', 'asdfgh'],
@@ -267,7 +271,7 @@ track_list = [
   ["But Not for Me", 22, 7, URI("https://s3.us-east-2.amazonaws.com/spotifly-audio/music/modern-jazz-quartet/07+But+Not+for+Me.m4a")],
   ["Milano", 22, 8, URI("https://s3.us-east-2.amazonaws.com/spotifly-audio/music/modern-jazz-quartet/08+Milano.m4a")],
 
-  ["Bloom", 23, 1, URI("https://s3.us-east-2.amazonaws.com/spotifly-audio/music/odesza/02+Say+My+Name+(Ambassadeurs+Remix).m4a")],
+  ["Bloom", 23, 1, URI("https://s3.us-east-2.amazonaws.com/spotifly-audio/music/odesza/03+Bloom.m4a")],
   ["Say My Name (Ambassadeurs Remix)", 24, 1, URI("https://s3.us-east-2.amazonaws.com/spotifly-audio/music/odesza/02+Say+My+Name+(Ambassadeurs+Remix).m4a")],
   ["Say My Name (Jai Wolf Remix)", 24, 2, URI("https://s3.us-east-2.amazonaws.com/spotifly-audio/music/odesza/07+Say+My+Name+(Jai+Wolf+Remix).m4a")],
 

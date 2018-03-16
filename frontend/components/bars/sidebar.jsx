@@ -13,12 +13,15 @@ class Sidebar extends React.Component {
 
   handleLogout(e) {
     e.preventDefault();
+    this.props.removeCurrentTrack();
     this.props.history.push("/");
-    this.props.logout()
+    this.props.logout();
   }
 
   render() {
-    const { currentUser } = this.props;
+    const { currentUser, loggedIn } = this.props;
+
+    if (!loggedIn) { return null }
 
     return (
       <div className="sidebar">

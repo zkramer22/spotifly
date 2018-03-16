@@ -23,8 +23,8 @@ class Track < ApplicationRecord
       .where('LOWER(tracks.name) ~* :query OR
               LOWER(artists.name) ~* :query OR
               LOWER(albums.name) ~* :query',
-              query: query).limit(30)
+              query: query)
   end
 
-  
+
 end
