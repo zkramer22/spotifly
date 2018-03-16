@@ -15,8 +15,6 @@
 
 */
 
-@import 'playlists.scss';
-
 /*/////////////////////////////////////////////////
 ////////////////////  RESET  //////////////////////
 /////////////////////////////////////////////////*/
@@ -536,21 +534,15 @@ h3 {
 ////////////////  playlists  //////////////////////
 /////////////////////////////////////////////////*/
 
-/* .playlist-index-flexbox {
-
-  position: absolute;
+.playlist-index-flexbox {
+  position: fixed;
+  background-size: cover;
   width: 100%;
-  min-height: 100%;ß
-
-  background: -webkit-linear-gradient(top, #a90329 0%,#000000 100%);
-  background: linear-gradient(to bottom, #a90329 0%,#000000 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a90329', endColorstr='#000000',GradientType=0 );
+  height: 100vh;
+  overflow: auto;
+  background-image: linear-gradient(to bottom, #a90329 0%,#000000 100%);
   font-family: proxima_nova,Helvetica Neue,Helvetica,Arial,sans-serif;
-} */
-
-/* .random-gradient {
-  background-image: linear-gradient(rgb(111, 19, 94), rgb(13, 2, 11) 85%);
-} */
+}
 
 .playlist-index-container {
   display: flex;
