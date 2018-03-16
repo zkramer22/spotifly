@@ -27,6 +27,10 @@ class TrackIndexItem extends React.Component {
       this.setState({ playing: false });
     }
 
+    // if (this.props.track.id === nextProps.currentTrack.id) {
+    //
+    // }
+
     if (nextProps.currentTrack.playing === false) {
       this.setState({ playing: false });
     }

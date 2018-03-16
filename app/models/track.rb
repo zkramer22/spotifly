@@ -19,13 +19,15 @@ class Track < ApplicationRecord
     source: :playlist
 
   def self.search(query)
-    joins(:artist, :album)
-      .where('LOWER(tracks.name) ~* :query OR
-              LOWER(artists.name) ~* :query OR
-              LOWER(albums.name) ~* :query',
-              query: query)
-      # .sort('tracks.name')
+    self.where('LOWER(tracks.name) ~* :query', query: query)
   end
 
 
 end
+
+
+# joins(:artist, :album)
+
+# OR
+#        LOWER(artists.name) ~* :query OR
+#        LOWER(albums.name) ~* :query'

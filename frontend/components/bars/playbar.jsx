@@ -12,7 +12,13 @@ class Playbar extends React.Component {
   constructor(props) {
     super(props);
     this.setVolume = this.setVolume.bind(this);
-    this.setProgress = this.setProgress.bind(this);
+    this.changeTime = this.changeTime.bind(this);
+    // this.setProgress = this.setProgress.bind(this);
+    this.printProgress = this.printProgress.bind(this);
+    this.printRemaining = this.printRemaining.bind(this);
+    this.state = {
+      progress: 0
+    }
   }
 
   componentWillReceiveProps(nextProps) {
@@ -28,16 +34,34 @@ class Playbar extends React.Component {
     player.volume = val / 100;
   }
 
-  setProgress() {
-    let progress = document.getElementById('progress-control');
-    if (this.props.currentTrack.playing === true) {
-      let time = setInterval(() => {
-        progress.value = this.audio.currentTime / this.audio.duration;
-      }, 100);
-    } else if (this.props.currentTrack.playing === false) {
-      return 0;
-      clearInterval(time);
-    }
+  // setProgress() {
+  //   let progress = document.getElementById('progress-control');
+  //   if (this.props.currentTrack.playing === true) {
+  //     let time = setInterval(() => {
+  //       progress.value = this.audio.currentTime / this.audio.duration;
+  //     }, 100);
+  //   } else if (this.props.currentTrack.playing === false) {
+  //     return 0;
+  //     clearInterval(time);
+  //   }
+  // }
+
+  printProgress() {
+    let currentTime = document.getElementById('current-time');
+    let time = setInterval(() => {
+      currentTime.value = String(Math.floor(this.audio.currentTime));
+    }, 1000);
+  }
+
+  printRemaining() {
+    let remainingTime = document.getElementById('remaining-time');
+    let time = setInterval(() => {
+      remainingTime.value = String(Math.floor(this.audio.duration - this.audio.currentTime));
+    }, 1000);
+  }
+
+  changeTime() {
+    this.setState({progress: this.audio.currentTime / this.audio.duration})
   }
 
   render() {
@@ -50,24 +74,31 @@ class Playbar extends React.Component {
       <footer className="playbar">
 
         <div className="playbar-left">
-          <div className="now-playing-container">
-            <div className="now-playing-artwork">
-              <img
-                src="https://images.complex.com/complex/images/c_fill,g_center,w_1200/fl_lossy,pg_1,q_auto/mqlimq5ifprz3klcoxpt/spotify-logo"
-                alt="meh" />
-            </div>
-
-            <div className="now-playing-info">
-              <div className="now-playing-track">{ trackInfo.name }</div>
-              <div className="now-playing-artist">{ trackInfo.artist}</div>
-            </div>
-
-            <div className="now-playing-add-button-container">
-                <div className="now-playing-add-button">
-                  <i className="material-icons">add</i>
+          {
+            currentTrack.id ? (
+              <div className="now-playing-container">
+                <div className="now-playing-artwork">
+                  <img
+                    src="https://images.complex.com/complex/images/c_fill,g_center,w_1200/fl_lossy,pg_1,q_auto/mqlimq5ifprz3klcoxpt/spotify-logo"
+                    alt="meh" />
                 </div>
-            </div>
-          </div>
+
+                <div className="now-playing-info">
+                  <div className="now-playing-track">{ trackInfo.name }</div>
+                  <div className="now-playing-artist">{ trackInfo.artist}</div>
+                </div>
+
+                <div className="now-playing-add-button-container">
+                  <div className="now-playing-add-button">
+                    <i className="material-icons">add</i>
+                  </div>
+                </div>
+              </div>
+            ) : (
+              <div></div>
+            )
+          }
+
         </div>
 
         <div className="playbar-center">
@@ -96,18 +127,26 @@ class Playbar extends React.Component {
             </div>
 
             <div className="playbar-control-bar">
-              <div className="progress-bar">
-                <span>0:00</span>
-                <progress id="progress-control" max="1" value={ this.setProgress() }></progress>
-                <span>{ currentTrack.playing ? `${Math.floor(this.audio.duration)}` : "0" }</span>
-              </div>
+              {
+                currentTrack.id ? (
+                  <div className="progress-bar">
+                    <input id="current-time" type="text" value={ Math.floor(this.audio.currentTime) } />
+                    <progress id="progress-control" max="1" value={ this.state.progress }></progress>
+                    <input id="remaining-time" type="text" value={ Math.floor(this.audio.duration - this.audio.currentTime) } />
+                  </div>
+                ) : (
+                  <div></div>
+                )
+              }
             </div>
 
             <audio
               autoPlay
               id="playbar-audio"
               src={ trackInfo.trackUrl }
-              ref={tag => this.audio = tag }>
+              ref={tag => this.audio = tag }
+              onTimeUpdate={this.changeTime}>
+
             </audio>
           </div>
         </div>

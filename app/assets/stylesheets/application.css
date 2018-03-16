@@ -925,7 +925,6 @@ h3 {
 }
 
 .playbar-control-buttons {
-  margin-bottom: 12px;
   display: flex;
   width: 224px;
   justify-content: center;
@@ -947,6 +946,56 @@ h3 {
   align-items: center;
   height: 35px;
   width: 35px;
+}
+
+.playbar-control-bar {
+  height: 20px;
+  width: 100%;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.progress-bar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/*  *//*  *//*  *//*  *//*  *//*  *//*  */
+/* this is the godforsaken progress bar */
+/*  *//*  *//*  *//*  *//*  *//*  *//*  */
+
+#current-time, #remaining-time{
+  display: inline;
+  width: 40px;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 200;
+  background-color: transparent;
+  outline: none;
+  border: none;
+  color: hsla(0,0%,100%,.7);
+}
+
+progress[value] {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 5px;
+  width: 400px;
+  margin: 0 10px 0 10px;
+  border-radius: 15px;
+}
+
+progress[value]::-webkit-progress-bar {
+  background-color: rgba(109, 109, 109, 0.7);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
+  border-radius: 15px;
+}
+
+progress[value]::-webkit-progress-value {
+  border-radius: 15px;
 }
 
 #play-circle, #pause-circle {
@@ -976,42 +1025,6 @@ h3 {
 #queue, #device, #volume {
   font-size: 20px;
   color: hsla(0,0%,100%,.7);
-}
-
-.playbar-control-bar {
-  height: 20px;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-progress[value] {
-  -webkit-appearance: none;
-  appearance: none;
-  height: 5px;
-  width: 500px;
-  border-radius: 15px;
-}
-
-progress[value]::-webkit-progress-thumb {
-  height: 20px;
-  width: 20px;
-  background-color: yellow;
-}
-
-
-
-
-
-progress[value]::-webkit-progress-bar {
-  background-color: #eee;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
-  border-radius: 15px;
-}
-
-progress[value]::-webkit-progress-value {
-  border-radius: 15px;
 }
 
 .extra-controls {
@@ -1057,13 +1070,6 @@ progress[value]::-webkit-progress-value {
 #volume-control:hover {
   color: #1db954;
 }
-
-/*  *//*  *//*  *//*  *//*  *//*  *//*  */
-/* this is the godforsaken progress bar */
-/*  *//*  *//*  *//*  *//*  *//*  *//*  */
-
-
-
 /* ------------------------------------ */
 
 /*  *//*  *//*  *//*  *//*  *//*  *//*  */

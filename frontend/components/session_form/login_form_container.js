@@ -14,6 +14,7 @@ const msp = ({ errors }) => {
 
 const mdp = (dispatch, ownProps) => {
   return {
+    guestLogin: () => dispatch(login({ email_address: "userB", password: "asdfgh" })),
     processForm: (user) => dispatch(login(user))
   };
 };

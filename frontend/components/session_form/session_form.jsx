@@ -79,6 +79,8 @@ class SessionForm extends React.Component {
             value={ this.props.formType } />
 
           <p>or { this.props.navLink }</p>
+
+          <span onClick={ () => this.props.guestLogin() }>Guest Login</span>
         </form>
 
         <div className="welcome-message">
