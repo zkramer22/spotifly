@@ -12,12 +12,14 @@ class Playbar extends React.Component {
   constructor(props) {
     super(props);
     this.setVolume = this.setVolume.bind(this);
-    this.changeTime = this.changeTime.bind(this);
-    // this.setProgress = this.setProgress.bind(this);
-    this.printProgress = this.printProgress.bind(this);
-    this.printRemaining = this.printRemaining.bind(this);
+    this.updateProgress = this.updateProgress.bind(this);
+    this.printTime = this.printTime.bind(this);
+    this.seekProgress = this.seekProgress.bind(this);
+    this.toggleMute = this.toggleMute.bind(this);
+
     this.state = {
-      progress: 0
+      progress: 0,
+      lastVolume: 50
     }
   }
 
@@ -30,38 +32,33 @@ class Playbar extends React.Component {
   }
 
   setVolume(val) {
-    const player = document.getElementById('playbar-audio');
-    player.volume = val / 100;
+    this.audio.volume = val / 100;
   }
 
-  // setProgress() {
-  //   let progress = document.getElementById('progress-control');
-  //   if (this.props.currentTrack.playing === true) {
-  //     let time = setInterval(() => {
-  //       progress.value = this.audio.currentTime / this.audio.duration;
-  //     }, 100);
-  //   } else if (this.props.currentTrack.playing === false) {
-  //     return 0;
-  //     clearInterval(time);
-  //   }
-  // }
-
-  printProgress() {
-    let currentTime = document.getElementById('current-time');
-    let time = setInterval(() => {
-      currentTime.value = String(Math.floor(this.audio.currentTime));
-    }, 1000);
+  toggleMute() {
+    if (this.audio.volume > 0) {
+      this.setState( { lastVolume: this.audio.volume });
+      this.audio.volume = 0;
+    } else {
+      this.audio.volume = this.state.lastVolume;
+    }
   }
 
-  printRemaining() {
-    let remainingTime = document.getElementById('remaining-time');
-    let time = setInterval(() => {
-      remainingTime.value = String(Math.floor(this.audio.duration - this.audio.currentTime));
-    }, 1000);
+  printTime(time) {
+    const rounded = Math.floor(time);
+    const minutes = Math.floor(rounded / 60);
+    let seconds = Math.floor(rounded % 60);
+    seconds >= 10 ? seconds = seconds : seconds = `0${seconds}`;
+    return `${minutes}:${seconds}`;
   }
 
-  changeTime() {
-    this.setState({progress: this.audio.currentTime / this.audio.duration})
+  updateProgress() {
+    this.setState({ progress: this.audio.currentTime / this.audio.duration })
+  }
+
+  seekProgress(pos, offset, width) {
+    const clickedVal = (pos - offset) / width;
+    this.audio.currentTime = this.audio.duration * clickedVal;
   }
 
   render() {
@@ -130,9 +127,14 @@ class Playbar extends React.Component {
               {
                 currentTrack.id ? (
                   <div className="progress-bar">
-                    <input id="current-time" type="text" value={ Math.floor(this.audio.currentTime) } />
-                    <progress id="progress-control" max="1" value={ this.state.progress }></progress>
-                    <input id="remaining-time" type="text" value={ Math.floor(this.audio.duration - this.audio.currentTime) } />
+                    <input id="elapsed-time" type="text"
+                      value={ this.printTime(this.audio.currentTime) } />
+                    <progress id="progress-control" max="1"
+                      value={ this.state.progress }
+                      onClick={ (e) => this.seekProgress(e.pageX, e.currentTarget.offsetLeft, e.currentTarget.offsetWidth) }>
+                    </progress>
+                    <input id="remaining-time" type="text"
+                      value={ this.printTime(this.audio.duration - this.audio.currentTime) } />
                   </div>
                 ) : (
                   <div></div>
@@ -145,8 +147,7 @@ class Playbar extends React.Component {
               id="playbar-audio"
               src={ trackInfo.trackUrl }
               ref={tag => this.audio = tag }
-              onTimeUpdate={this.changeTime}>
-
+              onTimeUpdate={ this.updateProgress }>
             </audio>
           </div>
         </div>
@@ -155,7 +156,8 @@ class Playbar extends React.Component {
           <div className="extra-controls">
             <i id="queue" className="material-icons">playlist_play</i>
             <i id="device" className="material-icons">speaker</i>
-            <i id="volume" className="material-icons">volume_up</i>
+            <i id="volume" className="material-icons"
+              onClick={ () => this.toggleMute() }>volume_up</i>
 
             <input id="volume-control" type="range"
               min="0" max="100" step="1"
@@ -168,7 +170,6 @@ class Playbar extends React.Component {
       </footer>
     );
   }
-
 }
 
 const msp = state => {
@@ -188,11 +189,14 @@ const mdp = dispatch => {
 
 export default connect(msp, mdp)(Playbar);
 
-
-//
-// <div class="meter orange nostripes">
-//   <span style={{ width: "33.3%" }}></span>
-// </div>
-// <pre><code>&lt;div class=&quot;meter orange nostripes&quot;&gt;
-// &lt;span style=&quot;width: 33.3%&quot;&gt;&lt;/span&gt;
-// &lt;/div&gt;</code></pre>
+// setProgress() {
+//   let progress = document.getElementById('progress-control');
+//   if (this.props.currentTrack.playing === true) {
+//     let time = setInterval(() => {
+//       progress.value = this.audio.currentTime / this.audio.duration;
+//     }, 100);
+//   } else if (this.props.currentTrack.playing === false) {
+//     return 0;
+//     clearInterval(time);
+//   }
+// }

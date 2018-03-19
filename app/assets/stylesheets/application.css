@@ -842,21 +842,21 @@ h3 {
 }
 
 .playbar-left {
-    width: 30%;
-    min-width: 180px;
+  width: 30%;
+  min-width: 180px;
 }
 
 .playbar-center {
-    width: 40%;
-    max-width: 722px;
+  width: 40%;
+  max-width: 722px;
 }
 
 .playbar-right {
-    width: 30%;
-    min-width: 180px;
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
+  width: 30%;
+  min-width: 180px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
 }
 
 .now-playing-container {
@@ -972,35 +972,43 @@ h3 {
 /* this is the godforsaken progress bar */
 /*  *//*  *//*  *//*  *//*  *//*  *//*  */
 
-#current-time, #remaining-time{
+#elapsed-time, #remaining-time {
   display: inline;
   width: 40px;
   text-align: center;
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 200;
   background-color: transparent;
   outline: none;
   border: none;
   color: hsla(0,0%,100%,.7);
+  caret-color: transparent;
+  cursor: default;
 }
 
 progress[value] {
   -webkit-appearance: none;
   appearance: none;
-  height: 5px;
+  height: 7px;
   width: 400px;
   margin: 0 10px 0 10px;
   border-radius: 15px;
 }
 
 progress[value]::-webkit-progress-bar {
-  background-color: rgba(109, 109, 109, 0.7);
+  background-color: rgba(109, 109, 109, .7);
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
   border-radius: 15px;
 }
 
 progress[value]::-webkit-progress-value {
+  background-color: rgba(127, 127, 127, .7);
   border-radius: 15px;
+  transition: background-color .1s linear;
+}
+
+.progress-bar:hover progress[value]::-webkit-progress-value {
+  background-color: #1db954;
 }
 
 #play-circle, #pause-circle {
@@ -1085,10 +1093,6 @@ input[type=range] {
   -webkit-appearance: none;
   width: 100%;
   background: transparent;
-}
-
-input[type=range]::-webkit-slider-thumb {
-  -webkit-appearance: none;
 }
 
 input[type=range]:focus {
