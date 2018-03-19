@@ -80,7 +80,10 @@ class SessionForm extends React.Component {
 
           <p>or { this.props.navLink }</p>
 
-          <span onClick={ () => this.props.guestLogin() }>Guest Login</span>
+          <span
+            id="guest-login"
+            onClick={ () => this.props.guestLogin() }>Guest Login
+          </span>
         </form>
 
         <div className="welcome-message">

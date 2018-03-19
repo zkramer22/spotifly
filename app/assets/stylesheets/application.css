@@ -233,6 +233,15 @@ h3 {
   cursor: pointer;
 }
 
+#guest-login {
+  cursor: default;
+}
+
+#guest-login:hover {
+  cursor: pointer;
+  color: #1db954;
+}
+
 /* @keyframes fadeinfull {
   from { opacity: 0; }
   to   { opacity: 1; }
