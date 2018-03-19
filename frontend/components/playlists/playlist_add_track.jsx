@@ -18,14 +18,14 @@ class PlaylistAddTrack extends React.Component {
   }
 
   successMessage() {
-    console.log("success");
+    // console.log("success");
   }
 
   handleSubmit(playlist) {
     return (e) => {
       e.preventDefault();
       this.props.addTrackToPlaylist(playlist.id).then(response => {
-        this.successMessage();
+        // this.successMessage();
       });
     };
   }
@@ -63,7 +63,7 @@ class PlaylistAddTrack extends React.Component {
                       onClick={ this.handleSubmit(playlist) }/>
                       <span style={{padding: "5px 0 2.5px 0"}}>{ playlist.name }</span>
                   </div>
-          </div>
+                </div>
               );
             }) }
           </div>
@@ -81,7 +81,7 @@ const msp = state => {
   };
 };
 
-const mdp = (dispatch) => {
+const mdp = dispatch => {
   return {
     requestAllPlaylists: () => dispatch(requestAllPlaylists()),
     addTrackToPlaylist: playlistId => dispatch(addTrackToPlaylist(playlistId)),
