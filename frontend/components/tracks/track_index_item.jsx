@@ -12,6 +12,7 @@ class TrackIndexItem extends React.Component {
     super(props);
     this.state = { playing: false };
     this.togglePlay = this.togglePlay.bind(this);
+    this.activeTrack = this.activeTrack.bind(this);
   }
 
   componentDidMount() {
@@ -23,38 +24,38 @@ class TrackIndexItem extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
+    // debugger
     if (this.props.track.id !== nextProps.currentTrack.id) {
       this.setState({ playing: false });
     }
-
-    // if (this.props.track.id === nextProps.currentTrack.id) {
-    //
-    // }
-
-    if (nextProps.currentTrack.playing === false) {
+    else if (nextProps.currentTrack.playing === false) {
       this.setState({ playing: false });
     }
-
-    if (nextProps.currentTrack.playing === true) {
-      if (nextProps.currentTrack.id === this.props.track.id) {
+    else if ((nextProps.currentTrack.id === this.props.track.id) /*&&
+      (nextProps.currentTrack.playing === true)*/) {
         this.setState({ playing: true });
-      }
     }
   }
 
-  togglePlay(trackId) {
+  togglePlay(trackId, playlistId) {
     if (this.state.playing) {
       this.props.pauseCurrentTrack();
       this.setState({ playing: false })
     } else {
-      this.props.receiveCurrentTrack(trackId);
+      this.props.receiveCurrentTrack(trackId, playlistId);
       this.setState({ playing: true });
     }
   }
 
+  activeTrack(trackId) {
+    // console.log(`u clicked track ${trackId}`);
+    // debugger
+    // $(`.track-index-highlight-${trackId}`).addClass('active-track');
+  }
+
   render() {
     const { removeTrackFromPlaylist, putTrackInState, openModal,
-            type, track, num } = this.props;
+            type, track, num, playlistId } = this.props;
 
     let addOrDeleteButton;
     if (type === "search") {
@@ -83,24 +84,24 @@ class TrackIndexItem extends React.Component {
     }
 
     return (
-      <div className="track-index-highlight">
+      <div className={`track-index-highlight-${track.id}`} onClick={() => { this.activeTrack(track.id) }}>
         {
           this.state.playing ?
           <div>
             <i id="index-pause" className="material-icons" onClick={() => {
-                this.togglePlay(track.id)
+                this.togglePlay(track.id, playlistId)
               }}>pause
             </i>
           </div>
           :
+
           <div>
             <i id="index-play" className="material-icons" onClick={() => {
-                this.togglePlay(track.id)
+                this.togglePlay(track.id, playlistId)
               }}>play_arrow
             </i>
           </div>
         }
-
 
         <div className="track-number-button">
           { num + 1 }
@@ -127,9 +128,10 @@ const msp = state => {
 };
 
 const mdp = (dispatch, ownProps) => {
+
   return {
     pauseCurrentTrack: () => dispatch(pauseCurrentTrack()),
-    receiveCurrentTrack: trackId => dispatch(receiveCurrentTrack(trackId)),
+    receiveCurrentTrack: (trackId, playlistId) => dispatch(receiveCurrentTrack(trackId, playlistId)),
     removeTrackFromPlaylist: () => dispatch(removeTrackFromPlaylist(ownProps.track.id, ownProps.playlistId)),
     openModal: () => dispatch(openModal('add')),
     putTrackInState: () => dispatch(putTrackInState(ownProps.track.id))

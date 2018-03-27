@@ -10,7 +10,7 @@ export default (state = {}, action) => {
 
   switch (action.type) {
     case RECEIVE_CURRENT_TRACK:
-      return merge({}, state, { id: action.trackId, playing: true } );
+      return merge({}, state, { id: action.trackId, playlist: action.playlistId, playing: true } );
     case PAUSE_CURRENT_TRACK:
       return merge({}, state, { playing: false });
     case REMOVE_CURRENT_TRACK:
