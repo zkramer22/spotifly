@@ -63,50 +63,50 @@ end
 # ALBUMS
 # //////
 album_list = [
-  ["Group Therapy (Deluxe Version)", 1], #1
+  ["Group Therapy (Deluxe Version)", 1, URI("https://s3.us-east-2.amazonaws.com/spotifly-audio/artwork/Group+Therapy+(Deluxe+Version).jpg")], #1
 
-  ["A Head Full of Dreams", 2], #2
+  ["A Head Full of Dreams", 2, URI("https://s3.us-east-2.amazonaws.com/spotifly-audio/artwork/A+Head+Full+of+Dreams.jpg")], #2
 
-  ["Love Taking Over - Single", 3], #3
-  ["Nobody Else - Single", 3], #4
+  ["Love Taking Over - Single", 3, URI("https://s3.us-east-2.amazonaws.com/spotifly-audio/artwork/Love+Taking+Over+-+Single.jpg")], #3
+  ["Nobody Else - Single", 3, URI("https://s3.us-east-2.amazonaws.com/spotifly-audio/artwork/Nobody+Else+-+EP.jpg")], #4
 
-  ["Soon It Will Be Cold Enough", 4], #5
+  ["Soon It Will Be Cold Enough", 4, URI("https://s3.us-east-2.amazonaws.com/spotifly-audio/artwork/Soon+It+Will+Be+Cold+Enough.jpg")], #5
 
-  ["Two Fold, Pt. 1", 5], #6
-  ["Two Fold, Pt. 2", 5], #7
+  ["Two Fold, Pt. 1", 5, URI("https://s3.us-east-2.amazonaws.com/spotifly-audio/artwork/Two+Fold+Pt.1.jpg")], #6
+  ["Two Fold, Pt. 2", 5, URI("https://s3.us-east-2.amazonaws.com/spotifly-audio/artwork/Two+Fold%2C+Pt.+2.jpg")], #7
 
-  ["Sinai - Single", 6], #8
-  ["Spheres - Single", 6], #9
+  ["Sinai - Single", 6, URI("https://s3.us-east-2.amazonaws.com/spotifly-audio/artwork/Sinai+-+Single.jpg")], #8
+  ["Spheres - Single", 6, URI("https://s3.us-east-2.amazonaws.com/spotifly-audio/artwork/Spheres+-+Single.jpg")], #9
 
-  ["8", 7], #10
+  ["8", 7, URI("https://s3.us-east-2.amazonaws.com/spotifly-audio/artwork/8.jpg")], #10
 
-  ["One-Armed Bandit", 8], #11
-  ["What We Must", 8], #12
+  ["One-Armed Bandit", 8, URI("https://s3.us-east-2.amazonaws.com/spotifly-audio/artwork/One-armed+Bandit.jpg")], #11
+  ["What We Must", 8, URI("https://s3.us-east-2.amazonaws.com/spotifly-audio/artwork/What+We+Must.jpg")], #12
 
-  ["Magna Carta...Holy Grail", 9], #13
+  ["Magna Carta...Holy Grail", 9, URI("https://s3.us-east-2.amazonaws.com/spotifly-audio/artwork/Magna+Carta...+Holy+Grail.jpg")], #13
 
-  ["Anjunadeep 03", 10], #14
-  ["Multiverse", 10], #15
+  ["Anjunadeep 03", 10, URI("https://s3.us-east-2.amazonaws.com/spotifly-audio/artwork/Anjunadeep+03.jpg")], #14
+  ["Multiverse", 10, URI("https://s3.us-east-2.amazonaws.com/spotifly-audio/artwork/Multiverse.jpg")], #15
 
-  ["Justified", 11], #16
-  ["The 20/20 Experience", 11], #17
+  ["Justified", 11, URI("https://s3.us-east-2.amazonaws.com/spotifly-audio/artwork/Justified.jpg")], #16
+  ["The 20/20 Experience", 11, URI("https://s3.us-east-2.amazonaws.com/spotifly-audio/artwork/The+20_20+Experience.jpg")], #17
 
-  ["Hands All Over", 12], #18
+  ["Hands All Over", 12, URI("https://s3.us-east-2.amazonaws.com/spotifly-audio/artwork/Hands+All+Over.jpg")], #18
 
-  ["Damage Control", 13], #19
-  ["Self Assemble", 13], #20
-  ["The Sky - EP", 13], #21
+  ["Damage Control", 13, URI("https://s3.us-east-2.amazonaws.com/spotifly-audio/artwork/Damage+Control.jpg")], #19
+  ["Self Assemble", 13, URI("https://s3.us-east-2.amazonaws.com/spotifly-audio/artwork/Self+Assemble.jpg")], #20
+  ["The Sky - EP", 13, URI("https://s3.us-east-2.amazonaws.com/spotifly-audio/artwork/The+Sky+-+EP.jpg")], #21
 
-  ["Django", 14], #22
+  ["Django", 14, URI("https://s3.us-east-2.amazonaws.com/spotifly-audio/artwork/Django.jpg")], #22
 
-  ["In Return", 15], #23
-  ["Say My Name - Remixes", 15], #24
+  ["In Return", 15, URI("https://s3.us-east-2.amazonaws.com/spotifly-audio/artwork/In+Return.jpg")], #23
+  ["Say My Name - Remixes", 15, URI("https://s3.us-east-2.amazonaws.com/spotifly-audio/artwork/Say+My+Name+-+Remixes.jpg")], #24
 
-  ["Say My Name - Single", 16], #25
-  ["Spitfire", 16], #26
-  ["Worlds", 16], #27
+  ["Say My Name - Single", 16, URI("https://s3.us-east-2.amazonaws.com/spotifly-audio/artwork/Say+My+Name+-+Single.jpg")], #25
+  ["Spitfire", 16, URI("https://s3.us-east-2.amazonaws.com/spotifly-audio/artwork/Spitfire.jpg")], #26
+  ["Worlds", 16, URI("https://s3.us-east-2.amazonaws.com/spotifly-audio/artwork/Worlds.jpg")], #27
 
-  ["The Getaway", 17], #28
+  ["The Getaway", 17, URI("https://s3.us-east-2.amazonaws.com/spotifly-audio/artwork/The+Getaway.jpg")], #28
   #
   # ["Bangarang", 18], #29
   # ["Reptile's Theme - Single", 18], #30
@@ -122,8 +122,8 @@ album_list = [
   # ["Home of the Strange", 21], #37
   # ["Mind Over Matter", 21] #38
 ]
-album_list.each do |name, artist_id|
-  Album.create!(name: name, artist_id: artist_id)
+album_list.each do |name, artist_id, artwork|
+  Album.create!(name: name, artist_id: artist_id, artwork: artwork)
 end
 
 # /////////////////////////////////////////////////////////////////////

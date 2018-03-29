@@ -1,4 +1,4 @@
-class TracksController < ApplicationController
+class Api::TracksController < ApplicationController
   def index
     @tracks = Track.all
   end

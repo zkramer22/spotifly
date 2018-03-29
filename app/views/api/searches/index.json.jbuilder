@@ -7,6 +7,7 @@ json.tracks do
       json.albumId track.album.id
       json.artist track.artist.name
       json.artistId track.artist.id
+      json.artwork track.album.artwork.url
     end
   end
 end

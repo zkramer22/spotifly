@@ -10,6 +10,8 @@ export const selectPlaylistTracks = (state, playlist) => {
 
 export const getTrackList = (state, currentTrack) => {
   if (!currentTrack.id) { return [] }
-  
+  const currentPlaylist = state.entities.playlists[parseInt(state.ui.currentTrack.playlist)];
+  if (!currentPlaylist) { return [] }
+
   return state.entities.playlists[parseInt(state.ui.currentTrack.playlist)].track_ids
 };

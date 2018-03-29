@@ -16,10 +16,9 @@ class TrackIndexItem extends React.Component {
   }
 
   componentDidMount() {
-    if (this.props.currentTrack.playing) {
-      if (this.props.track.id === this.props.currentTrack.id) {
+    if ((this.props.currentTrack.playing) &&
+        (this.props.track.id === this.props.currentTrack.id)) {
         this.setState({ playing: true });
-      }
     }
   }
 
@@ -94,7 +93,6 @@ class TrackIndexItem extends React.Component {
             </i>
           </div>
           :
-
           <div>
             <i id="index-play" className="material-icons" onClick={() => {
                 this.togglePlay(track.id, playlistId)

@@ -1,6 +1,7 @@
 export const RECEIVE_CURRENT_TRACK = "RECEIVE_CURRENT_TRACK";
 export const REMOVE_CURRENT_TRACK = "REMOVE_CURRENT_TRACK";
 export const PAUSE_CURRENT_TRACK = "PAUSE_CURRENT_TRACK";
+// export const PLAY_CURRENT_TRACK = "PLAY_CURRENT_TRACK";
 
 export const receiveCurrentTrack = (trackId, playlistId) => {
   return {
@@ -15,6 +16,12 @@ export const removeCurrentTrack = () => {
     type: REMOVE_CURRENT_TRACK
   };
 };
+
+// export const playCurrentTrack = () => {
+//   return {
+//     type: PLAY_CURRENT_TRACK
+//   };
+// };
 
 export const pauseCurrentTrack = () => {
   return {

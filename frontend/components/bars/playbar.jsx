@@ -5,9 +5,9 @@ import { withRouter } from 'react-router-dom';
 import { selectTrackList, getTrackList } from '../../reducers/selectors';
 import {
   receiveCurrentTrack,
-  pauseCurrentTrack
+  pauseCurrentTrack,
+  removeCurrentTrack
 } from '../../actions/track_actions';
-
 
 class Playbar extends React.Component {
   constructor(props) {
@@ -17,8 +17,7 @@ class Playbar extends React.Component {
     this.printTime = this.printTime.bind(this);
     this.seekProgress = this.seekProgress.bind(this);
     this.toggleMute = this.toggleMute.bind(this);
-    // this.nextTrack = this.nextTrack.bind(this);
-    // this.prevTrack = this.prevTrack.bind(this);
+    this.playButton = this.playButton.bind(this);
 
     this.state = { progress: 0, lastVolume: 50 };
   }
@@ -67,7 +66,13 @@ class Playbar extends React.Component {
   nextTrack(currentTrackId) {
     const trackList = this.props.trackList;
     const nextIndex = trackList.indexOf(currentTrackId) + 1;
-    this.props.receiveCurrentTrack(trackList[nextIndex]);
+    debugger
+    if (nextIndex >= trackList.length) {
+      this.audio.pause();
+      this.props.removeCurrentTrack();
+    } else {
+      this.props.receiveCurrentTrack(trackList[nextIndex]);
+    }
   }
 
   prevTrack(currentTrackId) {
@@ -75,6 +80,14 @@ class Playbar extends React.Component {
     const trackList = this.props.trackList;
     const prevIndex = trackList.indexOf(currentTrackId) - 1;
     this.props.receiveCurrentTrack(trackList[prevIndex]);
+  }
+
+  playButton(currentTrackId) {
+    if (currentTrackId === undefined) {
+      return;
+    } else {
+      this.props.receiveCurrentTrack(currentTrackId);
+    }
   }
 
   render() {
@@ -92,7 +105,7 @@ class Playbar extends React.Component {
               <div className="now-playing-container">
                 <div className="now-playing-artwork">
                   <img
-                    src="https://images.complex.com/complex/images/c_fill,g_center,w_1200/fl_lossy,pg_1,q_auto/mqlimq5ifprz3klcoxpt/spotify-logo"
+                    src={ trackInfo.artwork }
                     alt="meh" />
                 </div>
 
@@ -131,7 +144,7 @@ class Playbar extends React.Component {
                   :
                   <i id="play-circle"
                     className="material-icons"
-                    onClick={ () => receiveCurrentTrack(currentTrack.id) }>play_circle_outline</i>
+                    onClick={ () => this.playButton(currentTrack.id) }>play_circle_outline</i>
                 }
               </div>
 
@@ -202,14 +215,15 @@ const msp = state => {
     loggedIn: Boolean(state.session.currentUser),
     trackInfo: state.entities.tracks[state.ui.currentTrack.id] || {},
     currentTrack: state.ui.currentTrack,
-    trackList: getTrackList(state, state.ui.currentTrack)
+    trackList: getTrackList(state, state.ui.currentTrack) || {}
   };
 };
 
 const mdp = dispatch => {
   return {
     pauseCurrentTrack: () => dispatch(pauseCurrentTrack()),
-    receiveCurrentTrack: trackId => dispatch(receiveCurrentTrack(trackId))
+    receiveCurrentTrack: trackId => dispatch(receiveCurrentTrack(trackId)),
+    removeCurrentTrack: () => dispatch(removeCurrentTrack())
   };
 };
 
