@@ -1,5 +1,5 @@
 json.artist do
-  json.extract! @artist, :id, :name, :track_ids
+  json.extract! @artist, :id, :name, :track_ids, :album_ids
   json.artistPhoto @artist.artist_photo.url
   json.coverPhoto @artist.cover_photo.url
 end

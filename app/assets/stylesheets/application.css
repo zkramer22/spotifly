@@ -615,7 +615,7 @@ h3 {
   text-align: center;
 }
 
-.playlist-detail-container, .album-detail-container {
+.playlist-detail-container, .album-detail-container, .artist-detail-container {
   display: flex;
   height: auto;
   width: 98%;
@@ -815,6 +815,7 @@ div[class*="track-index-highlight"]:hover #index-play:hover {
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
 }
 
 .artist-cover-photo-container {
@@ -840,6 +841,31 @@ div[class*="track-index-highlight"]:hover #index-play:hover {
 
 .artist-detail-tracks {
   width: 80%;
+  padding-bottom: 10px;
+}
+
+.artist-detail-albums {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 20px 0 20px 0;
+  background-color: #0c0c0c;
+}
+
+.albumlist {
+  align-self: center;
+  display: flex;
+  width: 80%;
+  flex-wrap: wrap;
+}
+
+.albumlist img {
+  height: 200px;
+  width: 200px;
+}
+
+.artist-album-container {
+  margin: 0 10px 5px 10px;
 }
 
 /*/////////////////////////////////////////////////

@@ -1,8 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { requestArtist } from '../../actions/artist_actions';
 import TrackIndex from '../tracks/track_index';
-import { selectArtistTracks } from '../../reducers/selectors';
+import { selectArtistTracks, selectArtistAlbums } from '../../reducers/selectors';
 
 class ArtistDetail extends React.Component {
   constructor(props) {
@@ -14,7 +15,7 @@ class ArtistDetail extends React.Component {
   }
 
   render() {
-    const { artist, tracks, trackIndexType, openModal } = this.props;
+    const { artist, tracks, albums, trackIndexType, openModal } = this.props;
 
     return (
       <div className="BLACKround">
@@ -22,13 +23,13 @@ class ArtistDetail extends React.Component {
           <div className="artist-cover-photo-container"
             style={{ backgroundImage: "url(https://i1.wp.com/basementofthedead.com/wp-content/uploads/2016/08/bigstock-Old-grunge-brick-wall-backgrou-44341411.jpg?fit=2800%2C1867&ssl=1)" }}>
           </div>
-          <div className="left-spacing">
+          <div className="left-spacing-exact">
 
             <section className="artist-detail-container">
               <br/><br/><br/><br/>
-              <h1 style={{ fontSize: "72px", fontWeight: "600" }}>{ artist.name }</h1>
-              <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-              <h1>Popular</h1>
+              <h1 style={{ fontSize: "75px", fontWeight: "600" }}>{ artist.name }</h1>
+              <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+              <h2 style={{ fontSize: "33px", fontWeight: "600" }}>Popular</h2>
 
               <div className="artist-detail-tracks">
                 <TrackIndex
@@ -37,8 +38,31 @@ class ArtistDetail extends React.Component {
                   tracks={ tracks } />
               </div>
 
-            </section>
+              <div className="artist-detail-albums">
+                <h2 style={{
+                    fontSize: "33px", fontWeight: "600", textAlign: "center"
+                  }}>Albums
+                </h2>
+                <br/><br/>
+                <div className="albumlist">
+                  { albums.map((album, i) => {
+                    return (
+                      <div className="artist-album-container" key={i}>
+                        <Link to={ `/albums/${album.id}` }>
+                          <img src={ album.artwork }/>
+                          <div style={{
+                              fontWeight: "300", letterSpacing: "0.8px", textAlign: "center" }}>
+                            { album.name }
+                          </div>
+                        </Link>
+                      </div>
+                    );
+                  }) }
+                </div>
 
+              </div>
+
+            </section>
 
           </div>
         </div>
@@ -53,7 +77,8 @@ const msp = (state, ownProps) => {
   return {
     trackIndexType: "artist",
     artist: artist,
-    tracks: selectArtistTracks(state, artist)
+    tracks: selectArtistTracks(state, artist),
+    albums: selectArtistAlbums(state, artist)
   };
 };
 
