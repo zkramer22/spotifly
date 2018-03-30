@@ -12,3 +12,11 @@ json.albums do
     end
   end
 end
+
+json.tracks do
+  @artist.tracks.each do |track|
+    json.set! track.id do
+      json.extract! track, :id, :name, :ord
+    end
+  end
+end

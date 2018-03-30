@@ -67,7 +67,9 @@ class Playbar extends React.Component {
     const trackList = this.props.trackList;
     const nextIndex = trackList.indexOf(currentTrackId) + 1;
 
-    if (nextIndex >= trackList.length) {
+    if (trackList.length === 0) {
+      return;
+    } else if (nextIndex >= trackList.length) {
       this.audio.pause();
       this.props.removeCurrentTrack();
     } else {
@@ -79,6 +81,9 @@ class Playbar extends React.Component {
     if (this.audio.currentTime >= 3) { this.audio.currentTime = 0; return }
     const trackList = this.props.trackList;
     const prevIndex = trackList.indexOf(currentTrackId) - 1;
+
+    if (prevIndex < 0) { return }
+
     this.props.receiveCurrentTrack(trackList[prevIndex]);
   }
 
@@ -111,7 +116,9 @@ class Playbar extends React.Component {
 
                 <div className="now-playing-info">
                   <div className="now-playing-track">{ trackInfo.name }</div>
-                  <div className="now-playing-artist">{ trackInfo.artist}</div>
+                  <Link to={ `/artists/${trackInfo.artistId}` }>
+                    <div className="now-playing-artist">{ trackInfo.artist}</div>
+                  </Link>
                 </div>
 
                 <div className="now-playing-add-button-container">

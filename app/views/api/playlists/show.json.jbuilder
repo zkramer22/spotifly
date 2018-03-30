@@ -7,7 +7,7 @@ end
 json.tracks do
   @playlist.tracks.includes(:artist, :album).each do |track|
     json.set! track.id do
-      json.extract! track, :id, :name, :album_id, :ord
+      json.extract! track, :id, :name, :ord
       json.trackUrl track.audio.url
       json.album track.album.name
       json.albumId track.album.id

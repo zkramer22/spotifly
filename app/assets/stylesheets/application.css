@@ -820,13 +820,26 @@ div[class*="track-index-highlight"]:hover #index-play:hover {
 .artist-cover-photo-container {
   position: absolute;
   z-index: -1;
-  opacity: .3;
-  height: 40%;
+  /* opacity: .5; */
+  height: 45%;
+  width: 100%;
   overflow: hidden;
+  background-size: cover;
+  background-position: 50%;
 }
 
-.artist-cover-photo {
-  -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,1)), to(rgba(0,0,0,0)));
+.artist-cover-photo-container:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background: linear-gradient(transparent -30%, #111111);
+}
+
+.artist-detail-tracks {
+  width: 80%;
 }
 
 /*/////////////////////////////////////////////////
@@ -895,7 +908,7 @@ div[class*="track-index-highlight"]:hover #index-play:hover {
   bottom: 0;
   left: 0;
   right: 0;
-  height: 100px;
+  height: 80px;
   padding: 0 10px 0 10px;
   display: flex;
   justify-content: space-between;

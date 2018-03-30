@@ -57,7 +57,7 @@ class TrackIndexItem extends React.Component {
     let addOrDeleteButton;
     let trackInfoGroup;
 
-    addOrDeleteButton = (type === "search" || type === "album") ? (
+    addOrDeleteButton = (type === "search" || type === "album" || type === "artist") ? (
       <div className="add-or-delete-button-container">
         <div className="add-button-icon"
           onClick={ () => {
@@ -78,7 +78,7 @@ class TrackIndexItem extends React.Component {
       </div>
     );
 
-    trackInfoGroup = (type === "album") ? (
+    trackInfoGroup = (type === "album" || type === "artist") ? (
       <div className="track-info-group">
         <span className="track-name">{ track.name }</span>
       </div>
@@ -88,7 +88,7 @@ class TrackIndexItem extends React.Component {
         <Link to={ `/artists/${track.artistId}` }>
           <span className="track-artist-name">{ track.artist }</span>
         </Link>
-        <span style={ {cursor: "default", webkitUserSelect: "none" } }>{" • "}</span>
+        <span style={ {cursor: "default", WebkitUserSelect: "none" } }>{" • "}</span>
         <Link to={`/albums/${track.albumId}`}>
           <span className="track-album-name">{ track.album }</span>
         </Link>
@@ -96,13 +96,15 @@ class TrackIndexItem extends React.Component {
     );
 
     return (
-      <div className={`track-index-highlight-${track.id}`} onClick={() => { this.activeTrack(track.id) }}>
+      <div className={`track-index-highlight-${track.id}`} onClick={() => {
+          this.activeTrack(track.id) }
+          }>
         {
           this.state.playing ?
           <div className="index-button-container">
             <i id="index-pause" className="material-icons" onClick={() => {
                 this.togglePlay(track.id, playlistId)
-              }}>pause
+                }}>pause
             </i>
           </div>
           :

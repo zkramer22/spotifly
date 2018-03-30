@@ -6,7 +6,7 @@ import TrackIndexItem from '../tracks/track_index_item';
 class TrackIndex extends React.Component {
 
   render() {
-    const { playlistId, albumId, tracks, type, openModal } = this.props;
+    const { playlistId, albumId, artistId, tracks, type, openModal } = this.props;
 
     return (
       <ol className="tracklist">
@@ -15,6 +15,7 @@ class TrackIndex extends React.Component {
             <TrackIndexItem
               playlistId={ playlistId }
               albumId={ albumId }
+              artistId={ artistId }
               key={i}
               type={ type }
               openModal={ openModal }
