@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { openModal } from '../../actions/modal_actions';
 import { receiveCurrentTrack, pauseCurrentTrack } from '../../actions/track_actions';
 import {
@@ -23,7 +24,6 @@ class TrackIndexItem extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    // debugger
     if (this.props.track.id !== nextProps.currentTrack.id) {
       this.setState({ playing: false });
     }
@@ -48,52 +48,65 @@ class TrackIndexItem extends React.Component {
 
   activeTrack(trackId) {
     // console.log(`u clicked track ${trackId}`);
-    // debugger
     // $(`.track-index-highlight-${trackId}`).addClass('active-track');
   }
 
   render() {
     const { removeTrackFromPlaylist, putTrackInState, openModal,
             type, track, num, playlistId } = this.props;
-
     let addOrDeleteButton;
-    if (type === "search") {
-      addOrDeleteButton = (
-        <div className="add-or-delete-button-container">
-          <div className="add-button-icon"
-            onClick={ () => {
-              openModal();
-              putTrackInState();
-            }}>
-            <i className="material-icons">add</i>
-          </div>
+    let trackInfoGroup;
+
+    addOrDeleteButton = (type === "search" || type === "album") ? (
+      <div className="add-or-delete-button-container">
+        <div className="add-button-icon"
+          onClick={ () => {
+            openModal();
+            putTrackInState();
+          }}>
+          <i className="material-icons">add</i>
         </div>
-      );
-    } else if (type === "playlist") {
-      addOrDeleteButton = (
-        <div className="add-or-delete-button-container">
-          <div className="delete-button-icon"
-            onClick={ () => {
-              removeTrackFromPlaylist();
-            }}>
-            <i id="index-delete" className="material-icons">close</i>
-          </div>
+      </div>
+    ) : (
+      <div className="add-or-delete-button-container">
+        <div className="delete-button-icon"
+          onClick={ () => {
+            removeTrackFromPlaylist();
+          }}>
+          <i id="index-delete" className="material-icons">close</i>
         </div>
-      );
-    }
+      </div>
+    );
+
+    trackInfoGroup = (type === "album") ? (
+      <div className="track-info-group">
+        <span className="track-name">{ track.name }</span>
+      </div>
+    ) : (
+      <div className="track-info-group">
+        <span className="track-name">{ track.name }</span><br/>
+        <Link to={ `/artists/${track.artistId}` }>
+          <span className="track-artist-name">{ track.artist }</span>
+        </Link>
+        <span style={ {cursor: "default", webkitUserSelect: "none" } }>{" • "}</span>
+        <Link to={`/albums/${track.albumId}`}>
+          <span className="track-album-name">{ track.album }</span>
+        </Link>
+      </div>
+    );
 
     return (
       <div className={`track-index-highlight-${track.id}`} onClick={() => { this.activeTrack(track.id) }}>
         {
           this.state.playing ?
-          <div>
+          <div className="index-button-container">
             <i id="index-pause" className="material-icons" onClick={() => {
                 this.togglePlay(track.id, playlistId)
               }}>pause
             </i>
           </div>
           :
-          <div>
+          <div className="index-button-container">
             <i id="index-play" className="material-icons" onClick={() => {
                 this.togglePlay(track.id, playlistId)
               }}>play_arrow
@@ -105,11 +118,7 @@ class TrackIndexItem extends React.Component {
           { num + 1 }
         </div>
 
-        <div className="track-info-group">
-          <span className="track-name">{ track.name }</span><br/>
-          <span className="track-artist-name">{ track.artist }</span><span>{" • "}</span>
-          <span className="track-album-name">{ track.album }</span>
-        </div>
+        { trackInfoGroup }
 
         <div className="add-to-playlist-button">
           { addOrDeleteButton }
@@ -126,7 +135,6 @@ const msp = state => {
 };
 
 const mdp = (dispatch, ownProps) => {
-
   return {
     pauseCurrentTrack: () => dispatch(pauseCurrentTrack()),
     receiveCurrentTrack: (trackId, playlistId) => dispatch(receiveCurrentTrack(trackId, playlistId)),

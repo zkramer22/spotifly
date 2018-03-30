@@ -45,7 +45,7 @@ ol {
 
 a {
   text-decoration: none;
-  color: #1db954;
+  color: white;
 }
 
 h1 {
@@ -70,6 +70,10 @@ h3 {
   position: absolute;
   z-index: -10;
   overflow: auto;
+}
+
+.greyish {
+  background-color: #111111;
 }
 
 #root {
@@ -547,18 +551,25 @@ h3 {
 ////////////////  playlists  //////////////////////
 /////////////////////////////////////////////////*/
 
-.playlist-index-flexbox {
+.index-flexbox {
   position: fixed;
-  background-size: cover;
   width: 100%;
   height: 100vh;
   overflow: auto;
-  background-image: linear-gradient(to bottom, #a90329 0%,#000000 100%);
   font-family: proxima_nova,Helvetica Neue,Helvetica,Arial,sans-serif;
+}
+
+.home-gradient {
+  background-image: linear-gradient(to bottom, #a90329 0%,#000000 100%);
+  background-size: cover;
 }
 
 .random-gradient {
   background-image: linear-gradient(to bottom, #7500c4 0%,#000000 100%);
+}
+
+.random-gradient2 {
+  background-image: linear-gradient(to bottom, #0054c4 0%, #000000 100%)
 }
 
 .playlist-index-container {
@@ -604,7 +615,7 @@ h3 {
   text-align: center;
 }
 
-.playlist-detail-container {
+.playlist-detail-container, .album-detail-container {
   display: flex;
   height: auto;
   width: 98%;
@@ -612,12 +623,12 @@ h3 {
 }
 
 @media (max-width: 1000px) {
-  .playlist-detail-container {
+  .playlist-detail-container, .album-detail-container {
     display: block;
   }
 }
 
-.playlist-detail-container img {
+.playlist-detail-container img, .album-detail-container img {
   height: 250px;
   width: 250px;
   -webkit-box-shadow: 0px 24px 190px -20px rgba(0,0,0,0.75);
@@ -625,13 +636,13 @@ h3 {
   box-shadow: 0px 24px 190px -20px rgba(0,0,0,0.75);
 }
 
-.playlist-detail-tracks {
+.playlist-detail-tracks, .album-detail-tracks {
   padding: 10px;
   height: auto;
   width: 100%;
 }
 
-.playlist-detail-info {
+.playlist-detail-info, .album-detail-info {
   padding: 10px;
   text-align: center;
 }
@@ -671,6 +682,7 @@ div[class^="track-index-highlight"] {
   position: relative;
   z-index: 0;
   display: flex;
+  align-items: center;
   height: 60px;
   padding: 5px 5px 5px 15px;
   transition: background-color .2s linear;
@@ -691,6 +703,12 @@ div[class*="track-index-highlight"]:hover i {
 
 div[class*="track-index-highlight"]:hover #index-play:hover {
   color: #1db954;
+}
+
+.index-button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .active-track {
@@ -720,7 +738,7 @@ div[class*="track-index-highlight"]:hover #index-play:hover {
   margin-left: 15px;
 }
 
-.track-artist-name, .track-album-name {
+.track-artist-name, .track-album-name, .album-artist-name {
   font-size: 14px;
   font-weight: 300;
   letter-spacing: 0.7px;
@@ -728,7 +746,7 @@ div[class*="track-index-highlight"]:hover #index-play:hover {
   color: hsla(0,0%,100%,.7);
 }
 
-.track-artist-name:hover, .track-album-name:hover {
+.track-artist-name:hover, .track-album-name:hover, .album-artist-name:hover {
   color: white;
   cursor: pointer;
   text-decoration: underline;
@@ -749,6 +767,12 @@ div[class*="track-index-highlight"]:hover #index-play:hover {
   align-items: center;
   height: 20px;
   width: 20px;
+}
+
+.add-button-icon, .delete-button-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .add-button-icon i {
@@ -773,6 +797,36 @@ div[class*="track-index-highlight"]:hover #index-play:hover {
   font-size: 28px;
   color: #ff2d2d;
   box-shadow: 0px 24px 190px -20px #ff6666;
+}
+
+/*/////////////////////////////////////////////////
+//////////////////// albums ///////////////////////
+/////////////////////////////////////////////////*/
+
+.album-detail-tracks, .album-detail-info {
+  margin-top: 10px;
+}
+
+/*/////////////////////////////////////////////////
+/////////////////// artists ///////////////////////
+/////////////////////////////////////////////////*/
+
+.artist-detail-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.artist-cover-photo-container {
+  position: absolute;
+  z-index: -1;
+  opacity: .3;
+  height: 40%;
+  overflow: hidden;
+}
+
+.artist-cover-photo {
+  -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,1)), to(rgba(0,0,0,0)));
 }
 
 /*/////////////////////////////////////////////////
@@ -876,10 +930,16 @@ div[class*="track-index-highlight"]:hover #index-play:hover {
   padding: 5px 5px;
 }
 
+.now-playing-artwork {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .now-playing-artwork img {
   height: 60px;
   width: 60px;
-  box-shadow: 0px 0px 18px 6px rgba(0, 0, 0, 0.5);
+  box-shadow: 0px 0px 16px 6px rgba(0, 0, 0, 0.3);
   -webkit-user-select: none;
 }
 

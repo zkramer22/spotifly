@@ -66,7 +66,7 @@ class Playbar extends React.Component {
   nextTrack(currentTrackId) {
     const trackList = this.props.trackList;
     const nextIndex = trackList.indexOf(currentTrackId) + 1;
-    debugger
+
     if (nextIndex >= trackList.length) {
       this.audio.pause();
       this.props.removeCurrentTrack();

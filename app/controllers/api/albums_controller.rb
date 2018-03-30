@@ -1,6 +1,6 @@
 class Api::AlbumsController < ApplicationController
   def index
-    @albums = Album.all
+    @albums = Album.all#.where(artist: params[:artist_id])
     render "api/albums/index"
   end
 

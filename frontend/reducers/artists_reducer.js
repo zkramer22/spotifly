@@ -1,19 +1,15 @@
 import { merge } from 'lodash';
-import { RECEIVE_ALBUM } from '../actions/album_actions';
 import { RECEIVE_ARTIST } from '../actions/artist_actions';
 
 export default (state = {}, action) => {
   Object.freeze(state);
 
-  let album;
+  let artist;
 
   switch (action.type) {
-    case RECEIVE_ALBUM:
-      album = action.payload.album
-      return merge({}, state, { [album.id]: album });
     case RECEIVE_ARTIST:
-      return merge({}, state, action.payload.albums)
-      break;
+      artist = action.payload.artist;
+      return merge({}, state, { [artist.id]: artist });
     default:
       return state;
   }

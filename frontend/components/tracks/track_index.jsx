@@ -6,15 +6,15 @@ import TrackIndexItem from '../tracks/track_index_item';
 class TrackIndex extends React.Component {
 
   render() {
-
-    const { playlistId, tracks, type, openModal } = this.props;
+    const { playlistId, albumId, tracks, type, openModal } = this.props;
 
     return (
-      <ol className="playlist-tracklist">
+      <ol className="tracklist">
         { Object.values(tracks).map((track, i) => {
           return (
             <TrackIndexItem
               playlistId={ playlistId }
+              albumId={ albumId }
               key={i}
               type={ type }
               openModal={ openModal }

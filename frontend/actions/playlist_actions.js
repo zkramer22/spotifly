@@ -9,7 +9,6 @@ export const REMOVE_TRACK_FROM_STATE = "REMOVE_TRACK_FROM_STATE";
 export const RECEIVE_TRACK_PLAYLIST = "RECEIVE_TRACK_PLAYLIST";
 export const REMOVE_TRACK_PLAYLIST = "REMOVE_TRACK_PLAYLIST";
 
-
 export const receiveAllPlaylists = playlists => {
   return {
     type: RECEIVE_ALL_PLAYLISTS,

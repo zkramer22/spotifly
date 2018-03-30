@@ -14,7 +14,7 @@ class PlaylistIndex extends React.Component {
     const { playlists, openModal } = this.props;
     return (
       <div className="BLACKround">
-        <div className="playlist-index-flexbox">
+        <div className="index-flexbox home-gradient">
           <div className="left-spacing">
             <Topbar openModal={ openModal } modalType="create"/>
             <section className="playlist-index-container">

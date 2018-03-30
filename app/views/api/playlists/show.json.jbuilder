@@ -10,6 +10,7 @@ json.tracks do
       json.extract! track, :id, :name, :album_id, :ord
       json.trackUrl track.audio.url
       json.album track.album.name
+      json.albumId track.album.id
       json.artist track.artist.name
       json.artistId track.artist.id
       json.artwork track.album.artwork.url

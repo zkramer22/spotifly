@@ -10,6 +10,8 @@ import LogInFormContainer from './session_form/login_form_container';
 import SearchForm from './search/search_form';
 import PlaylistIndexContainer from './playlists/playlist_index_container';
 import PlaylistDetailContainer from './playlists/playlist_detail_container';
+import AlbumDetail from './albums/album_detail';
+import ArtistDetail from './artists/artist_detail';
 import SidebarContainer from './bars/sidebar_container';
 import Playbar from './bars/playbar';
 
@@ -31,6 +33,12 @@ const App = (props) => (
     <Route
       exact path="/collection/playlists"
       component={ PlaylistIndexContainer } />
+    <Route
+      exact path="/albums/:albumId"
+      component={ AlbumDetail } />
+    <Route
+      exact path="/artists/:artistId"
+      component={ ArtistDetail } />
     <Route
       path="/searches"
       component={ SearchForm } />

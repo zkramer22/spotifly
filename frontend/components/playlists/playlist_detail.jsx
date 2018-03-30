@@ -1,6 +1,5 @@
 import React from 'react';
 import PlaylistIndexItem from './playlist_index_item';
-// import TrackIndexItem from '../tracks/track_index_item';
 import TrackIndex from '../tracks/track_index';
 import Topbar from '../bars/topbar';
 
@@ -12,13 +11,13 @@ class PlaylistDetail extends React.Component {
 
   render() {
     const { playlist, tracks, openModal, trackIndexType } = this.props;
-    const deleteType = "delete";
+    const modalType = "delete";
 
     return (
       <div className="BLACKround">
-        <div className="playlist-index-flexbox random-gradient">
+        <div className="index-flexbox random-gradient">
           <div className="left-spacing">
-            <Topbar openModal={ openModal } modalType={ deleteType } />
+            <Topbar openModal={ openModal } modalType={ modalType } />
 
             <section className="playlist-detail-container">
               <div className="playlist-detail-info">

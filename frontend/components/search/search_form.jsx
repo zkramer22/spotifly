@@ -43,7 +43,7 @@ class SearchForm extends React.Component {
     });
 
     return (
-      <div className="BLACKround">
+      <div className="BLACKround greyish">
         <div className="search-index-flexbox">
           <div className="left-spacing-exact">
 
