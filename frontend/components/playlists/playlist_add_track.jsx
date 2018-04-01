@@ -27,6 +27,7 @@ class PlaylistAddTrack extends React.Component {
       this.props.addTrackToPlaylist(playlist.id).then(response => {
         // this.successMessage();
       });
+      this.props.requestAllPlaylists();
     };
   }
 

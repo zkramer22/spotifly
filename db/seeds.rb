@@ -32,30 +32,30 @@ end
 # ARTISTS
 # ///////
 artist_list = [
-  "Above and Beyond",   #1
-  "Coldplay", #2
-  "Dusky",  #3
-  "Emancipator",  #4
-  "Haywyre",  #5
-  "Ilan Bluestone", #6
-  "Incubus",  #7
-  "Jaga Jazzist", #8
-  "Jay-Z",  #9
-  "Jaytech", #10
-  "Justin Timberlake",  #11
-  "Maroon 5", #12
-  "Mat Zo", #13
-  "Modern Jazz Quartet",  #14
-  "ODESZA", #15
-  "Porter Robinson",  #16
-  "Red Hot Chili Peppers"#, #17
-  # "Skrillex", #18
-  # "Snarky Puppy", #19
-  # "Tycho",  #20
-  # "Young the Giant",  #21
+  ["Above and Beyond", URI("https://s3.us-east-2.amazonaws.com/spotifly-audio/cover_photos/above-and-beyond.jpg")],   #1
+  ["Coldplay", URI("https://s3.us-east-2.amazonaws.com/spotifly-audio/cover_photos/coldplay.png")], #2
+  ["Dusky", URI("https://s3.us-east-2.amazonaws.com/spotifly-audio/cover_photos/dusky.jpg")],  #3
+  ["Emancipator", URI("https://s3.us-east-2.amazonaws.com/spotifly-audio/cover_photos/emancipator.jpg")],  #4
+  ["Haywyre", URI("https://s3.us-east-2.amazonaws.com/spotifly-audio/cover_photos/haywyre.jpg")],  #5
+  ["Ilan Bluestone", URI("https://s3.us-east-2.amazonaws.com/spotifly-audio/cover_photos/ilan-bluestone.jpg")], #6
+  ["Incubus", URI("https://s3.us-east-2.amazonaws.com/spotifly-audio/cover_photos/incubus.jpg")],  #7
+  ["Jaga Jazzist", URI("https://s3.us-east-2.amazonaws.com/spotifly-audio/cover_photos/jaga-jazzist.jpeg")], #8
+  ["Jay-Z", URI("https://s3.us-east-2.amazonaws.com/spotifly-audio/cover_photos/jay-z.jpg")],  #9
+  ["Jaytech", URI("https://s3.us-east-2.amazonaws.com/spotifly-audio/cover_photos/jaytech.jpg")], #10
+  ["Justin Timberlake", URI("https://s3.us-east-2.amazonaws.com/spotifly-audio/cover_photos/justin-timberlake.jpg")],  #11
+  ["Maroon 5", URI("https://s3.us-east-2.amazonaws.com/spotifly-audio/cover_photos/maroon-5.jpg")], #12
+  ["Mat Zo", URI("https://s3.us-east-2.amazonaws.com/spotifly-audio/cover_photos/mat-zo.jpg")], #13
+  ["Modern Jazz Quartet", URI("https://s3.us-east-2.amazonaws.com/spotifly-audio/cover_photos/modern-jazz-quartet.jpg")],  #14
+  ["ODESZA", URI("https://s3.us-east-2.amazonaws.com/spotifly-audio/cover_photos/odesza.jpg")], #15
+  ["Porter Robinson", URI("https://s3.us-east-2.amazonaws.com/spotifly-audio/cover_photos/porter-robinson.jpg")],  #16
+  ["Red Hot Chili Peppers", URI("https://s3.us-east-2.amazonaws.com/spotifly-audio/cover_photos/red-hot-chili-peppers.jpg")]#, #17
+  # ["Skrillex", URI("https://s3.us-east-2.amazonaws.com/spotifly-audio/cover_photos/skrillex.jpg")] #18
+  # ["Snarky Puppy", URI("https://s3.us-east-2.amazonaws.com/spotifly-audio/cover_photos/snarky-puppy.jpg")] #19
+  # ["Tycho", URI("https://s3.us-east-2.amazonaws.com/spotifly-audio/cover_photos/tycho.jpg")]  #20
+  # ["Young the Giant", URI("https://s3.us-east-2.amazonaws.com/spotifly-audio/cover_photos/young-the-giant.jpg")]  #21
 ]
-artist_list.each do |name|
-  Artist.create!(name: name)
+artist_list.each do |name, cover_photo|
+  Artist.create!(name: name, cover_photo: cover_photo)
 end
 
 # /////////////////////////////////////////////////////////////////////
@@ -130,7 +130,7 @@ end
 # TRACKS
 # //////
 track_list = [
-  ["Filmic", 1, 1, "https://s3.us-east-2.amazonaws.com/spotifly-audio/music/above-and-beyond/01+Filmic.m4a"],
+  ["Filmic", 1, 1, URI("https://s3.us-east-2.amazonaws.com/spotifly-audio/music/above-and-beyond/01+Filmic.m4a")],
   ["Alchemy", 1, 2, URI("https://s3.us-east-2.amazonaws.com/spotifly-audio/music/above-and-beyond/02+Alchemy+(feat.+Zoe%CC%88+Johnston).m4a")],
   ["Sun and Moon", 1, 3, URI("https://s3.us-east-2.amazonaws.com/spotifly-audio/music/above-and-beyond/03+Sun+%26+Moon+(feat.+Richard+Bedford).m4a")],
   ["You Got to Go", 1, 4, URI("https://s3.us-east-2.amazonaws.com/spotifly-audio/music/above-and-beyond/04+You+Got+To+Go+(feat.+Zoe%CC%88+Johnston).m4a")],
@@ -299,32 +299,3 @@ track_list = [
 track_list.each do |name, album_id, ord, audio|
   Track.create!(name: name, album_id: album_id, ord: ord, audio: audio)
 end
-
-# /////////////////////////////////////////////////////////////////////
-# //////////
-# PLAYLISTS
-# //////////
-# playlist_list = [
-#
-# ]
-# playlist_list.each do |name, creator_id|
-#   Playlist.create!(name: name, creator_id: creator_id)
-# end
-# /////////////////////////////////////////////////////////////////////
-# ////////////////
-# TRACK_PLAYLISTS
-# ////////////////
-# track_playlist_list = [
-#   [1, 1],
-#   [1, 3],
-#   [1, 5],
-#   [1, 6],
-#   [2, 1],
-#   [2, 5],
-#   [2, 6],
-#   [3, 7],
-#   [3, 8]
-# ]
-# track_playlist_list.each do |playlist_id, track_id|
-#   TrackPlaylist.create!(playlist_id: playlist_id, track_id: track_id)
-# end

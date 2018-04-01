@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { selectTrackList, getTrackList } from '../../reducers/selectors';
+import { openModal } from '../../actions/modal_actions';
+import { putTrackInState } from '../../actions/playlist_actions';
 import {
   receiveCurrentTrack,
   pauseCurrentTrack,
@@ -96,7 +98,7 @@ class Playbar extends React.Component {
   }
 
   render() {
-    const { trackInfo, currentTrack, loggedIn,
+    const { trackInfo, currentTrack, loggedIn, putTrackInState, openModal,
       pauseCurrentTrack, receiveCurrentTrack } = this.props;
 
     if (!loggedIn) { return null }
@@ -122,7 +124,11 @@ class Playbar extends React.Component {
                 </div>
 
                 <div className="now-playing-add-button-container">
-                  <div className="now-playing-add-button">
+                  <div className="now-playing-add-button"
+                    onClick={ () => {
+                      openModal();
+                      putTrackInState(currentTrack.id);
+                    }}>
                     <i className="material-icons">add</i>
                   </div>
                 </div>
@@ -226,11 +232,13 @@ const msp = state => {
   };
 };
 
-const mdp = dispatch => {
+const mdp = (dispatch, ownProps) => {
   return {
     pauseCurrentTrack: () => dispatch(pauseCurrentTrack()),
     receiveCurrentTrack: trackId => dispatch(receiveCurrentTrack(trackId)),
-    removeCurrentTrack: () => dispatch(removeCurrentTrack())
+    removeCurrentTrack: () => dispatch(removeCurrentTrack()),
+    openModal: () => dispatch(openModal('add')),
+    putTrackInState: currentTrackId => dispatch(putTrackInState(currentTrackId))
   };
 };
 

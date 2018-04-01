@@ -21,7 +21,7 @@ class ArtistDetail extends React.Component {
       <div className="BLACKround">
         <div className="index-flexbox greyish">
           <div className="artist-cover-photo-container"
-            style={{ backgroundImage: "url(https://i1.wp.com/basementofthedead.com/wp-content/uploads/2016/08/bigstock-Old-grunge-brick-wall-backgrou-44341411.jpg?fit=2800%2C1867&ssl=1)" }}>
+            style={{ backgroundImage: `url(${artist.coverPhoto})` }}>
           </div>
           <div className="left-spacing-exact">
 

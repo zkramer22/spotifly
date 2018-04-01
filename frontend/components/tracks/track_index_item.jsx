@@ -13,7 +13,7 @@ class TrackIndexItem extends React.Component {
     super(props);
     this.state = { playing: false };
     this.togglePlay = this.togglePlay.bind(this);
-    this.activeTrack = this.activeTrack.bind(this);
+    // this.activeTrack = this.activeTrack.bind(this);
   }
 
   componentDidMount() {
