@@ -23,7 +23,8 @@ export const selectArtistAlbums = (state, artist) => {
   return artist.album_ids.map(id => state.entities.albums[id]);
 }
 
-export const getTrackList = (state, currentTrack) => {
+export const getTrackList = (state, currentTrack, ownProps) => {
+  debugger
   if (!currentTrack.id) { return [] }
   const currentPlaylist = state.entities.playlists[parseInt(state.ui.currentTrack.playlist)];
   if (!currentPlaylist) { return [] }

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { withRouter } from 'react-router-dom';
+import { Route, withRouter } from 'react-router-dom';
 
 class SessionForm extends React.Component {
   constructor(props) {
@@ -41,6 +41,15 @@ class SessionForm extends React.Component {
   }
 
   render() {
+    const guestLogin = this.props.formType === "login" ? (
+      <span
+        id="guest-login"
+        onClick={ () => this.props.guestLogin() }>Guest Login
+      </span>
+    ) : (
+      <span></span>
+    );
+
     return (
       <div className="splash-flexbox">
 
@@ -78,12 +87,10 @@ class SessionForm extends React.Component {
             type="submit"
             value={ this.props.formType } />
 
-          <p>or { this.props.navLink }</p>
+          <p>or <strong id="session-link">{ this.props.navLink }</strong></p>
 
-          <span
-            id="guest-login"
-            onClick={ () => this.props.guestLogin() }>Guest Login
-          </span>
+          { guestLogin }
+
         </form>
 
         <div className="welcome-message">

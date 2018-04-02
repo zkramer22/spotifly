@@ -21,7 +21,7 @@ class Playbar extends React.Component {
     this.toggleMute = this.toggleMute.bind(this);
     this.playButton = this.playButton.bind(this);
 
-    this.state = { progress: 0, lastVolume: 50 };
+    this.state = { progress: 0, lastVolume: 100, volume: 100 };
   }
 
   componentWillReceiveProps(nextProps) {
@@ -34,14 +34,20 @@ class Playbar extends React.Component {
 
   setVolume(val) {
     this.audio.volume = val / 100;
+    this.setState( { volume: val });
   }
 
   toggleMute() {
+    const volumeControl = document.getElementById("volume-control");
+
     if (this.audio.volume > 0) {
-      this.setState( { lastVolume: this.audio.volume });
+      this.setState( { lastVolume: this.audio.volume, volume: 0 });
       this.audio.volume = 0;
+      volumeControl.value = 0;
     } else {
       this.audio.volume = this.state.lastVolume;
+      volumeControl.value = this.audio.volume * 100;
+      this.setState( { volume: this.audio.volume * 100 });
     }
   }
 
@@ -206,8 +212,14 @@ class Playbar extends React.Component {
           <div className="extra-controls">
             <i id="queue" className="material-icons">playlist_play</i>
             <i id="device" className="material-icons">speaker</i>
-            <i id="volume" className="material-icons"
-              onClick={ () => this.toggleMute() }>volume_up</i>
+              { this.state.volume > 0 ? (
+                <i id="volume" className="material-icons"
+                  onClick={ () => this.toggleMute() }>volume_up</i>
+              ) : (
+                <i id="volume" className="material-icons"
+                  onClick={ () => this.toggleMute() }>volume_off</i>
+              )
+              }
 
             <input id="volume-control" type="range"
               min="0" max="100" step="1"
@@ -223,12 +235,12 @@ class Playbar extends React.Component {
   }
 }
 
-const msp = state => {
+const msp = (state, ownProps) => {
   return {
     loggedIn: Boolean(state.session.currentUser),
     trackInfo: state.entities.tracks[state.ui.currentTrack.id] || {},
     currentTrack: state.ui.currentTrack,
-    trackList: getTrackList(state, state.ui.currentTrack) || {}
+    trackList: getTrackList(state, state.ui.currentTrack, ownProps) || {}
   };
 };
 

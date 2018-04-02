@@ -10,9 +10,7 @@ const Greeting = ({currentUser, logout}) => {
         </div>
       </div>
 
-      <div
-        id="greeting-cont"
-        className="greeting-cont">
+      <div id="greeting-cont" className="greeting-cont">
         <div className="main-logo">
           <h2>Spotifly</h2>
         </div>
@@ -21,9 +19,7 @@ const Greeting = ({currentUser, logout}) => {
           <Link id="login-link-button" className="login-link" to='/login'>Login</Link>
       </div>
 
-      <div
-        id="welcome-message"
-        className="welcome-message">
+      <div id="welcome-message" className="welcome-message">
         <h1>Music takes flight.</h1>
         <h3>Listen to zillions of songs for free.</h3>
         <br></br>
@@ -37,13 +33,3 @@ const Greeting = ({currentUser, logout}) => {
 };
 
 export default Greeting;
-
-/* TODO: Here is the logic for currentUser being logged in.
-          Not sure if this is necessary anymore */
-/*
-  currentUser ? (
-    <div>
-      <h2>Hello, {currentUser.email_address}</h2>
-      <button onClick={ logout }>Logout</button>
-    </div>
-  ) : ( */

@@ -115,13 +115,11 @@ h3 {
 
 .greeting-background {
   background: url("https://images2.alphacoders.com/267/267922.jpg") no-repeat;
-  background-size:cover;
-  min-height: 1080px;
+  background-size: cover;
+  height: -webkit-fill-available;
   opacity: 0.35;
-  /* position: relative; */
   z-index: -1;
   overflow: hidden;
-  /* animation: fadeinpartial 2s linear; */
 }
 
 .errors {
@@ -200,17 +198,8 @@ h3 {
   align-items: center;
 }
 
-.login-link {
-  /* display: flex;
-  color: black;
-  background-color: white;
-  border: 0.5px solid black;
-  height: 45px;
-  width: 200px;
-  margin-bottom: 60px;
-  border-radius: 20px;
-  justify-content: center;
-  align-items: center; */
+#session-link a {
+  color: #1db954;
 }
 
 #submit-button {
