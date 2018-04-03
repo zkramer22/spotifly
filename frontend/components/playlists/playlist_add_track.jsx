@@ -62,12 +62,14 @@ class PlaylistAddTrack extends React.Component {
                   <div>
                     <img
                       style={{ backgroundColor: "white" }}
-                      src="https://www.clipartqueen.com/image-files/bird-flight-silhouette.png" />
+                      src="https://www.clipartqueen.com/image-files/bird-flight-silhouette.png"
+                      onClick={ this.handleSubmit(playlist) } />
                   </div>
                 );
               } else if (artworks.length >= 4) {
                 artworkGroup = (
-                  <div className="artwork-conglomerate">
+                  <div onClick={ this.handleSubmit(playlist) }
+                    className="artwork-conglomerate">
                     <img src={ `${artworks.slice(0, 1)}` } />
                     <img src={ `${artworks.slice(1, 2)}` } />
                     <img src={ `${artworks.slice(2, 3)}` } />
@@ -77,7 +79,8 @@ class PlaylistAddTrack extends React.Component {
               } else {
                 artworkGroup = (
                   <div className="artwork-single">
-                    <img src={ `${artworks.slice(0, 1)}` } />
+                    <img onClick={ this.handleSubmit(playlist) }
+                      src={ `${artworks.slice(0, 1)}` } />
                   </div>
                 );
               }
