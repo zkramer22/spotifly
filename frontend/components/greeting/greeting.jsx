@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const Greeting = ({currentUser, logout}) => {
+
   return (
     <div className="splash-flexbox">
 
@@ -12,7 +13,7 @@ const Greeting = ({currentUser, logout}) => {
 
       <div id="greeting-cont" className="greeting-cont">
         <div className="main-logo">
-          <h2>Spotifly</h2>
+          <h2>SpotiFLY</h2>
         </div>
         <Link className="signup-link" to='/signup'>Signup</Link>
         <div id="account-question">-- ALREADY HAVE AN ACCOUNT? --</div>

@@ -26,7 +26,7 @@ class Playbar extends React.Component {
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.currentTrack.playing) {
-      this.audio.play();
+      setTimeout(() => this.audio.play(), 50);
     } else if (nextProps.currentTrack.playing === false) {
       this.audio.pause();
     }
@@ -124,9 +124,11 @@ class Playbar extends React.Component {
 
                 <div className="now-playing-info">
                   <div className="now-playing-track">{ trackInfo.name }</div>
-                  <Link to={ `/artists/${trackInfo.artistId}` }>
-                    <div className="now-playing-artist">{ trackInfo.artist}</div>
-                  </Link>
+                    <div className="now-playing-artist">
+                      <Link to={ `/artists/${trackInfo.artistId}` }>
+                        <span>{ trackInfo.artist}</span>
+                      </Link>
+                    </div>
                 </div>
 
                 <div className="now-playing-add-button-container">
@@ -235,12 +237,12 @@ class Playbar extends React.Component {
   }
 }
 
-const msp = (state, ownProps) => {
+const msp = state => {
   return {
     loggedIn: Boolean(state.session.currentUser),
     trackInfo: state.entities.tracks[state.ui.currentTrack.id] || {},
     currentTrack: state.ui.currentTrack,
-    trackList: getTrackList(state, state.ui.currentTrack, ownProps) || {}
+    trackList: getTrackList(state, state.ui.currentTrack) || {}
   };
 };
 

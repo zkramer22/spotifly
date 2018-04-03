@@ -14,8 +14,8 @@ class Sidebar extends React.Component {
   handleLogout(e) {
     e.preventDefault();
     this.props.removeCurrentTrack();
-    this.props.history.push("/");
     this.props.logout();
+    setTimeout(() => this.props.history.push("/"), 100);
   }
 
   render() {

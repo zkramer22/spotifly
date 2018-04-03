@@ -709,7 +709,13 @@ div[class*="track-index-highlight"]:hover #index-play:hover {
   color: #1db954;
 }
 
+.track-info-group {
+  border-left: 1px solid hsla(0, 0%, 60%, 0.6);
+}
+
 .track-number-button {
+  text-align: right;
+  margin-right: 11px;
   min-width: 20px;
   min-height: 20px;
   font-weight: 200;
@@ -983,8 +989,8 @@ div[class*="track-index-highlight"]:hover #index-play:hover {
   letter-spacing: 1px;
 }
 
-.now-playing-artist {
-  width: fit-content;
+.now-playing-artist span {
+  /* width: fit-content; */
   margin: 5px 0 5px 0;
   font-size: 12px;
   font-weight: 200;
@@ -993,7 +999,7 @@ div[class*="track-index-highlight"]:hover #index-play:hover {
   color: hsla(0,0%,100%,.7);
 }
 
-.now-playing-artist:hover {
+.now-playing-artist span:hover {
   color: white;
   cursor: pointer;
   text-decoration: underline;
@@ -1113,6 +1119,10 @@ progress[value]::-webkit-progress-value {
 
 .progress-bar:hover progress[value]::-webkit-progress-value {
   background-color: #1db954;
+}
+
+.progress-bar:hover progress[value] {
+  cursor: pointer;
 }
 
 #play-circle, #pause-circle {

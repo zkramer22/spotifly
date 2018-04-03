@@ -18,7 +18,7 @@ import Playbar from './bars/playbar';
 const App = (props) => (
   <div>
     <Modal />
-    <Route
+    <AuthRoute
       exact path="/"
       component={ GreetingContainer } />
     <AuthRoute

@@ -88,7 +88,7 @@ class TrackIndexItem extends React.Component {
         <Link to={ `/artists/${track.artistId}` }>
           <span className="track-artist-name">{ track.artist }</span>
         </Link>
-        <span style={ {cursor: "default", WebkitUserSelect: "none" } }>{" • "}</span>
+        <span style={{ cursor: "default", WebkitUserSelect: "none" }}>{" • "}</span>
         <Link to={`/albums/${track.albumId}`}>
           <span className="track-album-name">{ track.album }</span>
         </Link>
@@ -96,24 +96,25 @@ class TrackIndexItem extends React.Component {
     );
 
     return (
-      <div className={`track-index-highlight-${track.id}`} onClick={() => {
-          this.activeTrack(track.id) }
-          }>
+      <div id={`track-index-highlight-${track.id}`}
+        className={`track-index-highlight-${track.id}`}
+        onClick={() => { this.activeTrack(track.id) }}>
         {
-          this.state.playing ?
-          <div className="index-button-container">
-            <i id="index-pause" className="material-icons" onClick={() => {
-                this.togglePlay(track.id, playlistId)
-                }}>pause
-            </i>
-          </div>
-          :
-          <div className="index-button-container">
-            <i id="index-play" className="material-icons" onClick={() => {
-                this.togglePlay(track.id, playlistId)
-              }}>play_arrow
-            </i>
-          </div>
+          this.state.playing ? (
+            <div className="index-button-container">
+              <i id="index-pause" className="material-icons" onClick={() => {
+                  this.togglePlay(track.id, playlistId)
+                }}>volume_up
+              </i>
+            </div>
+          ) : (
+            <div className="index-button-container">
+              <i id="index-play" className="material-icons" onClick={() => {
+                  this.togglePlay(track.id, playlistId)
+                }}>play_arrow
+              </i>
+            </div>
+          )
         }
 
         <div className="track-number-button">
