@@ -27,8 +27,9 @@ class Sidebar extends React.Component {
       <div className="sidebar">
         <br/>
         <img
+          id="spotiFLY-logo"
           className="sidebar-logo"
-          src="https://www.numerama.com/content/uploads/2016/01/spotify.png"
+          src="https://www.clipartqueen.com/image-files/bird-flight-silhouette.png"
           style={{marginBottom: "10px"}}/>
 
         <div className="sidebar-link-container">

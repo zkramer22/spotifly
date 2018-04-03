@@ -11,7 +11,29 @@ class PlaylistDetail extends React.Component {
 
   render() {
     const { playlist, tracks, openModal, trackIndexType } = this.props;
+
     const modalType = "delete";
+    const artworks = playlist.album_artworks;
+    let artworkGroup;
+
+    if (artworks === undefined) {
+      artworkGroup = <div></div>
+    } else if (artworks.length >= 4) {
+      artworkGroup = (
+        <div className="artwork-conglomerate-detail">
+          <img src={ `${artworks.slice(0, 1)}` } alt="https://www.clipartqueen.com/image-files/bird-flight-silhouette.png"/>
+          <img src={ `${artworks.slice(1, 2)}` } alt="https://www.clipartqueen.com/image-files/bird-flight-silhouette.png"/>
+          <img src={ `${artworks.slice(2, 3)}` } alt="https://www.clipartqueen.com/image-files/bird-flight-silhouette.png"/>
+          <img src={ `${artworks.slice(3, 4)}` } alt="https://www.clipartqueen.com/image-files/bird-flight-silhouette.png"/>
+        </div>
+      );
+    } else {
+      artworkGroup = (
+        <div className="artwork-single-detail">
+          <img src={ `${artworks.slice(0, 1)}` } alt="https://www.clipartqueen.com/image-files/bird-flight-silhouette.png" />
+        </div>
+      );
+    }
 
     return (
       <div className="BLACKround">
@@ -21,10 +43,7 @@ class PlaylistDetail extends React.Component {
 
             <section className="playlist-detail-container">
               <div className="playlist-detail-info">
-                <img
-                  className="playlist-index-item-coverart"
-                  src="https://images.complex.com/complex/images/c_fill,g_center,w_1200/fl_lossy,pg_1,q_auto/mqlimq5ifprz3klcoxpt/spotify-logo"
-                  alt="meh" />
+                { artworkGroup }
                 <h2>{ playlist.name }</h2>
                 <h4 style={{ fontWeight:"200", color: "lightgrey"}}>
                   { playlist.email_address }

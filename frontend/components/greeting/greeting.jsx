@@ -13,6 +13,8 @@ const Greeting = ({currentUser, logout}) => {
 
       <div id="greeting-cont" className="greeting-cont">
         <div className="main-logo">
+          <img id="spotiFLY-logo"
+            src="https://www.clipartqueen.com/image-files/bird-flight-silhouette.png"/>
           <h2>SpotiFLY</h2>
         </div>
         <Link className="signup-link" to='/signup'>Signup</Link>

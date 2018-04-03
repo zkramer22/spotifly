@@ -53,15 +53,29 @@ class PlaylistAddTrack extends React.Component {
 
           <div className="playlist-index add-track">
             { playlists.map((playlist, i) => {
+              const artworks = playlist.album_artworks;
+
+              const artworkGroup = artworks.length >= 4 ? (
+                <div className="artwork-conglomerate"
+                  onClick={ this.handleSubmit(playlist) }>
+                  <img src={ `${artworks.slice(0, 1)}` } alt="https://www.clipartqueen.com/image-files/bird-flight-silhouette.png"/>
+                  <img src={ `${artworks.slice(1, 2)}` } alt="https://www.clipartqueen.com/image-files/bird-flight-silhouette.png"/>
+                  <img src={ `${artworks.slice(2, 3)}` } alt="https://www.clipartqueen.com/image-files/bird-flight-silhouette.png"/>
+                  <img src={ `${artworks.slice(3, 4)}` } alt="https://www.clipartqueen.com/image-files/bird-flight-silhouette.png"/>
+                </div>
+              ) : (
+                <div className="artwork-single">
+                  <img src={ `${artworks.slice(0, 1)}` } alt="https://www.clipartqueen.com/image-files/bird-flight-silhouette.png" />
+                </div>
+              );
+
               return (
                 <div
                   className="playlist-index-item-container"
                   key={i}
                   playlistid={ playlist.id }>
                   <div className="add-playlist-index-item">
-                    <img
-                      src="https://images.complex.com/complex/images/c_fill,g_center,w_1200/fl_lossy,pg_1,q_auto/mqlimq5ifprz3klcoxpt/spotify-logo"
-                      onClick={ this.handleSubmit(playlist) }/>
+                    { artworkGroup }
                       <span style={{padding: "5px 0 2.5px 0"}}>{ playlist.name }</span>
                   </div>
                 </div>

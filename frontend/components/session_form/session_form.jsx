@@ -63,6 +63,8 @@ class SessionForm extends React.Component {
           onSubmit={ this.handleSubmit }
           >
           <div className="main-logo">
+            <img id="spotiFLY-logo"
+              src="https://www.clipartqueen.com/image-files/bird-flight-silhouette.png"/>
             <h2>Spotifly</h2>
           </div>
 
