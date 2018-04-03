@@ -16,21 +16,28 @@ class PlaylistDetail extends React.Component {
     const artworks = playlist.album_artworks;
     let artworkGroup;
 
-    if (artworks === undefined) {
-      artworkGroup = <div></div>
+    if (artworks === undefined || artworks.length < 1) {
+      artworkGroup = (
+        <div className="artwork-single-detail">
+          <img
+            style={{ backgroundColor: "white" }}
+            className="default-playlist-img-detail"
+            src="https://www.clipartqueen.com/image-files/bird-flight-silhouette.png" />
+        </div>
+      );
     } else if (artworks.length >= 4) {
       artworkGroup = (
         <div className="artwork-conglomerate-detail">
-          <img src={ `${artworks.slice(0, 1)}` } alt="https://www.clipartqueen.com/image-files/bird-flight-silhouette.png"/>
-          <img src={ `${artworks.slice(1, 2)}` } alt="https://www.clipartqueen.com/image-files/bird-flight-silhouette.png"/>
-          <img src={ `${artworks.slice(2, 3)}` } alt="https://www.clipartqueen.com/image-files/bird-flight-silhouette.png"/>
-          <img src={ `${artworks.slice(3, 4)}` } alt="https://www.clipartqueen.com/image-files/bird-flight-silhouette.png"/>
+          <img src={ `${artworks.slice(0, 1)}` } />
+          <img src={ `${artworks.slice(1, 2)}` } />
+          <img src={ `${artworks.slice(2, 3)}` } />
+          <img src={ `${artworks.slice(3, 4)}` } />
         </div>
       );
     } else {
       artworkGroup = (
         <div className="artwork-single-detail">
-          <img src={ `${artworks.slice(0, 1)}` } alt="https://www.clipartqueen.com/image-files/bird-flight-silhouette.png" />
+          <img src={ `${artworks.slice(0, 1)}` } />
         </div>
       );
     }

@@ -637,6 +637,11 @@ h3 {
   width: 85px;
 }
 
+.default-playlist-img-detail {
+  width: 250px;
+  height: 250px;
+}
+
 .artwork-single-detail {
   width: 250px;
   height: 250px;

@@ -4,18 +4,32 @@ import { Link } from 'react-router-dom';
 const PlaylistIndexItem = ({ playlist }) => {
   const artworks = playlist.album_artworks;
 
-  const artworkGroup = artworks.length >= 4 ? (
-    <div className="artwork-conglomerate">
-      <img src={ `${artworks.slice(0, 1)}` } alt="https://www.clipartqueen.com/image-files/bird-flight-silhouette.png"/>
-      <img src={ `${artworks.slice(1, 2)}` } alt="https://www.clipartqueen.com/image-files/bird-flight-silhouette.png"/>
-      <img src={ `${artworks.slice(2, 3)}` } alt="https://www.clipartqueen.com/image-files/bird-flight-silhouette.png"/>
-      <img src={ `${artworks.slice(3, 4)}` } alt="https://www.clipartqueen.com/image-files/bird-flight-silhouette.png"/>
-    </div>
-  ) : (
-    <div className="artwork-single">
-      <img src={ `${artworks.slice(0, 1)}` } alt="https://www.clipartqueen.com/image-files/bird-flight-silhouette.png" />
-    </div>
-  );
+  let artworkGroup;
+
+  if (artworks.length < 1) {
+    artworkGroup = (
+      <div>
+        <img
+          style={{ backgroundColor: "white" }}
+          src="https://www.clipartqueen.com/image-files/bird-flight-silhouette.png" />
+      </div>
+    );
+  } else if (artworks.length >= 4) {
+    artworkGroup = (
+      <div className="artwork-conglomerate">
+        <img src={ `${artworks.slice(0, 1)}` } />
+        <img src={ `${artworks.slice(1, 2)}` } />
+        <img src={ `${artworks.slice(2, 3)}` } />
+        <img src={ `${artworks.slice(3, 4)}` } />
+      </div>
+    );
+  } else {
+    artworkGroup = (
+      <div className="artwork-single">
+        <img src={ `${artworks.slice(0, 1)}` } />
+      </div>
+    );
+  }
 
   return (
     <div className="playlist-index-item-container">
