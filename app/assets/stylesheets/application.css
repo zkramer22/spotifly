@@ -533,13 +533,26 @@ h3 {
   border-top: 1px solid hsla(0,0%,100%,.3);
 }
 
+#personal-info {
+  position: absolute;
+  bottom: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 217px;
+  min-height: 40px;
+  opacity: 0.6;
+  font-weight: 200;
+  letter-spacing: 1px;
+}
+
 .links {
   position: absolute;
-  bottom: 128px;
+  bottom: 140px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 120px;
+  width: 217px;
   min-height: 60px;
 }
 
@@ -560,6 +573,11 @@ h3 {
 #linkedin {
   height: 50px;
   width: 50px;
+}
+
+#mailto {
+  height: 45px;
+  width: 45px;
 }
 
 .logout-button {
@@ -637,6 +655,35 @@ h3 {
   box-shadow: 0px 24px 190px -6px rgba(0,0,0,0.75);
 }
 
+.playlist-index-item {
+  transition: filter .1s linear;
+}
+
+.playlist-index-item:hover {
+  filter: brightness(50%);
+}
+
+.playlist-index-item span {
+  position: relative;
+}
+
+.playlist-index-item, .add-playlist-index-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-width: 130px;
+  padding: 10px 10px 0 10px;
+  margin: 10px 10px 0 10px;
+  color: white;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.playlist-index-item-container {
+  text-align: center;
+}
+
 .artwork-single {
   box-shadow: 0px 0px 16px 6px rgba(0, 0, 0, 0.2);
   width: 170px;
@@ -664,57 +711,6 @@ h3 {
   position: relative;
   height: 85px;
   width: 85px;
-}
-
-.default-playlist-img-detail {
-  width: 250px;
-  height: 250px;
-}
-
-.artwork-single-detail {
-  width: 250px;
-  height: 250px;
-  box-shadow: 0px 0px 16px 6px rgba(0, 0, 0, 0.2);
-}
-
-.artwork-conglomerate-detail {
-  width: 250px;
-  height: 250px;
-  line-height: 0;
-  box-shadow: 0px 0px 16px 6px rgba(0, 0, 0, 0.2);
-}
-
-.artwork-single-detail img {
-  position: relative;
-  height: 250px;
-  width: 250px;
-}
-
-.artwork-conglomerate-detail img {
-  position: relative;
-  height: 125px;
-  width: 125px;
-}
-
-.playlist-index-item span {
-  position: relative;
-}
-
-.playlist-index-item, .add-playlist-index-item {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  min-width: 130px;
-  padding: 10px 10px 0 10px;
-  margin: 10px 10px 0 10px;
-  color: white;
-  font-size: 15px;
-  font-weight: 600;
-}
-
-.playlist-index-item-container {
-  text-align: center;
 }
 
 .playlist-detail-container, .album-detail-container, .artist-detail-container {
@@ -747,6 +743,36 @@ h3 {
 .playlist-detail-info, .album-detail-info {
   padding: 10px;
   text-align: center;
+}
+
+.default-playlist-img-detail {
+  width: 250px;
+  height: 250px;
+}
+
+.artwork-single-detail {
+  width: 250px;
+  height: 250px;
+  box-shadow: 0px 0px 16px 6px rgba(0, 0, 0, 0.2);
+}
+
+.artwork-conglomerate-detail {
+  width: 250px;
+  height: 250px;
+  line-height: 0;
+  box-shadow: 0px 0px 16px 6px rgba(0, 0, 0, 0.2);
+}
+
+.artwork-single-detail img {
+  position: relative;
+  height: 250px;
+  width: 250px;
+}
+
+.artwork-conglomerate-detail img {
+  position: relative;
+  height: 125px;
+  width: 125px;
 }
 
 .add-track {
@@ -974,6 +1000,11 @@ div[class*="track-index-highlight"]:hover #index-play:hover {
 
 .artist-album-container {
   margin: 0 10px 5px 10px;
+  transition: filter .1s linear;
+}
+
+.artist-album-container:hover {
+  filter: brightness(50%);
 }
 
 /*/////////////////////////////////////////////////

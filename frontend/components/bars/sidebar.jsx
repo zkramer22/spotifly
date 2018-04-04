@@ -46,6 +46,10 @@ class Sidebar extends React.Component {
           </Link>
         </div>
 
+        <div id="personal-info">
+          built with &hearts; by zach kramer
+        </div>
+
         <div class="links">
           <div class="link-container">
             <a href="https://www.github.com/zkramer22">
@@ -59,7 +63,7 @@ class Sidebar extends React.Component {
           </div>
           <div>
             <a href="mailto:zkramer22@gmail.com">
-              <img id="mailto"/>
+              <img id="mailto" src="https://www.shareicon.net/data/2015/12/02/681171_email_512x512.png"/>
             </a>
           </div>
         </div>
