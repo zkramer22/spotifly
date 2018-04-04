@@ -46,6 +46,24 @@ class Sidebar extends React.Component {
           </Link>
         </div>
 
+        <div class="links">
+          <div class="link-container">
+            <a href="https://www.github.com/zkramer22">
+              <img id="github" src="https://image.flaticon.com/icons/svg/25/25231.svg" />
+            </a>
+          </div>
+          <div class="link-container">
+            <a href="https://www.linkedin.com/in/zkramer22">
+              <img id="linkedin" src="https://cdn3.iconfinder.com/data/icons/free-social-icons/67/linkedin_circle_black-512.png" />
+            </a>
+          </div>
+          <div>
+            <a href="mailto:zkramer22@gmail.com">
+              <img id="mailto"/>
+            </a>
+          </div>
+        </div>
+
         <div className="sidebar-link-container user-logout">
           <span style={{ marginRight: "105px" }}>
             { currentUser.email_address }

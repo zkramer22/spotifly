@@ -533,6 +533,35 @@ h3 {
   border-top: 1px solid hsla(0,0%,100%,.3);
 }
 
+.links {
+  position: absolute;
+  bottom: 128px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 120px;
+  min-height: 60px;
+}
+
+.links img {
+  filter: invert(100%);
+  opacity: 0.7;
+}
+
+.links img:hover {
+  transform: scale(1.1);
+}
+
+#github {
+  height: 45px;
+  width: 45px;
+}
+
+#linkedin {
+  height: 50px;
+  width: 50px;
+}
+
 .logout-button {
   background-color: transparent;
   transition: color .15s linear, background-color .15s linear;
@@ -558,7 +587,7 @@ h3 {
 
 .user-logout {
   position: absolute;
-  bottom: 100px;
+  bottom: 80px;
 }
 
 /*/////////////////////////////////////////////////
@@ -1323,6 +1352,6 @@ input[type=range]::-webkit-slider-runnable-track {
   border: .5px solid hsla(0,0%,100%,.7);
 }
 
-input[type=range]:hover::-webkit-slider-runnable-track {
+/* input[type=range]:hover::-webkit-slider-runnable-track {
   background: #1db954;
-}
+} */
