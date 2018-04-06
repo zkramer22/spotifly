@@ -11,6 +11,10 @@ class Sidebar extends React.Component {
     this.handleLogout = this.handleLogout.bind(this);
   }
 
+  componentDidMount() {
+    this.props.requestToto();
+  }
+
   handleLogout(e) {
     e.preventDefault();
     this.props.removeCurrentTrack();
@@ -19,7 +23,7 @@ class Sidebar extends React.Component {
   }
 
   render() {
-    const { currentUser, loggedIn } = this.props;
+    const { currentUser, loggedIn, receiveCurrentTrack } = this.props;
 
     if (!loggedIn) { return null }
 
@@ -47,16 +51,20 @@ class Sidebar extends React.Component {
         </div>
 
         <div id="personal-info">
-          built with &hearts; by zach kramer
+          built with &nbsp;
+          <strong onClick={ () => receiveCurrentTrack() }>
+            &hearts;
+          </strong>
+           &nbsp; by zach kramer
         </div>
 
-        <div class="links">
-          <div class="link-container">
+        <div className="links">
+          <div className="link-container">
             <a href="https://www.github.com/zkramer22">
               <img id="github" src="https://image.flaticon.com/icons/svg/25/25231.svg" />
             </a>
           </div>
-          <div class="link-container">
+          <div className="link-container">
             <a href="https://www.linkedin.com/in/zkramer22">
               <img id="linkedin" src="https://cdn3.iconfinder.com/data/icons/free-social-icons/67/linkedin_circle_black-512.png" />
             </a>

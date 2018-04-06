@@ -48,11 +48,12 @@ artist_list = [
   ["Modern Jazz Quartet", URI("https://s3.us-east-2.amazonaws.com/spotifly-audio/cover_photos/modern-jazz-quartet.jpg")],  #14
   ["ODESZA", URI("https://s3.us-east-2.amazonaws.com/spotifly-audio/cover_photos/odesza.jpg")], #15
   ["Porter Robinson", URI("https://s3.us-east-2.amazonaws.com/spotifly-audio/cover_photos/porter-robinson.jpg")],  #16
-  ["Red Hot Chili Peppers", URI("https://s3.us-east-2.amazonaws.com/spotifly-audio/cover_photos/red-hot-chili-peppers.jpg")]#, #17
-  # ["Skrillex", URI("https://s3.us-east-2.amazonaws.com/spotifly-audio/cover_photos/skrillex.jpg")] #18
-  # ["Snarky Puppy", URI("https://s3.us-east-2.amazonaws.com/spotifly-audio/cover_photos/snarky-puppy.jpg")] #19
-  # ["Tycho", URI("https://s3.us-east-2.amazonaws.com/spotifly-audio/cover_photos/tycho.jpg")]  #20
-  # ["Young the Giant", URI("https://s3.us-east-2.amazonaws.com/spotifly-audio/cover_photos/young-the-giant.jpg")]  #21
+  ["Red Hot Chili Peppers", URI("https://s3.us-east-2.amazonaws.com/spotifly-audio/cover_photos/red-hot-chili-peppers.jpg")], #17
+  ["Skrillex", URI("https://s3.us-east-2.amazonaws.com/spotifly-audio/cover_photos/skrillex.jpg")], #18
+  ["Snarky Puppy", URI("https://s3.us-east-2.amazonaws.com/spotifly-audio/cover_photos/snarky-puppy.jpg")], #19
+  ["Tycho", URI("https://s3.us-east-2.amazonaws.com/spotifly-audio/cover_photos/tycho.jpg")], #20
+  ["Young the Giant", URI("https://s3.us-east-2.amazonaws.com/spotifly-audio/cover_photos/young-the-giant.jpg")], #21
+  ["Toto", URI("https://s3.us-east-2.amazonaws.com/spotifly-audio/cover_photos/toto.jpg")] #22
 ]
 artist_list.each do |name, cover_photo|
   Artist.create!(name: name, cover_photo: cover_photo)
@@ -108,19 +109,21 @@ album_list = [
 
   ["The Getaway", 17, URI("https://s3.us-east-2.amazonaws.com/spotifly-audio/artwork/The+Getaway.jpg")], #28
   #
-  # ["Bangarang", 18], #29
-  # ["Reptile's Theme - Single", 18], #30
-  # ["Scary Monsters and Nice Sprites", 18], #31
+  ["Bangarang", 18, URI("https://s3.us-east-2.amazonaws.com/spotifly-audio/artwork/Bangarang.jpg")], #29
+  ["Reptile's Theme - Single", 18, URI("https://s3.us-east-2.amazonaws.com/spotifly-audio/artwork/Reptile's+Theme+-+Single.jpg")], #30
+  ["Scary Monsters and Nice Sprites", 18, URI("https://s3.us-east-2.amazonaws.com/spotifly-audio/artwork/Scary+Monsters+and+Nice+Sprites.jpg")], #31
   #
-  # ["Bring Us the Bright", 19], #32
-  # ["Tell Your Friends", 19], #33
-  # ["The World is Getting Smaller", 19], #34
+  ["Bring Us the Bright", 19, URI("https://s3.us-east-2.amazonaws.com/spotifly-audio/artwork/Bring+Us+the+Bright.jpg")], #32
+  ["Tell Your Friends", 19, URI("https://s3.us-east-2.amazonaws.com/spotifly-audio/artwork/Tell+Your+Friends.jpg")], #33
+  ["The World is Getting Smaller", 19, URI("https://s3.us-east-2.amazonaws.com/spotifly-audio/artwork/The+World+Is+Getting+Smaller.jpg")], #34
   #
-  # ["Awake", 20], #35
-  # ["Epoch", 20], #36
+  ["Awake - Single", 20, URI("https://s3.us-east-2.amazonaws.com/spotifly-audio/artwork/Awake.jpg")], #35
+  ["Epoch", 20, URI("https://s3.us-east-2.amazonaws.com/spotifly-audio/artwork/Epoch.jpg")], #36
   #
-  # ["Home of the Strange", 21], #37
-  # ["Mind Over Matter", 21] #38
+  ["Home of the Strange", 21, URI("https://s3.us-east-2.amazonaws.com/spotifly-audio/artwork/Home+of+the+Strange.jpg")], #37
+  ["Mind Over Matter", 21, URI("https://s3.us-east-2.amazonaws.com/spotifly-audio/artwork/Mind+Over+Matter.jpg")], #38
+
+  ["Toto IV", 22, URI("https://s3.us-east-2.amazonaws.com/spotifly-audio/artwork/Toto+IV.jpg")] #39
 ]
 album_list.each do |name, artist_id, artwork|
   Album.create!(name: name, artist_id: artist_id, artwork: artwork)
@@ -295,6 +298,82 @@ track_list = [
   ["Encore", 28, 11, URI("https://s3.us-east-2.amazonaws.com/spotifly-audio/music/rhcp/11+Encore.m4a")],
   ["The Hunter", 28, 12, URI("https://s3.us-east-2.amazonaws.com/spotifly-audio/music/rhcp/12+The+Hunter.m4a")],
   ["Dreams of a Samurai", 28, 13, URI("https://s3.us-east-2.amazonaws.com/spotifly-audio/music/rhcp/13+Dreams+of+a+Samurai.m4a")],
+
+  ["Right In", 29, 1, URI("https://s3.us-east-2.amazonaws.com/spotifly-audio/music/skrillex/01+Right+In.m4a")],
+  ["Bangarang (feat. Sirah)", 29, 2, URI("https://s3.us-east-2.amazonaws.com/spotifly-audio/music/skrillex/02+Bangarang+(feat.+Sirah).m4a")],
+  ["Kyoto (feat. Sirah)", 29, 3, URI("https://s3.us-east-2.amazonaws.com/spotifly-audio/music/skrillex/06+Kyoto+(feat.+Sirah).m4a")],
+  ["Summit (feat. Ellie Goulding)", 29, 4, URI("https://s3.us-east-2.amazonaws.com/spotifly-audio/music/skrillex/07+Summit+(feat.+Ellie+Goulding).m4a")],
+  ["Skrillex Orchestral Suite By Varien (Bonus Track)", 29, 5, URI("https://s3.us-east-2.amazonaws.com/spotifly-audio/music/skrillex/08+Skrillex+Orchestral+Suite+By+Varien+(Bonus+Track).m4a")],
+  ["Reptile's Theme", 30, 1, URI("https://s3.us-east-2.amazonaws.com/spotifly-audio/music/skrillex/01+Reptile's+Theme.m4a")],
+  ["Rock n' Roll (Will Take You to the Mountain)", 31, 1, URI("https://s3.us-east-2.amazonaws.com/spotifly-audio/music/skrillex/01+Rock+'n'+Roll+(Will+Take+You+to+the+Mountain).m4a")],
+  ["Scary Monsters and Nice Sprites", 31, 2, URI("https://s3.us-east-2.amazonaws.com/spotifly-audio/music/skrillex/02+Scary+Monsters+and+Nice+Sprites.m4a")],
+  ["Kill Everybody", 31, 3, URI("https://s3.us-east-2.amazonaws.com/spotifly-audio/music/skrillex/03+Kill+Everybody.m4a")],
+  ["All I Ask Of You (feat. Penny)", 31, 4, URI("https://s3.us-east-2.amazonaws.com/spotifly-audio/music/skrillex/04+All+I+Ask+of+You+(feat.+Penny).m4a")],
+  ["Scatta (feat. Foreign Beggars & Bare Noize)", 31, 5, URI("https://s3.us-east-2.amazonaws.com/spotifly-audio/music/skrillex/05+Scatta+(feat.+Foreign+Beggars+%26+Bare+Noize).m4a")],
+  ["Kill Everybody (Bare Noize Remix)", 31, 6, URI("https://s3.us-east-2.amazonaws.com/spotifly-audio/music/skrillex/09+Kill+Everybody+(Bare+Noize+Remix).m4a")],
+
+  ["Bring Us the Bright", 32, 1, URI("https://s3.us-east-2.amazonaws.com/spotifly-audio/music/snarky-puppy/01+Bring+Us+the+Bright.m4a")],
+  ["Loose Screws", 32, 2, URI("https://s3.us-east-2.amazonaws.com/spotifly-audio/music/snarky-puppy/02+Loose+Screws.m4a")],
+  ["Strawman", 32, 3, URI("https://s3.us-east-2.amazonaws.com/spotifly-audio/music/snarky-puppy/03+Strawman.m4a")],
+  ["34 Klezma", 32, 4, URI("https://s3.us-east-2.amazonaws.com/spotifly-audio/music/snarky-puppy/04+34+Klezma.m4a")],
+  ["Strange Dream", 32, 5, URI("https://s3.us-east-2.amazonaws.com/spotifly-audio/music/snarky-puppy/05+Strange+Dream.m4a")],
+  ["Celebrity", 32, 6, URI("https://s3.us-east-2.amazonaws.com/spotifly-audio/music/snarky-puppy/06+Celebrity.m4a")],
+  ["Making the Circle", 32, 7, URI("https://s3.us-east-2.amazonaws.com/spotifly-audio/music/snarky-puppy/07+Making+the+Circle.m4a")],
+  ["And Soon We'll Be One", 32, 8, URI("https://s3.us-east-2.amazonaws.com/spotifly-audio/music/snarky-puppy/08+And+Soon+We'll+Be+One.m4a")],
+  ["White Cap", 33, 1, URI("https://s3.us-east-2.amazonaws.com/spotifly-audio/music/snarky-puppy/01+White+Cap.m4a")],
+  ["Flood", 33, 2, URI("https://s3.us-east-2.amazonaws.com/spotifly-audio/music/snarky-puppy/02+Flood.m4a")],
+  ["The Good Man Delivered and the Best is Blessed", 33, 3, URI("https://s3.us-east-2.amazonaws.com/spotifly-audio/music/snarky-puppy/03+The+Good+Man+Delivered+And+The+Best+Is+Blessed.m4a")],
+  ["Skate U", 33, 4, URI("https://s3.us-east-2.amazonaws.com/spotifly-audio/music/snarky-puppy/04+Skate+U.m4a")],
+  ["Slow Demon", 33, 5, URI("https://s3.us-east-2.amazonaws.com/spotifly-audio/music/snarky-puppy/05+Slow+Demon.m4a")],
+  ["Ready Wednesday", 33, 6, URI("https://s3.us-east-2.amazonaws.com/spotifly-audio/music/snarky-puppy/06+Ready+Wednesday.m4a")],
+  ["Native Sons", 34, 1, URI("https://s3.us-east-2.amazonaws.com/spotifly-audio/music/snarky-puppy/01+Native+Sons.m4a")],
+  ["Intelligent Design", 34, 2, URI("https://s3.us-east-2.amazonaws.com/spotifly-audio/music/snarky-puppy/02+Intelligent+Design.m4a")],
+  ["Alma", 34, 3, URI("https://s3.us-east-2.amazonaws.com/spotifly-audio/music/snarky-puppy/03+Alma.m4a")],
+  ["Thorn", 34, 4, URI("https://s3.us-east-2.amazonaws.com/spotifly-audio/music/snarky-puppy/04+Thorn.m4a")],
+  ["The World is Getting Smaller", 34, 5, URI("https://s3.us-east-2.amazonaws.com/spotifly-audio/music/snarky-puppy/05+The+World+Is+Getting+Smaller.m4a")],
+  ["Briar", 34, 6, URI("https://s3.us-east-2.amazonaws.com/spotifly-audio/music/snarky-puppy/06+Briar.m4a")],
+  ["Phoebus", 34, 7, URI("https://s3.us-east-2.amazonaws.com/spotifly-audio/music/snarky-puppy/07+Phoebus.m4a")],
+  ["Fair Play", 34, 8, URI("https://s3.us-east-2.amazonaws.com/spotifly-audio/music/snarky-puppy/08+Fair+Play.m4a")],
+
+  ["Awake", 35, 1, URI("https://s3.us-east-2.amazonaws.com/spotifly-audio/music/tycho/01+Awake.m4a")],
+  ["Glider", 36, 1, URI("https://s3.us-east-2.amazonaws.com/spotifly-audio/music/tycho/01+Glider.m4a")],
+  ["Horizon", 36, 2, URI("https://s3.us-east-2.amazonaws.com/spotifly-audio/music/tycho/02+Horizon.m4a")],
+  ["Slack", 36, 3, URI("https://s3.us-east-2.amazonaws.com/spotifly-audio/music/tycho/03+Slack.m4a")],
+  ["Receiver", 36, 4, URI("https://s3.us-east-2.amazonaws.com/spotifly-audio/music/tycho/04+Receiver.m4a")],
+  ["Epoch", 36, 5, URI("https://s3.us-east-2.amazonaws.com/spotifly-audio/music/tycho/05+Epoch.m4a")],
+  ["Division", 36, 6, URI("https://s3.us-east-2.amazonaws.com/spotifly-audio/music/tycho/06+Division.m4a")],
+  ["Source", 36, 7, URI("https://s3.us-east-2.amazonaws.com/spotifly-audio/music/tycho/07+Source.m4a")],
+  ["Local", 36, 8, URI("https://s3.us-east-2.amazonaws.com/spotifly-audio/music/tycho/08+Local.m4a")],
+  ["Rings", 36, 9, URI("https://s3.us-east-2.amazonaws.com/spotifly-audio/music/tycho/09+Rings.m4a")],
+  ["Continuum", 36, 10, URI("https://s3.us-east-2.amazonaws.com/spotifly-audio/music/tycho/10+Continuum.m4a")],
+  ["Field", 36, 11, URI("https://s3.us-east-2.amazonaws.com/spotifly-audio/music/tycho/11+Field.m4a")],
+
+  ["Amerika", 37, 1, URI("https://s3.us-east-2.amazonaws.com/spotifly-audio/music/young-the-giant/01+Amerika.m4a")],
+  ["Something To Believe In", 37, 2, URI("https://s3.us-east-2.amazonaws.com/spotifly-audio/music/young-the-giant/02+Something+to+Believe+In.m4a")],
+  ["Elsewhere", 37, 3, URI("https://s3.us-east-2.amazonaws.com/spotifly-audio/music/young-the-giant/03+Elsewhere.m4a")],
+  ["Mr. Know-It-All", 37, 4, URI("https://s3.us-east-2.amazonaws.com/spotifly-audio/music/young-the-giant/04+Mr.+Know-It-All.m4a")],
+  ["Jungle Youth", 37, 5, URI("https://s3.us-east-2.amazonaws.com/spotifly-audio/music/young-the-giant/05+Jungle+Youth.m4a")],
+  ["Titus Was Born", 37, 6, URI("https://s3.us-east-2.amazonaws.com/spotifly-audio/music/young-the-giant/06+Titus+Was+Born.m4a")],
+  ["Repeat", 37, 7, URI("https://s3.us-east-2.amazonaws.com/spotifly-audio/music/young-the-giant/07+Repeat.m4a")],
+  ["Silvertongue", 37, 8, URI("https://s3.us-east-2.amazonaws.com/spotifly-audio/music/young-the-giant/08+Silvertongue.m4a")],
+  ["Art Exhibit", 37, 9, URI("https://s3.us-east-2.amazonaws.com/spotifly-audio/music/young-the-giant/09+Art+Exhibit.m4a")],
+  ["Nothing's Over", 37, 10, URI("https://s3.us-east-2.amazonaws.com/spotifly-audio/music/young-the-giant/10+Nothing's+Over.m4a")],
+  ["Home of the Strange", 37, 11, URI("https://s3.us-east-2.amazonaws.com/spotifly-audio/music/young-the-giant/11+Home+of+the+Strange.m4a")],
+  ["Slow Dive", 38, 1, URI("https://s3.us-east-2.amazonaws.com/spotifly-audio/music/young-the-giant/01+Slow+Dive.m4a")],
+  ["Anagram", 38, 2, URI("https://s3.us-east-2.amazonaws.com/spotifly-audio/music/young-the-giant/02+Anagram.m4a")],
+  ["It's About Time", 38, 3, URI("https://s3.us-east-2.amazonaws.com/spotifly-audio/music/young-the-giant/03+It's+About+Time.m4a")],
+  ["Crystallized", 38, 4, URI("https://s3.us-east-2.amazonaws.com/spotifly-audio/music/young-the-giant/04+Crystallized.m4a")],
+  ["Mind Over Matter", 38, 5, URI("https://s3.us-east-2.amazonaws.com/spotifly-audio/music/young-the-giant/05+Mind+Over+Matter.m4a")],
+  ["Daydreamer", 38, 6, URI("https://s3.us-east-2.amazonaws.com/spotifly-audio/music/young-the-giant/06+Daydreamer.m4a")],
+  ["Firelight", 38, 7, URI("https://s3.us-east-2.amazonaws.com/spotifly-audio/music/young-the-giant/07+Firelight.m4a")],
+  ["Camera", 38, 8, URI("https://s3.us-east-2.amazonaws.com/spotifly-audio/music/young-the-giant/08+Camera.m4a")],
+  ["In My Home", 38, 9, URI("https://s3.us-east-2.amazonaws.com/spotifly-audio/music/young-the-giant/09+In+My+Home.m4a")],
+  ["Eros", 38, 10, URI("https://s3.us-east-2.amazonaws.com/spotifly-audio/music/young-the-giant/10+Eros.m4a")],
+  ["Teachers", 38, 11, URI("https://s3.us-east-2.amazonaws.com/spotifly-audio/music/young-the-giant/11+Teachers.m4a")],
+  ["Waves", 38, 12, URI("https://s3.us-east-2.amazonaws.com/spotifly-audio/music/young-the-giant/12+Waves.m4a")],
+  ["Paralysis", 38, 13, URI("https://s3.us-east-2.amazonaws.com/spotifly-audio/music/young-the-giant/13+Paralysis.m4a")],
+
+  ["Africa", 39, 1, URI("https://s3.us-east-2.amazonaws.com/spotifly-audio/music/toto/10+Africa.m4a")]
 ]
 track_list.each do |name, album_id, ord, audio|
   Track.create!(name: name, album_id: album_id, ord: ord, audio: audio)

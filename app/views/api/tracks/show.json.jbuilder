@@ -1,6 +1,7 @@
-json.track do
-  json.extract! @track, :id, :name, :album_id
-  json.extract! @track.audio, :url
-  json.extract! @track.artist, :name
-  json.extract! @track.album, :name
+json.set! @track.id do
+  json.extract! @track, :id, :name, :ord, :album_id
+  json.trackUrl @track.audio.url
+  json.artist @track.artist.name
+  json.extract! @track.album.name
+  json.artwork @track.album.artwork.url
 end
