@@ -22,8 +22,8 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // WINDOW TESTING
-  window.getState = store.getState;
-  window.dispatch = store.dispatch;
+  // window.getState = store.getState;
+  // window.dispatch = store.dispatch;
   // window.fetchResults = fetchResults;
   // window.addTrackToPlaylist = addTrackToPlaylist;
   // window.login = login;
