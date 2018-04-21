@@ -8,10 +8,8 @@ const PlaylistIndexItem = ({ playlist }) => {
 
   if (artworks.length < 1) {
     artworkGroup = (
-      <div>
-        <img
-          style={{ backgroundColor: "white" }}
-          src="https://www.clipartqueen.com/image-files/bird-flight-silhouette.png" />
+      <div id="empty-playlist-eighthnote">
+        <i class="material-icons">library_music</i>
       </div>
     );
   } else if (artworks.length >= 4) {

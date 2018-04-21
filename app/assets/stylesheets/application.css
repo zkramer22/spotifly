@@ -29,6 +29,7 @@ html, body, div, span, h1, h2, h3, h4, a, ol, ul, li, form, label, article, asid
 }
 
 body {
+  scroll-behavior: auto;
   line-height: 1.5;
   color: white;
   font-family: proxima_nova,Helvetica Neue,Helvetica,Arial,sans-serif;
@@ -139,17 +140,17 @@ h3 {
 }
 
 @media (max-width: 800px) {
-  body {
+  /* body {
+    overflow: scroll;
+  } */
+
+  /* #root {
     overflow: scroll;
   }
 
-  #root {
+  /* .greeting-background {
     overflow: scroll;
-  }
-
-  .greeting-background {
-    overflow: scroll;
-  }
+  } */
 
   .BLACKround {
     overflow: scroll;
@@ -494,6 +495,13 @@ h3 {
   font-weight: 700;
 }
 
+.nav-arrows {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-self: flex-start;
+}
+
 /*/////////////////////////////////////////////////
 //////////////////  sidebar  //////////////////////
 /////////////////////////////////////////////////*/
@@ -658,6 +666,7 @@ h3 {
   display: flex;
   height: 100%;
   width: 100%;
+  padding-bottom: 120px;
 }
 
 .playlist-index {
@@ -833,6 +842,26 @@ h3 {
 
 .empty-message-container a:hover {
   text-decoration: underline;
+}
+
+#empty-playlist-eighthnote {
+  height: 170px;
+  width: 170px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid darkgrey;
+  box-shadow:
+}
+
+#empty-playlist-eighthnote i {
+  font-size: 60px;
+  text-shadow: 10px 10px 3px black;
+  transition: all .2s linear;
+}
+
+#empty-playlist-eighthnote:hover i {
+  filter: blur(1px);
 }
 
 /*/////////////////////////////////////////////////
