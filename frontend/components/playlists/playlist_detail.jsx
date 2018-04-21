@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import PlaylistIndexItem from './playlist_index_item';
 import TrackIndex from '../tracks/track_index';
 import Topbar from '../bars/topbar';
@@ -11,6 +12,17 @@ class PlaylistDetail extends React.Component {
 
   render() {
     const { playlist, tracks, openModal, trackIndexType } = this.props;
+
+    let emptyMessage;
+    if (tracks.length === 0) {
+      emptyMessage = (
+        <div className="empty-message-container">
+          <h3>
+            No songs here yet. Head over to <Link to="/searches">Search</Link> to get started!
+          </h3>
+        </div>
+      );
+    }
 
     const modalType = "delete";
     const artworks = playlist.album_artworks;
@@ -58,6 +70,7 @@ class PlaylistDetail extends React.Component {
               </div>
 
               <div className="playlist-detail-tracks">
+                { emptyMessage }
                 <TrackIndex
                   openModal={ openModal }
                   playlistId={ this.props.match.params.playlistId }

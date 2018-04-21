@@ -124,10 +124,10 @@ h3 {
 ////////////////  greeting page  //////////////////
 /////////////////////////////////////////////////*/
 
-/* @keyframes fadeinpartial {
+@keyframes fadeinpartial {
   from { opacity: 0; }
   to   { opacity: .35; }
-} */
+}
 
 .greeting-background {
   background: url("https://images2.alphacoders.com/267/267922.jpg") no-repeat;
@@ -273,10 +273,10 @@ h3 {
   color: #1db954;
 }
 
-/* @keyframes fadeinfull {
+@keyframes fadeinfull {
   from { opacity: 0; }
   to   { opacity: 1; }
-} */
+}
 
 #welcome-message, #greeting-cont {
   /* -webkit-animation: fadeinfull 3s;
@@ -751,6 +751,10 @@ h3 {
     flex-direction: column;
     align-items: center;
   }
+
+  .empty-message-container {
+    text-align: center;
+  }
 }
 
 .album-detail-container img {
@@ -815,19 +819,21 @@ h3 {
   transform: scale(1.2);
 }
 
-/* .playlist-shadow-box {
-  position: absolute;
-  z-index: 0;
-  height: 170px;
-  width: 170px;
-  top: 88px;
-  background-color: transparent;
-  transition: background-color .3s linear;
-} */
+.empty-message-container {
+  padding-left: 20px;
+  animation-delay: .5s;
+  -webkit-animation: fadeinfull 1s linear;
+}
 
-/* .playlist-shadow-box:hover {
-  background-color: rgba(0,0,0,.3);
-} */
+.empty-message-container a {
+  font-weight: 450;
+  color: #1db954;
+  transition: all .11s linear;
+}
+
+.empty-message-container a:hover {
+  text-decoration: underline;
+}
 
 /*/////////////////////////////////////////////////
 ///////////////////  tracks  //////////////////////
