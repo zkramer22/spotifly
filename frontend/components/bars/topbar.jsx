@@ -7,6 +7,11 @@ const Topbar = ({ openModal, modalType }) => {
   if (modalType === "create") {
     topBar = (
       <nav className="topbar">
+        <div className="nav-arrows">
+          <i onClick={ () => window.history.back() } class="material-icons">arrow_back</i>
+          <i onClick={ () => window.history.forward() } class="material-icons">arrow_forward</i>
+        </div>
+
         <div className="new-playlist-button-container">
           <button
             className="new-playlist-button"
@@ -19,8 +24,8 @@ const Topbar = ({ openModal, modalType }) => {
       topBar = (
         <nav className="topbar">
           <div className="nav-arrows">
-            <i class="material-icons">arrow_back</i>
-            <i class="material-icons">arrow_forward</i>
+            <i onClick={ () => window.history.back() } class="material-icons">arrow_back</i>
+            <i onClick={ () => window.history.forward() } class="material-icons">arrow_forward</i>
           </div>
 
           <div className="new-playlist-button-container">
@@ -31,6 +36,18 @@ const Topbar = ({ openModal, modalType }) => {
           </div>
         </nav>
     );
+  } else {
+      topBar = (
+        <nav className="topbar-sticky">
+          <div className="nav-arrows">
+            <i onClick={ () => window.history.back() } class="material-icons">arrow_back</i>
+            <i onClick={ () => window.history.forward() } class="material-icons">arrow_forward</i>
+          </div>
+
+          <div>
+          </div>
+        </nav>
+      );
   }
 
   return (

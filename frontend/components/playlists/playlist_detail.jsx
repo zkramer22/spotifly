@@ -31,10 +31,7 @@ class PlaylistDetail extends React.Component {
     if (artworks === undefined || artworks.length < 1) {
       artworkGroup = (
         <div className="artwork-single-detail">
-          <img
-            style={{ backgroundColor: "white" }}
-            className="default-playlist-img-detail"
-            src="https://www.clipartqueen.com/image-files/bird-flight-silhouette.png" />
+          <i class="material-icons">library_music</i>
         </div>
       );
     } else if (artworks.length >= 4) {

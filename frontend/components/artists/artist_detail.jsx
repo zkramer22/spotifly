@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { requestArtist } from '../../actions/artist_actions';
 import TrackIndex from '../tracks/track_index';
+import Topbar from '../bars/topbar';
 import { selectArtistTracks, selectArtistAlbums } from '../../reducers/selectors';
 
 class ArtistDetail extends React.Component {
@@ -24,6 +25,7 @@ class ArtistDetail extends React.Component {
             style={{ backgroundImage: `url(${artist.coverPhoto})` }}>
           </div>
           <div className="left-spacing-exact">
+            <Topbar/>
 
             <section className="artist-detail-container">
               <br/><br/><br/><br/>
