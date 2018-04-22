@@ -72,16 +72,19 @@ h3 {
   position: absolute;
   z-index: -10;
   overflow: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .greyish {
   background-color: #111111;
 }
 
-#root {
+/* #root {
   height: 100%;
   overflow: hidden;
-}
+} */
 
 #spotiFLY-logo {
   height: 30px;
@@ -133,7 +136,11 @@ h3 {
 .greeting-background {
   background: url("https://images2.alphacoders.com/267/267922.jpg") no-repeat;
   background-size: cover;
-  height: -webkit-fill-available;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
   opacity: 0.35;
   z-index: -1;
   overflow: hidden;
@@ -166,10 +173,13 @@ h3 {
 .splash-flexbox {
   position: absolute;
   display: flex;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1000;
   justify-content: center;
   align-items: center;
-  height: 100%;
-  width: 100%;
   color: #e0e0e0;
 }
 
@@ -179,7 +189,7 @@ h3 {
   align-items: center;
   justify-content: space-around;
   height: 325px;
-  min-width: 350px;
+  /* min-width: 350px; */
   margin-right: 30px;
   border-right: 0.5px solid white;
 }
@@ -294,7 +304,7 @@ h3 {
   flex-direction: column;
   justify-content: center;
   height: 325px;
-  min-width: 600px;
+  /* min-width: 600px; */
   margin-left: 32px;
 }
 
