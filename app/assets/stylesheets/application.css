@@ -519,6 +519,16 @@ h3 {
   align-items: center;
 }
 
+.nav-arrows i {
+  color: white;
+  transition: all .1s linear;
+}
+
+.nav-arrows i:hover {
+  cursor: pointer;
+  color: #1db954;
+}
+
 /*/////////////////////////////////////////////////
 //////////////////  sidebar  //////////////////////
 /////////////////////////////////////////////////*/
@@ -820,7 +830,7 @@ h3 {
 
 .artwork-single-detail i {
   font-size: 60px;
-  text-shadow: 10px 10px 3px black;
+  text-shadow: 0px 0px 3px black;
 }
 
 .artwork-conglomerate-detail {
@@ -887,7 +897,7 @@ h3 {
 
 #empty-playlist-eighthnote i {
   font-size: 60px;
-  text-shadow: 10px 10px 3px black;
+  text-shadow: 0px 0px 3px black;
   transition: all .1s linear;
 }
 /*/////////////////////////////////////////////////
@@ -1048,7 +1058,7 @@ div[class*="track-index-highlight"]:hover #index-play:hover {
   width: 100%;
   overflow: hidden;
   background-size: cover;
-  background-position: 50%;
+  background-position: center;
 }
 
 .artist-cover-photo-container:before {
@@ -1144,8 +1154,10 @@ div[class*="track-index-highlight"]:hover #index-play:hover {
 }
 
 .search-result-index {
-  height: auto;
-  padding: 10px 10px 102px 0;
+  position: absolute;
+  top: 150px;
+  width: 75%;
+  padding: 10px 10px 92px 0;
 }
 
 .search-result-index .track-index-highlight:hover {

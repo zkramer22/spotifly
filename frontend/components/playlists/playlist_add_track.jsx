@@ -59,12 +59,12 @@ class PlaylistAddTrack extends React.Component {
 
               if (artworks.length < 1) {
                 artworkGroup = (
-                  <div>
-                    <img
-                      style={{ backgroundColor: "white" }}
-                      src="https://www.clipartqueen.com/image-files/bird-flight-silhouette.png"
-                      onClick={ this.handleSubmit(playlist) } />
+                  <div id="empty-playlist-eighthnote">
+                    <i class="material-icons"
+                      onClick={ this.handleSubmit(playlist) }>library_music
+                    </i>
                   </div>
+
                 );
               } else if (artworks.length >= 4) {
                 artworkGroup = (

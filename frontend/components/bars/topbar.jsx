@@ -38,13 +38,13 @@ const Topbar = ({ openModal, modalType }) => {
     );
   } else {
       topBar = (
-        <nav className="topbar-sticky">
+        <nav className="topbar">
           <div className="nav-arrows">
             <i onClick={ () => window.history.back() } class="material-icons">arrow_back</i>
             <i onClick={ () => window.history.forward() } class="material-icons">arrow_forward</i>
           </div>
 
-          <div>
+          <div style={{ height: '38px'}}>
           </div>
         </nav>
       );

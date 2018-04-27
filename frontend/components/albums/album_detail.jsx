@@ -1,5 +1,6 @@
 import React from 'react';
 import TrackIndex from '../tracks/track_index';
+import Topbar from '../bars/topbar';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { requestAlbum } from '../../actions/album_actions';
@@ -21,6 +22,7 @@ class AlbumDetail extends React.Component {
       <div className="BLACKround">
         <div className="index-flexbox random-gradient2">
           <div className="left-spacing">
+            <Topbar/>
 
             <section className="album-detail-container">
               <div className="album-detail-info">
