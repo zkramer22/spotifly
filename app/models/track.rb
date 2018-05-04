@@ -1,4 +1,6 @@
 class Track < ApplicationRecord
+  include PgSearch
+
   validates :name, :album_id, presence: true
 
   has_attached_file :audio
@@ -17,6 +19,8 @@ class Track < ApplicationRecord
   has_many :playlists,
     through: :track_playlists,
     source: :playlist
+
+  # TODO:  pg_search_scope :search, against: [:name]
 
   def self.search(query)
     joins(:artist)
