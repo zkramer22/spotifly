@@ -9,7 +9,7 @@ const PlaylistIndexItem = ({ playlist }) => {
   if (artworks.length < 1) {
     artworkGroup = (
       <div id="empty-playlist-eighthnote">
-        <i class="material-icons">library_music</i>
+        <i className="material-icons">library_music</i>
       </div>
     );
   } else if (artworks.length >= 4) {

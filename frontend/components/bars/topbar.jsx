@@ -8,8 +8,8 @@ const Topbar = ({ openModal, modalType }) => {
     topBar = (
       <nav className="topbar">
         <div className="nav-arrows">
-          <i onClick={ () => window.history.back() } class="material-icons">arrow_back</i>
-          <i onClick={ () => window.history.forward() } class="material-icons">arrow_forward</i>
+          <i onClick={ () => window.history.back() } className="material-icons">arrow_back</i>
+          <i onClick={ () => window.history.forward() } className="material-icons">arrow_forward</i>
         </div>
 
         <div className="new-playlist-button-container">

@@ -64,8 +64,8 @@ class SessionForm extends React.Component {
           >
           <div className="main-logo">
             <img id="spotiFLY-logo"
-              src="/assets/bird-flight-silhouette.png"/>
-            <h2>Spotifly</h2>
+              src={ window.logo }/>
+            <h2>SpotiFLY</h2>
           </div>
 
           <div className="errors">

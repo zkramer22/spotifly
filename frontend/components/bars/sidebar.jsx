@@ -33,7 +33,7 @@ class Sidebar extends React.Component {
         <img
           id="spotiFLY-logo"
           className="sidebar-logo"
-          src="https://www.clipartqueen.com/image-files/bird-flight-silhouette.png"
+          src={ window.logo }
           style={{marginBottom: "10px"}}/>
 
         <div className="sidebar-link-container">

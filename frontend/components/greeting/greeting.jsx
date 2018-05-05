@@ -12,7 +12,7 @@ const Greeting = ({ currentUser, logout }) => {
         <div id="greeting-cont" className="greeting-cont">
           <div className="main-logo">
             <img id="spotiFLY-logo"
-              src="/assets/bird-flight-silhouette.png"/>
+              src={ window.logo }/>
             <h2>SpotiFLY</h2>
           </div>
           <Link className="signup-link" to='/signup'>Signup</Link>
