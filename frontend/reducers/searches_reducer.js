@@ -5,7 +5,7 @@ import { RECEIVE_SEARCH_RESULTS, CLEAR_SEARCH_RESULTS } from '../actions/search_
 export default (state = {}, action) => {
   switch (action.type) {
     case RECEIVE_SEARCH_RESULTS:
-      return { tracks: Object.keys(action.results.tracks) };
+      return { tracks: action.results.ranks };
     case CLEAR_SEARCH_RESULTS:
       return { tracks: [] };
     default:

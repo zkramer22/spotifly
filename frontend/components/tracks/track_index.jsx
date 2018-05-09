@@ -16,10 +16,10 @@ class TrackIndex extends React.Component {
               playlistId={ playlistId }
               albumId={ albumId }
               artistId={ artistId }
-              key={i}
+              key={ i }
               type={ type }
               openModal={ openModal }
-              track={ track } num={i} />
+              track={ track } num={ i } />
           );
         }) }
       </ol>

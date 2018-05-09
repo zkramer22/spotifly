@@ -20,17 +20,18 @@ class Track < ApplicationRecord
     through: :track_playlists,
     source: :playlist
 
-  # TODO:  pg_search_scope :search, against: [:name]
-
-  def self.search(query)
-    joins(:artist)
-      .where('LOWER(tracks.name) ~* :query OR
-              LOWER(artists.name) ~* :query', query: query)
-  end
-
-
+  pg_search_scope :search,
+    against: :name,
+    :using => {
+      :tsearch => { :prefix => true, :normalization => 2 }
+    }
 end
 
+# def self.search(query)
+#   joins(:artist)
+#     .where('LOWER(tracks.name) ~* :query OR
+#             LOWER(artists.name) ~* :query', query: query)
+# end
 
 # joins(:artist, :album)
 

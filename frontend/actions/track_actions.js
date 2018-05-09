@@ -4,7 +4,6 @@ export const RECEIVE_CURRENT_TRACK = "RECEIVE_CURRENT_TRACK";
 export const REMOVE_CURRENT_TRACK = "REMOVE_CURRENT_TRACK";
 export const PAUSE_CURRENT_TRACK = "PAUSE_CURRENT_TRACK";
 export const RECEIVE_TOTO = "RECEIVE_TOTO";
-// export const PLAY_CURRENT_TRACK = "PLAY_CURRENT_TRACK";
 
 export const receiveCurrentTrack = (trackId, playlistId) => {
   return {
@@ -27,12 +26,6 @@ export const receiveToto = toto => {
   };
 };
 
-// export const playCurrentTrack = () => {
-//   return {
-//     type: PLAY_CURRENT_TRACK
-//   };
-// };
-
 export const pauseCurrentTrack = () => {
   return {
     type: PAUSE_CURRENT_TRACK
@@ -40,7 +33,7 @@ export const pauseCurrentTrack = () => {
 };
 
 export const requestToto = () => dispatch => {
-  return APIUtil.fetchToto(220).then(toto => { // // //  track id of Africa -- Toto
+  return APIUtil.fetchToto(220).then(toto => { // // //  track id of 'Africa' by Toto
     return dispatch(receiveToto(toto));
   });
 };
