@@ -37,10 +37,10 @@ class SearchForm extends React.Component {
     const { tracks, trackIds, trackIndexType, openModal } = this.props;
 
     let trackItems = {};
-
     trackIds.forEach((trackId, i) => {
       trackItems[i] = tracks[trackId];
     });
+
 
     return (
       <div className="BLACKround greyish">

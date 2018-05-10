@@ -31,7 +31,7 @@ class PlaylistDetail extends React.Component {
     if (artworks === undefined || artworks.length < 1) {
       artworkGroup = (
         <div className="artwork-single-detail">
-          <i class="material-icons">library_music</i>
+          <i className="material-icons">library_music</i>
         </div>
       );
     } else if (artworks.length >= 4) {

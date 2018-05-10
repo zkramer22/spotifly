@@ -12,6 +12,7 @@ const Topbar = ({ openModal, modalType }) => {
           <i onClick={ () => window.history.forward() } className="material-icons">arrow_forward</i>
         </div>
 
+
         <div className="new-playlist-button-container">
           <button
             className="new-playlist-button"

@@ -3,7 +3,6 @@ ranks = []
 json.tracks do
   @tracks.includes(:artist, :album).each do |track|
     json.set! track.id do
-      puts track.name
       json.id track.id
       json.name track.name
       json.ord track.ord
