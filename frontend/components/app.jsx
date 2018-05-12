@@ -12,6 +12,7 @@ import PlaylistIndex from './playlists/playlist_index';
 import PlaylistDetail from './playlists/playlist_detail';
 import AlbumDetail from './albums/album_detail';
 import ArtistDetail from './artists/artist_detail';
+import ArtistIndex from './artists/artist_index';
 import SidebarContainer from './bars/sidebar_container';
 import Playbar from './bars/playbar';
 
@@ -39,6 +40,9 @@ const App = (props) => (
     <Route
       exact path="/artists/:artistId"
       component={ ArtistDetail } />
+    <Route
+      exact path="/collection/artists"
+      component={ ArtistIndex } />
     <Route
       path="/searches"
       component={ SearchForm } />

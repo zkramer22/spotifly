@@ -134,7 +134,7 @@ h3 {
 }
 
 .greeting-background {
-  background: url("https://images2.alphacoders.com/267/267922.jpg") no-repeat;
+  background: url('greeting-background.jpg') no-repeat;
   background-size: cover;
   position: absolute;
   top: 0;
@@ -729,7 +729,7 @@ h3 {
   width: 100%;
 }
 
-.playlist-index-item img, .add-playlist-index-item img {
+.playlist-index-item img, .add-playlist-index-item img, .artist-index-item img {
   position: relative;
   height: 170px;
   width: 170px;
@@ -738,11 +738,11 @@ h3 {
   box-shadow: 0px 24px 190px -6px rgba(0,0,0,0.75);
 }
 
-.playlist-index-item {
+.playlist-index-item, .artist-index-item {
   transition: all .1s linear;
 }
 
-.playlist-index-item:hover {
+.playlist-index-item:hover, .artist-index-item:hover {
   filter: brightness(50%);
 }
 
@@ -750,7 +750,7 @@ h3 {
   position: relative;
 }
 
-.playlist-index-item, .add-playlist-index-item {
+.playlist-index-item, .add-playlist-index-item, .artist-index-item {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -1070,6 +1070,20 @@ div[class*="track-index-highlight"]:hover #index-play:hover {
 /*/////////////////////////////////////////////////
 /////////////////// artists ///////////////////////
 /////////////////////////////////////////////////*/
+
+.artist-photo {
+  border-radius: 50%;
+}
+
+.artist-index-item {
+  border-radius: 50%;
+}
+
+.artist-index-item img {
+  background-position: 50%;
+  border: 1px solid #ffffff59;
+  border-radius: 50%;
+}
 
 .artist-detail-container {
   display: flex;

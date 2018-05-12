@@ -7,10 +7,15 @@ const ArtistIndexItem = ({ artist }) => {
     <div className="artist-index-item-container">
       <Link
         className="artist-index-item"
-        to={ `collection/artists/${artist.id}` }>
+        to={ `/artists/${artist.id}` }>
+        <div className="artist-photo">
+          <img src={ window.logo } />
+          {/*<img src={ artist.artist_photo }/> */}
+        </div>
         <span style={{ padding: "5px 0 2.5px 0" }}>{ artist.name }</span>
       </Link>
     </div>
   );
-
 };
+
+export default ArtistIndexItem;

@@ -12,6 +12,8 @@ export const selectAlbumTracks = (state, album) => {
   return album.track_ids.map(id => state.entities.tracks[id]);
 };
 
+export const selectAllArtists = state => values(state.entities.artists);
+
 export const selectArtistTracks = (state, artist) => {
   if (!artist.track_ids) { return [] }
   const allTracks = artist.track_ids.map(id => state.entities.tracks[id]);

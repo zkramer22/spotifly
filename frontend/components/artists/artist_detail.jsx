@@ -15,10 +15,6 @@ class ArtistDetail extends React.Component {
     this.props.requestArtist(this.props.match.params.artistId);
   }
 
-  componentShouldUpdate() {
-    console.log('hey');
-  }
-
   render() {
     const { artist, tracks, albums, trackIndexType,
             openModal, followArtist } = this.props;

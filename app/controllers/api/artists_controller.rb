@@ -1,11 +1,7 @@
 class Api::ArtistsController < ApplicationController
   def index
-    @artists = Artist.all
-
-    # = current_user.follows.ids
-
-    # debugger
-
+    @artists = Artist.find(current_user.followed_artists.ids)
+    
     render "api/artists/index"
   end
 

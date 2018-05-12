@@ -3,9 +3,9 @@ import { connect } from 'react-redux';
 import { requestToto } from '../../actions/track_actions';
 import { requestAllPlaylists } from '../../actions/playlist_actions';
 import { selectAllPlaylists } from '../../reducers/selectors';
+import { openModal } from "../../actions/modal_actions";
 import PlaylistIndexItem from './playlist_index_item';
 import Topbar from '../bars/topbar';
-import { openModal } from "../../actions/modal_actions";
 
 class PlaylistIndex extends React.Component {
 

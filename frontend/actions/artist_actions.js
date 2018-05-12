@@ -12,9 +12,10 @@ export const receiveArtist = payload => {
   };
 };
 
-export const receiveAllArtists = () => {
+export const receiveAllArtists = artists => {
   return {
-    type: RECEIVE_ALL_ARTISTS
+    type: RECEIVE_ALL_ARTISTS,
+    artists
   };
 };
 

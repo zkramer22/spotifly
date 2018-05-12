@@ -15,7 +15,7 @@ export default (state = {}, action) => {
 
   switch (action.type) {
     case RECEIVE_ALL_PLAYLISTS:
-      return merge({}, state, action.playlists)
+      return merge({}, state, action.playlists);
     case RECEIVE_PLAYLIST:
       playlist = action.payload.playlist
       return merge({}, state, { [playlist.id]: playlist });
