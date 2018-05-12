@@ -9,6 +9,14 @@ class Artist < ApplicationRecord
 
   has_many :albums
 
+  has_many :follows,
+    class_name: :Follow,
+    foreign_key: :artist_id
+
+  has_many :followers,
+    through: :follows,
+    source: :follower
+
   has_many :tracks,
     through: :albums,
     source: :tracks

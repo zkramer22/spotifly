@@ -1,5 +1,5 @@
 import React from 'react';
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const Topbar = ({ openModal, modalType }) => {
   let topBar;
@@ -12,6 +12,20 @@ const Topbar = ({ openModal, modalType }) => {
           <i onClick={ () => window.history.forward() } className="material-icons">arrow_forward</i>
         </div>
 
+        <div className="collection-nav">
+          <Link to="/collection/playlists">
+            PLAYLISTS
+          </Link>
+          <Link to="/collection/artists">
+            ARTISTS
+          </Link>
+          <Link to="/collection/albums">
+            ALBUMS
+          </Link>
+          <Link to="/collection/tracks">
+            TRACKS
+          </Link>
+        </div>
 
         <div className="new-playlist-button-container">
           <button

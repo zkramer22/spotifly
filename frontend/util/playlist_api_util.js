@@ -42,3 +42,11 @@ export const deleteTrackFromPlaylist = (trackId, id) => {
     data: { trackId }
   });
 };
+
+export const followPlaylist = (userId, playlistId) => {
+  return $.ajax({
+    method: "POST",
+    url: "api/follows",
+    data: { userId: userId, playlistId: playlistId }
+  });
+};

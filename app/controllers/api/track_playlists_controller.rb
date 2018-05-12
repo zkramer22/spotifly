@@ -21,8 +21,8 @@ class Api::TrackPlaylistsController < ApplicationController
     @track_playlist.destroy!
     render json: { trackId: @track_playlist.track_id, playlistId: @playlist.id }
   end
-  #
+  
   def track_playlist_params
-    params.require.(:track_playlist).permit(:playlistId, :trackId)
+    params.require(:track_playlist).permit(:playlistId, :trackId)
   end
 end

@@ -11,3 +11,11 @@ export const fetchArtist = id => {
     url: `api/artists/${id}`
   });
 };
+
+export const followArtist = (userId, artistId) => {
+  return $.ajax({
+    method: "POST",
+    url: "api/follows",
+    data: { userId: userId, artistId: artistId }
+  });
+};

@@ -3,5 +3,7 @@ class Follow < ApplicationRecord
     class_name: :User,
     foreign_key: :follower_id
 
-  belongs_to :playlist
+  belongs_to :playlist, optional: true
+
+  belongs_to :artist, optional: true
 end

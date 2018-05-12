@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { requestArtist } from '../../actions/artist_actions';
+import { requestArtist, followArtist } from '../../actions/artist_actions';
 import TrackIndex from '../tracks/track_index';
 import Topbar from '../bars/topbar';
 import { selectArtistTracks, selectArtistAlbums } from '../../reducers/selectors';
@@ -15,8 +15,43 @@ class ArtistDetail extends React.Component {
     this.props.requestArtist(this.props.match.params.artistId);
   }
 
+  componentShouldUpdate() {
+    console.log('hey');
+  }
+
   render() {
-    const { artist, tracks, albums, trackIndexType, openModal } = this.props;
+    const { artist, tracks, albums, trackIndexType,
+            openModal, followArtist } = this.props;
+
+    let followers = null;
+    let followButton;
+
+    if (artist.follower_ids) {
+      const num = artist.follower_ids.length;
+      num !== 1 ? (
+        followers = (
+          <h4>{ num } followers</h4>
+        )
+      ) : (
+        followers = (
+          <h4>{ num } follower</h4>
+        )
+      )
+
+      artist.follower_ids.includes(this.props.currentUserId) ? (
+        followButton = (
+          <button>
+            Unfollow
+          </button>
+        )
+      ) : (
+        followButton = (
+          <button onClick={ () => followArtist(artist.id) }>
+            Follow
+          </button>
+        )
+      )
+    }
 
     return (
       <div className="BLACKround">
@@ -30,7 +65,13 @@ class ArtistDetail extends React.Component {
             <section className="artist-detail-container">
               <br/><br/><br/><br/>
               <h1 style={{ fontSize: "75px", fontWeight: "600" }}>{ artist.name }</h1>
-              <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+              <br/>
+              { followers }
+              <br/><br/>
+
+              { followButton }
+
+              <br/><br/><br/>
               <h2 style={{ fontSize: "33px", fontWeight: "600" }}>Popular</h2>
 
               <div className="artist-detail-tracks">
@@ -77,6 +118,7 @@ const msp = (state, ownProps) => {
   const artist = state.entities.artists[ownProps.match.params.artistId] || {};
 
   return {
+    currentUserId: state.session.currentUser.id,
     trackIndexType: "artist",
     artist: artist,
     tracks: selectArtistTracks(state, artist),
@@ -86,8 +128,10 @@ const msp = (state, ownProps) => {
 
 const mdp = dispatch => {
   return {
+    followArtist: artistId => dispatch(followArtist(artistId)),
     requestArtist: id => dispatch(requestArtist(id)),
     openModal: modal => dispatch(openModal(modal))
   };
 }
+
 export default connect(msp, mdp)(ArtistDetail);

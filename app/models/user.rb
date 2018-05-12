@@ -7,9 +7,17 @@ class User < ApplicationRecord
     class_name: :Playlist,
     foreign_key: :creator_id
 
-  has_many :followed_playlists,
+  has_many :follows,
     class_name: :Follow,
     foreign_key: :follower_id
+
+  has_many :followed_artists,
+    through: :follows,
+    source: :artist
+
+  has_many :followed_playlists,
+    through: :follows,
+    source: :playlist
 
   has_many :searches,
     class_name: :Search,

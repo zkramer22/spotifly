@@ -8,8 +8,8 @@ import GreetingContainer from './greeting/greeting_container';
 import SignUpFormContainer from './session_form/signup_form_container';
 import LogInFormContainer from './session_form/login_form_container';
 import SearchForm from './search/search_form';
-import PlaylistIndexContainer from './playlists/playlist_index_container';
-import PlaylistDetailContainer from './playlists/playlist_detail_container';
+import PlaylistIndex from './playlists/playlist_index';
+import PlaylistDetail from './playlists/playlist_detail';
 import AlbumDetail from './albums/album_detail';
 import ArtistDetail from './artists/artist_detail';
 import SidebarContainer from './bars/sidebar_container';
@@ -29,10 +29,10 @@ const App = (props) => (
       component={ SignUpFormContainer } />
     <Route
       exact path="/collection/playlists/:playlistId"
-      component={ PlaylistDetailContainer } />
+      component={ PlaylistDetail } />
     <Route
       exact path="/collection/playlists"
-      component={ PlaylistIndexContainer } />
+      component={ PlaylistIndex } />
     <Route
       exact path="/albums/:albumId"
       component={ AlbumDetail } />

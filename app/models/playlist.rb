@@ -9,6 +9,10 @@ class Playlist < ApplicationRecord
     class_name: :Follow,
     foreign_key: :playlist_id
 
+  has_many :followers,
+    through: :follows,
+    source: :follower
+
   has_many :track_playlists,
     class_name: :TrackPlaylist,
     foreign_key: :playlist_id

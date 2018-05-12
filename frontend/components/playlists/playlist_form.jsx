@@ -1,5 +1,7 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { createPlaylist } from '../../actions/playlist_actions';
+import { openModal, closeModal } from '../../actions/modal_actions';
 
 class PlaylistForm extends React.Component {
   constructor(props) {
@@ -72,4 +74,18 @@ class PlaylistForm extends React.Component {
   }
 }
 
-export default withRouter(PlaylistForm);
+const msp = (state) => {
+  return {
+    currentUser: state.session.currentUser,
+    formType: 'create'
+  };
+};
+
+const mdp = dispatch => {
+  return {
+    processForm: playlist => dispatch(createPlaylist(playlist)),
+    closeModal: () => dispatch(closeModal())
+  };
+};
+
+export default connect(msp, mdp)(PlaylistForm);

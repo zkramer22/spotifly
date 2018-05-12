@@ -2,8 +2,8 @@ import React from 'react';
 import { Route } from 'react-router-dom';
 import { closeModal } from '../actions/modal_actions';
 import { connect } from 'react-redux';
-import PlaylistFormContainer from './playlists/playlist_form_container';
-import PlaylistDeleteContainer from './playlists/playlist_delete_container';
+import PlaylistForm from './playlists/playlist_form';
+import PlaylistDelete from './playlists/playlist_delete';
 import PlaylistAddTrack from './playlists/playlist_add_track';
 
 const Modal = ({ modal, closeModal }) => {
@@ -13,12 +13,12 @@ const Modal = ({ modal, closeModal }) => {
   let component;
   switch (modal) {
     case 'create':
-      component = <PlaylistFormContainer />;
+      component = <PlaylistForm />;
       break;
     case 'delete':
       component = <Route
-        path='/collection/playlists/:playlistId'
-        component={ PlaylistDeleteContainer } />;
+                    path='/collection/playlists/:playlistId'
+                    component={ PlaylistDelete } />;
       break;
     case 'add':
       component = <PlaylistAddTrack />

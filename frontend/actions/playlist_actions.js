@@ -30,13 +30,6 @@ export const removePlaylist = playlistId => {
   };
 };
 
-export const receiveTrackPlaylist = trackPlaylist => {
-  return {
-    type: RECEIVE_TRACK_PLAYLIST,
-    trackPlaylist
-  };
-};
-
 export const putTrackInState = trackId => {
   return {
     type: PUT_TRACK_IN_STATE,
@@ -47,6 +40,13 @@ export const putTrackInState = trackId => {
 export const removeTrackFromState = () => {
   return {
     type: REMOVE_TRACK_FROM_STATE
+  };
+};
+
+export const receiveTrackPlaylist = trackPlaylist => {
+  return {
+    type: RECEIVE_TRACK_PLAYLIST,
+    trackPlaylist
   };
 };
 
