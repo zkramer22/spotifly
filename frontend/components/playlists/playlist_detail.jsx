@@ -15,7 +15,7 @@ class PlaylistDetail extends React.Component {
 
     setTimeout(() => {
       $('.empty-message-container').addClass('visible');
-    }, 300);
+    }, 750);
   }
 
   render() {
@@ -31,7 +31,7 @@ class PlaylistDetail extends React.Component {
         </div>
       );
     }
-
+    
     const modalType = "delete";
     const artworks = playlist.album_artworks;
     let artworkGroup;
