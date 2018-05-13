@@ -16,7 +16,7 @@ export default (state = {}, action) => {
       artist = action.payload.artist;
       return merge({}, state, { [artist.id]: artist });
     case RECEIVE_ALL_ARTISTS:
-      return merge({}, state, action.artists);
+      return action.artists;
     case RECEIVE_FOLLOW:
       artist = action.follow.artist;
       return merge({}, state, { [artist.id]: artist });

@@ -54,8 +54,9 @@ class SessionForm extends React.Component {
       <div className="splash-flexbox">
 
         <div className="BLACKround">
-          <div className="greeting-background">
-          </div>
+          <img className="greeting-background"
+            src={ window.greetingBackground }
+            />
         </div>
 
         <form id="greeting-cont"

@@ -134,13 +134,10 @@ h3 {
 }
 
 .greeting-background {
-  background: url('greeting-background.jpg') no-repeat;
-  background-size: cover;
   position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
+  height: -webkit-fill-available;
+  object-fit: cover;
+  width: 100%;
   opacity: 0.35;
   z-index: -1;
   overflow: hidden;

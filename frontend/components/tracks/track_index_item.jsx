@@ -24,6 +24,10 @@ class TrackIndexItem extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
+    if (!this.props.track) {
+      return null;
+    }
+    
     if (this.props.track.id !== nextProps.currentTrack.id) {
       this.setState({ playing: false });
     }
@@ -77,6 +81,12 @@ class TrackIndexItem extends React.Component {
         </div>
       </div>
     );
+
+    debugger
+
+    if (!track) {
+      return null;
+    }
 
     trackInfoGroup = (type === "album" || type === "artist") ? (
       <div className="track-info-group">

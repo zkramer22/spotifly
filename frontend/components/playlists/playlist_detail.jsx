@@ -20,6 +20,7 @@ class PlaylistDetail extends React.Component {
 
   render() {
     const { playlist, tracks, openModal, trackIndexType } = this.props;
+
     let emptyMessage;
     if (this.props.tracks.length === 0) {
       emptyMessage = (

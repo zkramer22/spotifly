@@ -60,7 +60,7 @@ class PlaylistAddTrack extends React.Component {
               if (artworks.length < 1) {
                 artworkGroup = (
                   <div id="empty-playlist-eighthnote">
-                    <i class="material-icons"
+                    <i className="material-icons"
                       onClick={ this.handleSubmit(playlist) }>library_music
                     </i>
                   </div>

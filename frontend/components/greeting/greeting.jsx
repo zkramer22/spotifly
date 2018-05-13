@@ -7,8 +7,9 @@ const Greeting = ({ currentUser, logout }) => {
     <div className="splash-flexbox">
 
       <div className="BLACKround">
-        <div className="greeting-background">
-        </div>
+        <img className="greeting-background"
+          src={ window.greetingBackground }
+          />
         <div id="greeting-cont" className="greeting-cont">
           <div className="main-logo">
             <img id="spotiFLY-logo"
