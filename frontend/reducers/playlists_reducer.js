@@ -20,13 +20,11 @@ export default (state = {}, action) => {
       playlist = action.payload.playlist
       return merge({}, state, { [playlist.id]: playlist });
     case RECEIVE_TRACK_PLAYLIST:
-      return state;
+      playlist = action.trackPlaylist.playlist;
+      return merge({}, state, { [playlist.id]: playlist });
     case REMOVE_TRACK_PLAYLIST:
-      let playlist = newState[action.playlistId];
-      let trackIds = playlist.track_ids;
-      let index = trackIds.indexOf(action.trackId);
-      trackIds.splice(index, 1);
-      return newState;
+      playlist = action.trackPlaylist.playlist;
+      return { [playlist.id]: playlist };
     case REMOVE_PLAYLIST:
       delete newState[action.playlistId];
       return newState;

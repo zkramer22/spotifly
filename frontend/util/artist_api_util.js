@@ -19,3 +19,11 @@ export const followArtist = (userId, artistId) => {
     data: { userId: userId, artistId: artistId }
   });
 };
+
+export const unfollowArtist = (userId, artistId) => {
+  return $.ajax({
+    method: "DELETE",
+    url: `api/follows/${artistId}`,
+    data: { userId: userId, artistId: artistId }
+  });
+};

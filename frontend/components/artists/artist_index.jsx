@@ -16,7 +16,7 @@ import Topbar from '../bars/topbar';
 
       return (
         <div className="BLACKround">
-          <div className="index-flexbox home-gradient">
+          <div className="index-flexbox artist-gradient">
             <div className="left-spacing">
               <Topbar openModal={ openModal } modalType="create"/>
               <section className="playlist-index-container">

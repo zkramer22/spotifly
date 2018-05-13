@@ -35,10 +35,10 @@ export const addTrackToPlaylist = (trackId, playlistId) => {
   });
 };
 
-export const deleteTrackFromPlaylist = (trackId, id) => {
+export const deleteTrackFromPlaylist = (trackId, playlistId) => {
   return $.ajax({
     method: "DELETE",
-    url: `api/track_playlists/${id}`,
+    url: `api/track_playlists/${playlistId}`,
     data: { trackId }
   });
 };

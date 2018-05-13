@@ -18,7 +18,7 @@ class PlaylistIndex extends React.Component {
 
     return (
       <div className="BLACKround">
-        <div className="index-flexbox home-gradient">
+        <div className="index-flexbox playlist-gradient">
           <div className="left-spacing">
             <Topbar openModal={ openModal } modalType="create"/>
             <section className="playlist-index-container">

@@ -50,11 +50,10 @@ export const receiveTrackPlaylist = trackPlaylist => {
   };
 };
 
-export const removeTrackPlaylist = ({ trackId, playlistId }) => {
+export const removeTrackPlaylist = trackPlaylist => {
   return {
     type: REMOVE_TRACK_PLAYLIST,
-    trackId,
-    playlistId
+    trackPlaylist
   };
 };
 

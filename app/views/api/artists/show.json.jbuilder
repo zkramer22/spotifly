@@ -26,3 +26,9 @@ json.tracks do
     end
   end
 end
+
+if @follow
+  json.follow do
+    json.extract! @follow, :artist_id, :follower_id
+  end
+end

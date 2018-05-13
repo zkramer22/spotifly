@@ -17,3 +17,9 @@ json.tracks do
     end
   end
 end
+
+if @track_playlist
+  json.track_playlist do
+    json.extract! @track_playlist, :track_id, :playlist_id
+  end
+end

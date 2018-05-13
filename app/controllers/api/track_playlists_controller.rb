@@ -4,8 +4,10 @@ class Api::TrackPlaylistsController < ApplicationController
       track_id: params[:trackId],
       playlist_id: params[:playlistId]
     )
+    @playlist = Playlist.find(params[:playlistId])
+
     if @track_playlist.save
-      render json: {}
+      render "api/playlists/show"
     else
       render {}
     end
@@ -19,9 +21,9 @@ class Api::TrackPlaylistsController < ApplicationController
       playlist_id: @playlist.id
     )
     @track_playlist.destroy!
-    render json: { trackId: @track_playlist.track_id, playlistId: @playlist.id }
+    render "api/playlists/show"
   end
-  
+
   def track_playlist_params
     params.require(:track_playlist).permit(:playlistId, :trackId)
   end

@@ -416,7 +416,7 @@ h3 {
   margin-top: 50px;
 }
 
-.playlist-submit-container, .playlist-cancel-container {
+.playlist-submit-container, .playlist-cancel-container, .follow-button-container {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -424,7 +424,7 @@ h3 {
   height: 60px;
 }
 
-.playlist-cancel-button {
+.playlist-cancel-button, .follow-button {
   background-color: transparent;
   color: white;
   height: 42px;
@@ -434,7 +434,7 @@ h3 {
   outline: none;
 }
 
-.playlist-cancel-button:hover {
+.playlist-cancel-button:hover, .follow-button:hover {
   cursor: pointer;
   height: 45px;
   width: 160px;
@@ -533,7 +533,7 @@ h3 {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 350px;
+  width: 170px;
 }
 
 .collection-nav a {
@@ -702,9 +702,8 @@ h3 {
   font-family: proxima_nova,Helvetica Neue,Helvetica,Arial,sans-serif;
 }
 
-.home-gradient {
-  background-image: linear-gradient(to bottom, #a90329 0%,#000000 100%);
-  background-size: cover;
+.playlist-gradient {
+  background-image: linear-gradient(to bottom, #9f2b2b 0%,#000000 100%);
 }
 
 .random-gradient {
@@ -712,7 +711,11 @@ h3 {
 }
 
 .random-gradient2 {
-  background-image: linear-gradient(to bottom, #0054c4 0%, #000000 100%)
+  background-image: linear-gradient(to bottom, #0054c4 0%, #000000 100%);
+}
+
+.artist-gradient {
+  background-image: linear-gradient(to bottom, #417456 0%, #000000 100%);
 }
 
 .playlist-index-container {
@@ -1080,9 +1083,9 @@ div[class*="track-index-highlight"]:hover #index-play:hover {
 }
 
 .artist-index-item img {
-  background-position: 50%;
   border: 1px solid #ffffff59;
   border-radius: 50%;
+  object-fit: cover;
 }
 
 .artist-detail-container {
@@ -1145,6 +1148,10 @@ div[class*="track-index-highlight"]:hover #index-play:hover {
 
 .artist-album-container:hover {
   filter: brightness(50%);
+}
+
+.follow-button {
+  background-color: rgba(0, 0, 0, 0.3);
 }
 
 /*/////////////////////////////////////////////////

@@ -1,23 +1,19 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { requestArtist, followArtist } from '../../actions/artist_actions';
+import { requestArtist, followArtist, unfollowArtist } from '../../actions/artist_actions';
 import TrackIndex from '../tracks/track_index';
 import Topbar from '../bars/topbar';
 import { selectArtistTracks, selectArtistAlbums } from '../../reducers/selectors';
 
 class ArtistDetail extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
   componentDidMount() {
     this.props.requestArtist(this.props.match.params.artistId);
   }
 
   render() {
     const { artist, tracks, albums, trackIndexType,
-            openModal, followArtist } = this.props;
+            openModal, followArtist, unfollowArtist } = this.props;
 
     let followers = null;
     let followButton;
@@ -34,17 +30,23 @@ class ArtistDetail extends React.Component {
         )
       )
 
-      artist.follower_ids.includes(this.props.currentUserId) ? (
+      artist.follower_ids.includes(this.props.currentUser.id) ? (
         followButton = (
-          <button>
-            Unfollow
-          </button>
+          <div className="follow-button-container">
+            <button className="follow-button"
+              onClick={ () => unfollowArtist(artist.id) }>
+              UNFOLLOW
+            </button>
+          </div>
         )
       ) : (
         followButton = (
-          <button onClick={ () => followArtist(artist.id) }>
-            Follow
-          </button>
+          <div className="follow-button-container">
+            <button className="follow-button"
+              onClick={ () => followArtist(artist.id) }>
+              FOLLOW
+            </button>
+          </div>
         )
       )
     }
@@ -63,11 +65,9 @@ class ArtistDetail extends React.Component {
               <h1 style={{ fontSize: "75px", fontWeight: "600" }}>{ artist.name }</h1>
               <br/>
               { followers }
-              <br/><br/>
-
-              { followButton }
-
-              <br/><br/><br/>
+              <br/>
+                { followButton }
+              <br/><br/><br/><br/>
               <h2 style={{ fontSize: "33px", fontWeight: "600" }}>Popular</h2>
 
               <div className="artist-detail-tracks">
@@ -98,9 +98,7 @@ class ArtistDetail extends React.Component {
                     );
                   }) }
                 </div>
-
               </div>
-
             </section>
 
           </div>
@@ -114,7 +112,7 @@ const msp = (state, ownProps) => {
   const artist = state.entities.artists[ownProps.match.params.artistId] || {};
 
   return {
-    currentUserId: state.session.currentUser.id,
+    currentUser: state.session.currentUser,
     trackIndexType: "artist",
     artist: artist,
     tracks: selectArtistTracks(state, artist),
@@ -124,6 +122,7 @@ const msp = (state, ownProps) => {
 
 const mdp = dispatch => {
   return {
+    unfollowArtist: artistId => dispatch(unfollowArtist(artistId)),
     followArtist: artistId => dispatch(followArtist(artistId)),
     requestArtist: id => dispatch(requestArtist(id)),
     openModal: modal => dispatch(openModal(modal))

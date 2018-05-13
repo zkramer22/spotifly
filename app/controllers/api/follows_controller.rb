@@ -5,25 +5,32 @@ class Api::FollowsController < ApplicationController
       playlist_id: params[:playlistId],
       artist_id: params[:artistId]
     )
-    if @follow.save
-      render json: {}
-    else
-      render {}
+
+    if params[:artistId]
+      @artist = Artist.find(params[:artistId])
+      if @follow.save
+        render "api/artists/show"
+      else
+        render {}
+      end
+    elsif params[:playlistId]
+      @playlist = Playlist.find(params[:playlistId])
+      if @follow.save
+        render "api/playlists/show"
+      else
+        render {}
+      end
     end
   end
 
-  # def destroy
-  #   if params[:playlistId]
-  #     @playlist = current_user.followed_playlists.find(params[:playlistId])
-  #
-  #   elsif params[:artistId]
-  #     @follow = current_user.followed_artists.find(params[:artistId])
-  #   end
-  #
-  #   @follow.destroy!
-  #
-  #   render json: { userId: @follow.follower_id, playlistId: @playlist.id }
-  # end
+  def destroy
+    if params[:artistId]
+      @artist = Artist.find(params[:artistId])
+      @follow = @artist.follows.find_by(follower_id: current_user.id)
+      @follow.destroy!
+      render "api/artists/show"
+    end
+  end
 
   def follow_params
     params.require(:follow).permit(:playlistId, :artistId, :follower_id)

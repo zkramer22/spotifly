@@ -26,11 +26,10 @@ export const receiveFollow = follow => {
   };
 };
 
-export const removeFollow = ({ userId, artistId }) => {
+export const removeFollow = follow => {
   return {
     type: REMOVE_FOLLOW,
-    userId,
-    artistId
+    follow
   };
 };
 
@@ -49,5 +48,11 @@ export const requestAllArtists = () => dispatch => {
 export const followArtist = artistId => (dispatch, getState) => {
   return APIUtil.followArtist(getState().session.currentUser.id, artistId).then(follow => {
     return dispatch(receiveFollow(follow));
+  });
+};
+
+export const unfollowArtist = artistId => (dispatch, getState) => {
+  return APIUtil.unfollowArtist(getState().session.currentUser.id, artistId).then(follow => {
+    return dispatch(removeFollow(follow));
   });
 };

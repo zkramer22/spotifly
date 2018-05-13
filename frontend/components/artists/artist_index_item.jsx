@@ -9,8 +9,10 @@ const ArtistIndexItem = ({ artist }) => {
         className="artist-index-item"
         to={ `/artists/${artist.id}` }>
         <div className="artist-photo">
-          <img src={ window.logo } />
-          {/*<img src={ artist.artist_photo }/> */}
+          <img src={ artist.cover_photo }/>
+          {/*
+            <img src={ window.logo } />
+          */}
         </div>
         <span style={{ padding: "5px 0 2.5px 0" }}>{ artist.name }</span>
       </Link>

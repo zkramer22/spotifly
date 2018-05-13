@@ -11,6 +11,8 @@ gem 'rails', '~> 5.1.5'
 gem 'pg', '>= 0.18', '< 2.0'
 # use pg search!
 gem 'pg_search'
+# use rmagick!
+gem 'rmagick'
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
 # Use SCSS for stylesheets

@@ -19,12 +19,14 @@ const Topbar = ({ openModal, modalType }) => {
           <Link to="/collection/artists">
             ARTISTS
           </Link>
-          <Link to="/collection/albums">
+          {/*
+            <Link to="/collection/albums">
             ALBUMS
-          </Link>
-          <Link to="/collection/tracks">
+            </Link>
+            <Link to="/collection/tracks">
             TRACKS
-          </Link>
+            </Link>
+        */}
         </div>
 
         <div className="new-playlist-button-container">
