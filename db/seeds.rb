@@ -8,7 +8,6 @@
 
 require 'uri'
 
-# reset db manually. Heroku doesn't like db:reset. Pain in the arse
 User.destroy_all
 Artist.destroy_all
 Album.destroy_all
