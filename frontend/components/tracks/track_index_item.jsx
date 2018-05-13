@@ -27,7 +27,7 @@ class TrackIndexItem extends React.Component {
     if (!this.props.track) {
       return null;
     }
-    
+
     if (this.props.track.id !== nextProps.currentTrack.id) {
       this.setState({ playing: false });
     }
@@ -81,8 +81,6 @@ class TrackIndexItem extends React.Component {
         </div>
       </div>
     );
-
-    debugger
 
     if (!track) {
       return null;
