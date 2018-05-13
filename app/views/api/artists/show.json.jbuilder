@@ -29,6 +29,7 @@ end
 
 if @follow
   json.follow do
-    json.extract! @follow, :artist_id, :follower_id
+    json.artistId @follow.artist_id
+    json.followerId @follow.follower_id
   end
 end
