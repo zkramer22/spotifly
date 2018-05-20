@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { fetchResults, clearResults } from '../../actions/search_actions';
-import { Redirect } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { openModal } from '../../actions/modal_actions';
 
 import TrackIndex from '../tracks/track_index';
@@ -52,7 +52,7 @@ class SearchForm extends React.Component {
                 className="search-form">
                 <span
                   style={{ fontSize: "12px", letterSpacing: "1px"}}>
-                  Search for an Album, Artist, Track, or Playlist
+                  Search for Tracks, Albums, Artists, or Playlists
                 </span><br/>
                 <input
                 className="search-input"
@@ -63,6 +63,20 @@ class SearchForm extends React.Component {
                 value={ this.state.query }
                 />
               </form>
+            </div>
+
+            <div className="search-nav-container">
+              <div className="search-nav">
+                <Link to="/searches/tracks">
+                  TRACKS
+                </Link>
+                <Link to="/searches/albums">
+                  ALBUMS
+                </Link>
+                <Link to="/searches/artists">
+                  ARTISTS
+                </Link>
+              </div>
             </div>
 
             <div className="search-result-index">

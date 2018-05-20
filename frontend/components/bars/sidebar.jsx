@@ -37,16 +37,16 @@ class Sidebar extends React.Component {
           style={{marginBottom: "10px"}}/>
 
         <div className="sidebar-link-container">
-          <Link to="/searches">
+          <Link to="/searches/tracks">
             <span style={{ marginRight: "140px" }}>Search</span>
-            <i className="fa fa-search"></i>
+            <i className="material-icons">search</i>
           </Link>
         </div>
 
         <div className="sidebar-link-container">
           <Link to="/collection/playlists">
-            <span style={{ marginRight: "110px" }}>Your Music</span>
-            <i className="fa fa-headphones"></i>
+            <span style={{ marginRight: "97px" }}>Your Library</span>
+            <i className="material-icons">library_books</i>
           </Link>
         </div>
 
@@ -69,7 +69,7 @@ class Sidebar extends React.Component {
               <img id="linkedin" src="https://cdn3.iconfinder.com/data/icons/free-social-icons/67/linkedin_circle_black-512.png" />
             </a>
           </div>
-          <div>
+          <div className="link-container">
             <a href="mailto:zkramer22@gmail.com">
               <img id="mailto" src="https://www.shareicon.net/data/2015/12/02/681171_email_512x512.png"/>
             </a>
