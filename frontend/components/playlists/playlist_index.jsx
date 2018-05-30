@@ -21,9 +21,10 @@ class PlaylistIndex extends React.Component {
         <div className="index-flexbox playlist-gradient">
           <div className="left-spacing">
             <Topbar openModal={ openModal } modalType="create"/>
-            <section className="playlist-index-container">
+            <section className="collection-index-container">
               <div className="playlist-index">
-                { playlists.map(playlist => <PlaylistIndexItem key={ playlist.id } playlist={ playlist } />) }
+                { playlists.map(playlist => <PlaylistIndexItem
+                  key={ playlist.id } playlist={ playlist } />) }
               </div>
             </section>
           </div>

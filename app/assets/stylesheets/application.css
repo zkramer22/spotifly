@@ -531,7 +531,7 @@ h3 {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 170px;
+  width: 260px;
 }
 
 .collection-nav a {
@@ -721,7 +721,11 @@ h3 {
   background-image: linear-gradient(to bottom, #417456 0%, #000000 100%);
 }
 
-.playlist-index-container {
+.album-gradient {
+  background-image: linear-gradient(to bottom, #502e70 0%, #000000 100%);
+}
+
+.collection-index-container {
   display: flex;
   height: 100%;
   width: 100%;

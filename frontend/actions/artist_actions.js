@@ -5,17 +5,17 @@ export const RECEIVE_ALL_ARTISTS = "RECEIVE_ALL_ARTISTS";
 export const RECEIVE_FOLLOW = "RECEIVE_FOLLOW";
 export const REMOVE_FOLLOW = "REMOVE_FOLLOW";
 
-export const receiveArtist = payload => {
-  return {
-    type: RECEIVE_ARTIST,
-    payload
-  };
-};
-
 export const receiveAllArtists = artists => {
   return {
     type: RECEIVE_ALL_ARTISTS,
     artists
+  };
+};
+
+export const receiveArtist = payload => {
+  return {
+    type: RECEIVE_ARTIST,
+    payload
   };
 };
 
@@ -33,15 +33,15 @@ export const removeFollow = follow => {
   };
 };
 
-export const requestArtist = id => dispatch => {
-  return APIUtil.fetchArtist(id).then(artist => {
-    return dispatch(receiveArtist(artist));
-  });
-};
-
 export const requestAllArtists = () => dispatch => {
   return APIUtil.fetchAllArtists().then(artists => {
     return dispatch(receiveAllArtists(artists));
+  });
+};
+
+export const requestArtist = id => dispatch => {
+  return APIUtil.fetchArtist(id).then(artist => {
+    return dispatch(receiveArtist(artist));
   });
 };
 

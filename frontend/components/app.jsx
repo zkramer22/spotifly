@@ -7,13 +7,14 @@ import Modal from './modal';
 import GreetingContainer from './greeting/greeting_container';
 import SignUpFormContainer from './session_form/signup_form_container';
 import LogInFormContainer from './session_form/login_form_container';
-import SearchForm from './search/search_form';
 import PlaylistIndex from './playlists/playlist_index';
 import PlaylistDetail from './playlists/playlist_detail';
+import AlbumIndex from './albums/album_index';
 import AlbumDetail from './albums/album_detail';
-import ArtistDetail from './artists/artist_detail';
 import ArtistIndex from './artists/artist_index';
+import ArtistDetail from './artists/artist_detail';
 import SidebarContainer from './bars/sidebar_container';
+import SearchForm from './search/search_form';
 import Playbar from './bars/playbar';
 
 const App = (props) => (
@@ -37,6 +38,9 @@ const App = (props) => (
     <Route
       exact path="/albums/:albumId"
       component={ AlbumDetail } />
+    <Route
+      exact path="/collection/albums"
+      component={ AlbumIndex } />
     <Route
       exact path="/artists/:artistId"
       component={ ArtistDetail } />

@@ -1,6 +1,8 @@
 import values from 'lodash/values';
 
 export const selectAllPlaylists = state => values(state.entities.playlists);
+export const selectAllArtists = state => values(state.entities.artists);
+export const selectAllAlbums = state => values(state.entities.albums);
 
 export const selectPlaylistTracks = (state, playlist) => {
   if (!playlist.track_ids) { return [] }
@@ -11,8 +13,6 @@ export const selectAlbumTracks = (state, album) => {
   if (!album.track_ids) { return [] }
   return album.track_ids.map(id => state.entities.tracks[id]);
 };
-
-export const selectAllArtists = state => values(state.entities.artists);
 
 export const selectArtistTracks = (state, artist) => {
   if (!artist.track_ids) { return [] }

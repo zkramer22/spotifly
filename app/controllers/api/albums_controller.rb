@@ -1,6 +1,6 @@
 class Api::AlbumsController < ApplicationController
   def index
-    @albums = Album.all#.where(artist: params[:artist_id])
+    @albums = current_user.included_albums.uniq
     render "api/albums/index"
   end
 
