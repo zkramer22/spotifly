@@ -739,20 +739,20 @@ h3 {
   width: 100%;
 }
 
-.playlist-index-item img, .add-playlist-index-item img, .artist-index-item img {
+.playlist-index-item img, .add-playlist-index-item img, .artist-index-item img, .album-index-item img {
   position: relative;
   height: 170px;
   width: 170px;
-  -webkit-box-shadow: 0px 24px 190px -6px rgba(0,0,0,0.75);
-  -moz-box-shadow: 0px 24px 190px -6px rgba(0,0,0,0.75);
-  box-shadow: 0px 24px 190px -6px rgba(0,0,0,0.75);
+  -webkit-box-shadow: 0px 5px 80px -6px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 5px 80px -6px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 5px 80px -6px rgba(0, 0, 0, 0.75);
 }
 
-.playlist-index-item, .artist-index-item {
+.playlist-index-item, .artist-index-item, .album-index-item {
   transition: all .1s linear;
 }
 
-.playlist-index-item:hover, .artist-index-item:hover {
+.playlist-index-item:hover, .artist-index-item:hover, .album-index-item:hover {
   filter: brightness(50%);
 }
 
@@ -760,7 +760,7 @@ h3 {
   position: relative;
 }
 
-.playlist-index-item, .add-playlist-index-item, .artist-index-item {
+.playlist-index-item, .add-playlist-index-item, .artist-index-item, .album-index-item {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -1075,6 +1075,34 @@ div[class*="track-index-highlight"]:hover #index-play:hover {
 
 .album-detail-tracks, .album-detail-info {
   margin-top: 10px;
+}
+
+.album-index-item-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+.album-artist-link {
+  transition: all .1s linear;
+  color: hsla(0,0%,100%,.7);
+}
+
+.album-artist-link:hover {
+  color: white;
+  text-decoration: underline;
+}
+
+.album-index-item {
+
+}
+
+.album-index-item span {
+  max-width: 170px;
+  text-align: center;
+  word-break: break-word;
 }
 
 /*/////////////////////////////////////////////////
