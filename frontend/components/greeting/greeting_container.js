@@ -1,5 +1,5 @@
 import Greeting from './greeting';
-import { logout } from '../../actions/session_actions';
+import { login, logout } from '../../actions/session_actions';
 import { connect } from 'react-redux';
 
 const mapStateToProps = state => {
@@ -10,6 +10,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
+    guestLogin: () => dispatch(login({ email_address: "userB", password: "asdfgh" })),
     logout: () => dispatch(logout())
   };
 };

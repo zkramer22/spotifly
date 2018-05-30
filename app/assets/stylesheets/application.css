@@ -163,8 +163,10 @@ h3 {
 }
 
 .errors {
-  margin-top: 5px;
-  margin-bottom: 5px;
+  position: absolute;
+  text-align: center;
+  top: 270px;
+  font-size: 15px;
   color: #ff6666;
 }
 
@@ -185,9 +187,7 @@ h3 {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-around;
   height: 325px;
-  /* min-width: 350px; */
   margin-right: 30px;
   border-right: 0.5px solid white;
 }
@@ -205,41 +205,50 @@ h3 {
 
 .main-logo {
   display: flex;
+  position: relative;
+  top: 25px;
   justify-content: center;
   align-items: center;
   width: 300px;
-  margin-top: 40px;
   letter-spacing: 1px;
   font-weight: 500;
 }
 
 .signup-link {
   display: flex;
+  position: relative;
+  top: 45px;
   color: white;
   background-color: #1db954;
   border: 0.5px solid black;
   height: 45px;
   width: 200px;
-  margin-top: 5px;
   border-radius: 20px;
   justify-content: center;
   align-items: center;
+}
+
+.signup-link, #login-link-button, #session-link a, #submit-button, #guest-login {
+  transition: all .1s linear;
 }
 
 #account-question {
   color: #bfbfbf;
   font-size: 13px;
   letter-spacing: 1.5px;
+  position: relative;
+  top: 65px;
 }
 
 #login-link-button {
   display: flex;
+  position: relative;
+  top: 85px;
   color: black;
   background-color: white;
   border: 0.5px solid black;
   height: 45px;
   width: 200px;
-  margin-bottom: 60px;
   border-radius: 20px;
   justify-content: center;
   align-items: center;
@@ -247,6 +256,10 @@ h3 {
 
 #session-link a {
   color: #1db954;
+}
+
+#session-link a:hover {
+  text-decoration: underline;
 }
 
 #submit-button {
@@ -275,11 +288,23 @@ h3 {
 
 #guest-login {
   cursor: default;
+  position: relative;
+  top: 100px;
 }
 
 #guest-login:hover {
   cursor: pointer;
   color: #1db954;
+}
+
+#email-input, #password-input, #submit-button {
+  position: relative;
+  top: 50px;
+}
+
+#session-link {
+  position: relative;
+  top: 60px;
 }
 
 @keyframes fadeinfull {

@@ -31,11 +31,11 @@ class SessionForm extends React.Component {
   renderErrors() {
     return(
       <ul>
-        {this.props.errors.map((error, i) => (
+        { this.props.errors.map((error, i) => (
           <li key={`error-${i}`}>
             {error}
           </li>
-        ))}
+        )) }
       </ul>
     );
   }
@@ -69,10 +69,8 @@ class SessionForm extends React.Component {
             <h2>SpotiFLY</h2>
           </div>
 
-          <div className="errors">
-            { this.renderErrors() }
-          </div>
           <input
+            id="email-input"
             type="text"
             value={ this.state.email_address }
             onChange={ this.updateEmail }
@@ -80,6 +78,7 @@ class SessionForm extends React.Component {
             autoFocus="autofocus"/>
 
           <input
+            id="password-input"
             type="password"
             value={ this.state.password }
             onChange={ this.updatePassword }
@@ -90,10 +89,15 @@ class SessionForm extends React.Component {
             type="submit"
             value={ this.props.formType } />
 
-          <p>or <strong id="session-link">{ this.props.navLink }</strong></p>
+          <div id="session-link">
+            or <strong>{ this.props.navLink }</strong>
+          </div>
 
           { guestLogin }
 
+          <div className="errors">
+            { this.renderErrors() }
+          </div>
         </form>
 
         <div className="welcome-message">
