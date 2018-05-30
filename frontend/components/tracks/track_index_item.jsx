@@ -106,7 +106,8 @@ class TrackIndexItem extends React.Component {
     return (
       <div id={`track-index-highlight-${track.id}`}
         className={`track-index-highlight-${track.id}`}
-        onClick={() => { this.activeTrack(track.id) }}>
+        onClick={ () => { this.activeTrack(track.id) }}
+        onDoubleClick={ () => { this.togglePlay(track.id, playlistId) } }>
         {
           this.state.playing ? (
             <div className="index-button-container">
