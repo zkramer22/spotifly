@@ -52,7 +52,7 @@ class SearchForm extends React.Component {
                 className="search-form">
                 <span
                   style={{ fontSize: "12px", letterSpacing: "1px"}}>
-                  Search for Tracks, Albums, Artists, or Playlists
+                  Search for Tracks {/*, Albums, or Artists*/}
                 </span><br/>
                 <input
                 className="search-input"
@@ -65,19 +65,23 @@ class SearchForm extends React.Component {
               </form>
             </div>
 
-            <div className="search-nav-container">
-              <div className="search-nav">
-                <Link to="/searches/tracks">
-                  TRACKS
-                </Link>
-                <Link to="/searches/albums">
-                  ALBUMS
-                </Link>
-                <Link to="/searches/artists">
-                  ARTISTS
-                </Link>
+            {
+              /*
+              <div className="search-nav-container">
+                <div className="search-nav">
+                  <Link to="/searches/tracks">
+                    TRACKS
+                  </Link>
+                  <Link to="/searches/albums">
+                    ALBUMS
+                  </Link>
+                  <Link to="/searches/artists">
+                    ARTISTS
+                  </Link>
+                </div>
               </div>
-            </div>
+              */
+            }
 
             <div className="search-result-index">
               <TrackIndex openModal={ openModal } type={ trackIndexType } tracks={ trackItems }/>
