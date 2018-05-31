@@ -25,11 +25,6 @@ const Topbar = ({ openModal, modalType, search }) => {
           <Link className="collection-nav-link" to="/collection/albums">
             ALBUMS
           </Link>
-        {/*
-            <Link to="/collection/tracks">
-            TRACKS
-            </Link>
-        */}
         </div>
 
         <div className="new-playlist-button-container">
