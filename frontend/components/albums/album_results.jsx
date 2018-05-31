@@ -9,14 +9,14 @@ class AlbumResults extends React.Component {
     const { albums } = this.props;
 
     return (
-      <ol className="album-results">
+      <ul className="album-results">
         { Object.values(albums).map((album, i) => {
             return (
               <AlbumIndexItem album={ album } key={ i } />
             );
           })
         }
-      </ol>
+      </ul>
     );
   }
 

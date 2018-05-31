@@ -9,14 +9,14 @@ class ArtistResults extends React.Component {
     const { artists } = this.props;
 
     return (
-      <ol className="artist-results">
+      <ul className="artist-results">
         { Object.values(artists).map((artist, i) => {
             return (
               <ArtistIndexItem artist={ artist } key={ i } />
             );
           })
         }
-      </ol>
+      </ul>
     );
   }
 

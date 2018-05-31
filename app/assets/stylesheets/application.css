@@ -1277,6 +1277,16 @@ div[class*="track-index-highlight"]:hover #index-play:hover {
   align-items: center;
 }
 
+.search-nav a {
+  color: hsla(0,0%,100%,.7);
+  transition: all .1s linear;
+}
+
+.search-nav a:hover {
+  color: white;
+  text-decoration: underline;
+}
+
 .search-result-index {
   position: absolute;
   top: 200px;
@@ -1286,6 +1296,11 @@ div[class*="track-index-highlight"]:hover #index-play:hover {
 
 .search-result-index .track-index-highlight:hover {
   background-color: rgba(225, 225, 225, .17);
+}
+
+.album-results, .artist-results {
+  display: flex;
+  flex-wrap: wrap;
 }
 
 /*/////////////////////////////////////////////////
