@@ -1,7 +1,6 @@
 import React from 'react';
-import { connect } from 'react-redux';
 
-import TrackIndexItem from '../tracks/track_index_item';
+import TrackIndexItem from './track_index_item';
 
 class TrackIndex extends React.Component {
 
@@ -11,17 +10,18 @@ class TrackIndex extends React.Component {
     return (
       <ol className="tracklist">
         { Object.values(tracks).map((track, i) => {
-          return (
-            <TrackIndexItem
-              playlistId={ playlistId }
-              albumId={ albumId }
-              artistId={ artistId }
-              key={ i }
-              type={ type }
-              openModal={ openModal }
-              track={ track } num={ i } />
-          );
-        }) }
+            return (
+              <TrackIndexItem
+                playlistId={ playlistId }
+                albumId={ albumId }
+                artistId={ artistId }
+                key={ i }
+                type={ type }
+                openModal={ openModal }
+                track={ track } num={ i } />
+            );
+          })
+        }
       </ol>
     );
   }

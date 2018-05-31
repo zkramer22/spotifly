@@ -5,8 +5,8 @@ import { Link, Route } from 'react-router-dom';
 import { openModal } from '../../actions/modal_actions';
 
 import TrackIndex from '../tracks/track_index';
-import AlbumIndex from '../albums/album_index';
-import ArtistIndex from '../artists/artist_index';
+import AlbumResults from '../albums/album_results';
+import ArtistResults from '../artists/artist_results';
 
 class SearchForm extends React.Component {
   constructor(props) {
@@ -50,10 +50,10 @@ class SearchForm extends React.Component {
     albumIds.forEach((albumId, i) => {
       albumItems[i] = albums[albumId];
     });
-    
-    // artistIds.forEach((artistId, i) => {
-    //   artistItems[i] = artists[artistId];
-    // });
+
+    artistIds.forEach((artistId, i) => {
+      artistItems[i] = artists[artistId];
+    });
 
     return (
       <div className="BLACKround greyish">
@@ -99,22 +99,20 @@ class SearchForm extends React.Component {
                   <TrackIndex {...routeProps }
                     openModal={ openModal }
                     type={ trackIndexType }
-                    tracks={ trackItems }/>
-                )}/>
+                    tracks={ trackItems } />
+              )}/>
               <Route
                 exact path="/searches/albums"
                 render={ routeProps => (
-                  <AlbumIndex {...routeProps }
-                    albums={ albumItems }
-                    openModal={ openModal }/>
-                )}/>
+                  <AlbumResults {...routeProps }
+                    albums={ albumItems } />
+              )}/>
               <Route
                 exact path="/searches/artists"
                 render={ routeProps => (
-                  <ArtistIndex {...routeProps }
-                    artists={ artistItems }
-                    openModal={ openModal }/>
-                )}/>
+                  <ArtistResults {...routeProps }
+                    artists={ artistItems } />
+              )}/>
             </div>
 
           </div>
