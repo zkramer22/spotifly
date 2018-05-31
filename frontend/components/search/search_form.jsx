@@ -1,10 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { fetchResults, clearResults } from '../../actions/search_actions';
-import { Link } from 'react-router-dom';
+import { Link, Route } from 'react-router-dom';
 import { openModal } from '../../actions/modal_actions';
 
 import TrackIndex from '../tracks/track_index';
+import AlbumIndex from '../albums/album_index';
+import ArtistIndex from '../artists/artist_index';
 
 class SearchForm extends React.Component {
   constructor(props) {
@@ -34,13 +36,24 @@ class SearchForm extends React.Component {
   }
 
   render() {
-    const { tracks, trackIds, trackIndexType, openModal } = this.props;
+    const { tracks, trackIds, albums, albumIds, artists, artistIds,
+            trackIndexType, openModal } = this.props;
 
     let trackItems = {};
+    let albumItems = {};
+    let artistItems = {};
+
     trackIds.forEach((trackId, i) => {
       trackItems[i] = tracks[trackId];
     });
 
+    albumIds.forEach((albumId, i) => {
+      albumItems[i] = albums[albumId];
+    });
+    
+    // artistIds.forEach((artistId, i) => {
+    //   artistItems[i] = artists[artistId];
+    // });
 
     return (
       <div className="BLACKround greyish">
@@ -52,7 +65,7 @@ class SearchForm extends React.Component {
                 className="search-form">
                 <span
                   style={{ fontSize: "12px", letterSpacing: "1px"}}>
-                  Search for Tracks {/*, Albums, or Artists*/}
+                  Search for Tracks, Albums, or Artists
                 </span><br/>
                 <input
                 className="search-input"
@@ -65,26 +78,43 @@ class SearchForm extends React.Component {
               </form>
             </div>
 
-            {
-              /*
-              <div className="search-nav-container">
-                <div className="search-nav">
-                  <Link to="/searches/tracks">
-                    TRACKS
-                  </Link>
-                  <Link to="/searches/albums">
-                    ALBUMS
-                  </Link>
-                  <Link to="/searches/artists">
-                    ARTISTS
-                  </Link>
-                </div>
+            <div className="search-nav-container">
+              <div className="search-nav">
+                <Link to="/searches/tracks">
+                  TRACKS
+                </Link>
+                <Link to="/searches/albums">
+                  ALBUMS
+                </Link>
+                <Link to="/searches/artists">
+                  ARTISTS
+                </Link>
               </div>
-              */
-            }
+            </div>
 
             <div className="search-result-index">
-              <TrackIndex openModal={ openModal } type={ trackIndexType } tracks={ trackItems }/>
+              <Route
+                exact path="/searches/tracks"
+                render={ routeProps => (
+                  <TrackIndex {...routeProps }
+                    openModal={ openModal }
+                    type={ trackIndexType }
+                    tracks={ trackItems }/>
+                )}/>
+              <Route
+                exact path="/searches/albums"
+                render={ routeProps => (
+                  <AlbumIndex {...routeProps }
+                    albums={ albumItems }
+                    openModal={ openModal }/>
+                )}/>
+              <Route
+                exact path="/searches/artists"
+                render={ routeProps => (
+                  <ArtistIndex {...routeProps }
+                    artists={ artistItems }
+                    openModal={ openModal }/>
+                )}/>
             </div>
 
           </div>
@@ -99,6 +129,10 @@ const msp = state => {
     trackIndexType: "search",
     tracks: state.entities.tracks || [],
     trackIds: state.ui.searches.tracks || [],
+    albums: state.entities.albums || [],
+    albumIds: state.ui.searches.albums || [],
+    artists: state.entities.artists || [],
+    artistIds: state.ui.searches.artists || [],
     trackInfo: state.entities.tracks[state.ui.currentTrack.id] || {},
     currentTrack: state.ui.currentTrack
   };

@@ -5,6 +5,7 @@ import {
   RECEIVE_FOLLOW,
   REMOVE_FOLLOW
 } from '../actions/artist_actions';
+import { RECEIVE_SEARCH_RESULTS } from '../actions/search_actions';
 
 export default (state = {}, action) => {
   Object.freeze(state);
@@ -23,6 +24,8 @@ export default (state = {}, action) => {
     case REMOVE_FOLLOW:
       artist = action.follow.artist;
       return { [artist.id]: artist };
+    case RECEIVE_SEARCH_RESULTS:
+      return merge({}, state, action.results.artists);
     default:
       return state;
   }

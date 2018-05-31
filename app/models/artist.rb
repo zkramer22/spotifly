@@ -1,4 +1,6 @@
 class Artist < ApplicationRecord
+  include PgSearch
+
   validates :name, presence: true
 
   has_attached_file :cover_photo, default_url: "cool-wall.jpg"
@@ -20,4 +22,10 @@ class Artist < ApplicationRecord
   has_many :tracks,
     through: :albums,
     source: :tracks
+
+  pg_search_scope :search,
+    against: :name,
+    :using => {
+      :tsearch => { :prefix => true, :normalization => 2 }
+    }
 end
