@@ -26,12 +26,12 @@ class PlaylistDetail extends React.Component {
       emptyMessage = (
         <div className="empty-message-container">
           <h3>
-            No songs here yet. Head over to <Link to="/searches">Search</Link> to get started!
+            No songs here yet. Head over to <Link to="/searches/tracks">Search</Link> to get started!
           </h3>
         </div>
       );
     }
-    
+
     const modalType = "delete";
     const artworks = playlist.album_artworks;
     let artworkGroup;

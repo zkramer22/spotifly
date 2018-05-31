@@ -9,10 +9,23 @@ class Sidebar extends React.Component {
 
     };
     this.handleLogout = this.handleLogout.bind(this);
+    this.activePage = this.activePage.bind(this);
   }
 
   componentDidMount() {
     this.props.requestToto();
+  }
+
+  componentWillReceiveProps(nextProps) {
+    const path = this.props.history.location.pathname;
+    if (path.slice(0, 10) === '/searches/') {
+      this.activePage(0);
+    } else if (path.slice(0, 12) === '/collection/') {
+      console.log('not search');
+      this.activePage(1);
+    } else {
+      this.activePage(-1);
+    }
   }
 
   handleLogout(e) {
@@ -22,10 +35,31 @@ class Sidebar extends React.Component {
     setTimeout(() => this.props.history.push("/"), 100);
   }
 
+  activePage(num) {
+    const active = $('.sidebar-link')[num];
+    $('.sidebar-link').removeClass('active-page');
+    $(active).addClass('active-page');
+  }
+
   render() {
     const { currentUser, loggedIn, receiveCurrentTrack } = this.props;
 
     if (!loggedIn) { return null }
+
+    const path = this.props.history.location.pathname;
+
+    if (path.slice(0, 10) === '/searches/') {
+      setTimeout(() => {
+        this.activePage(0);
+      }, 0);
+    } else if (path.slice(0, 12) === '/collection/') {
+      this.activePage(1);
+    } else {
+      setTimeout(() => {
+        console.log('wut');
+        this.activePage(-1);
+      }, 0);
+    }
 
     return (
       <div className="sidebar">
@@ -37,14 +71,16 @@ class Sidebar extends React.Component {
           style={{marginBottom: "10px"}}/>
 
         <div className="sidebar-link-container">
-          <Link to="/searches/tracks">
+          <Link className="sidebar-link" to="/searches/tracks"
+                onClick={ () => this.activePage(0) }>
             <span style={{ marginRight: "140px" }}>Search</span>
             <i className="material-icons">search</i>
           </Link>
         </div>
 
         <div className="sidebar-link-container">
-          <Link to="/collection/playlists">
+          <Link className="sidebar-link" to="/collection/playlists"
+                onClick={ () => this.activePage(1) }>
             <span style={{ marginRight: "97px" }}>Your Library</span>
             <i className="material-icons">library_books</i>
           </Link>

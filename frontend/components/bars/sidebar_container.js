@@ -11,6 +11,7 @@ import Sidebar from './sidebar';
 
 const msp = state => {
   return {
+    path: window.location.hash,
     loggedIn: Boolean(state.session.currentUser),
     currentUser: state.session.currentUser,
     playlists: state.entities.playlists

@@ -608,8 +608,8 @@ h3 {
   color: white;
 }
 
-.sidebar-active a {
-  color: #1db954
+.active-page {
+  color: #1db954 !important;
 }
 
 .left-spacing {
