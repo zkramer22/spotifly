@@ -4,6 +4,7 @@ import { fetchResults, clearResults } from '../../actions/search_actions';
 import { Link, Route } from 'react-router-dom';
 import { openModal } from '../../actions/modal_actions';
 
+import Topbar from '../bars/topbar';
 import TrackIndex from '../tracks/track_index';
 import AlbumResults from '../albums/album_results';
 import ArtistResults from '../artists/artist_results';
@@ -73,24 +74,11 @@ class SearchForm extends React.Component {
                 onChange={ this.updateQuery }
                 placeholder="Start typing..."
                 autoFocus="autofocus"
-                value={ this.state.query }
-                />
+                value={ this.state.query }/>
               </form>
             </div>
 
-            <div className="search-nav-container">
-              <div className="search-nav">
-                <Link to="/searches/tracks">
-                  TRACKS
-                </Link>
-                <Link to="/searches/albums">
-                  ALBUMS
-                </Link>
-                <Link to="/searches/artists">
-                  ARTISTS
-                </Link>
-              </div>
-            </div>
+            <Topbar search="true"/>
 
             <div className="search-result-index">
               <Route

@@ -5,26 +5,28 @@ import { withRouter } from 'react-router-dom';
 class Sidebar extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
 
-    };
     this.handleLogout = this.handleLogout.bind(this);
     this.activePage = this.activePage.bind(this);
   }
 
   componentDidMount() {
     this.props.requestToto();
-  }
 
-  componentWillReceiveProps(nextProps) {
     const path = this.props.history.location.pathname;
+
     if (path.slice(0, 10) === '/searches/') {
-      this.activePage(0);
-    } else if (path.slice(0, 12) === '/collection/') {
-      console.log('not search');
+      setTimeout(() => {
+        this.activePage(0);
+      }, 0);
+    }
+    else if (path.slice(0, 12) === '/collection/') {
       this.activePage(1);
-    } else {
-      this.activePage(-1);
+    }
+    else {
+      setTimeout(() => {
+        this.activePage(-1);
+      }, 0);
     }
   }
 
@@ -52,11 +54,12 @@ class Sidebar extends React.Component {
       setTimeout(() => {
         this.activePage(0);
       }, 0);
-    } else if (path.slice(0, 12) === '/collection/') {
+    }
+    else if (path.slice(0, 12) === '/collection/') {
       this.activePage(1);
-    } else {
+    }
+    else {
       setTimeout(() => {
-        console.log('wut');
         this.activePage(-1);
       }, 0);
     }
@@ -81,7 +84,7 @@ class Sidebar extends React.Component {
         <div className="sidebar-link-container">
           <Link className="sidebar-link" to="/collection/playlists"
                 onClick={ () => this.activePage(1) }>
-            <span style={{ marginRight: "97px" }}>Your Library</span>
+            <span style={{ marginRight: "94px" }}>Your Library</span>
             <i className="material-icons">library_books</i>
           </Link>
         </div>

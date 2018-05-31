@@ -10,12 +10,24 @@ import TrackIndex from '../tracks/track_index';
 import Topbar from '../bars/topbar';
 
 class PlaylistDetail extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.activePage = this.activePage.bind(this);
+  }
+
   componentDidMount() {
     this.props.requestSinglePlaylist(this.props.match.params.playlistId);
 
     setTimeout(() => {
       $('.empty-message-container').addClass('visible');
     }, 750);
+  }
+
+  activePage() {
+    const active = $('.sidebar-link')[0];
+    $('.sidebar-link').removeClass('active-page');
+    $(active).addClass('active-page');
   }
 
   render() {
@@ -26,7 +38,10 @@ class PlaylistDetail extends React.Component {
       emptyMessage = (
         <div className="empty-message-container">
           <h3>
-            No songs here yet. Head over to <Link to="/searches/tracks">Search</Link> to get started!
+            No songs here yet. Head over to&nbsp;
+            <Link to="/searches/tracks" onClick={ this.activePage }>
+              Search
+            </Link>&nbsp;to get started!
           </h3>
         </div>
       );

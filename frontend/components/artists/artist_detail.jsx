@@ -1,10 +1,15 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { requestArtist, followArtist, unfollowArtist } from '../../actions/artist_actions';
+import {
+  requestArtist,
+  followArtist,
+  unfollowArtist } from '../../actions/artist_actions';
 import TrackIndex from '../tracks/track_index';
 import Topbar from '../bars/topbar';
-import { selectArtistTracks, selectArtistAlbums } from '../../reducers/selectors';
+import {
+  selectArtistTracks,
+  selectArtistAlbums } from '../../reducers/selectors';
 
 class ArtistDetail extends React.Component {
   componentDidMount() {
@@ -62,7 +67,9 @@ class ArtistDetail extends React.Component {
 
             <section className="artist-detail-container">
               <br/><br/><br/><br/>
-              <h1 style={{ fontSize: "75px", fontWeight: "600" }}>{ artist.name }</h1>
+              <h1 style={{ fontSize: "75px", fontWeight: "600" }}>
+                { artist.name }
+              </h1>
               <br/>
               { followers }
               <br/>
@@ -89,10 +96,12 @@ class ArtistDetail extends React.Component {
                       <div className="artist-album-container" key={i}>
                         <Link to={ `/albums/${album.id}` }>
                           <img src={ album.artwork }/>
-                          <div style={{
-                              fontWeight: "300", letterSpacing: "0.8px", textAlign: "center" }}>
+                          <span style={{
+                              fontWeight: "300",
+                              letterSpacing: "0.8px",
+                              textAlign: "center" }}>
                             { album.name }
-                          </div>
+                          </span>
                         </Link>
                       </div>
                     );

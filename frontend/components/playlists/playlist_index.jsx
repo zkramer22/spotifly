@@ -20,7 +20,7 @@ class PlaylistIndex extends React.Component {
       <div className="BLACKround">
         <div className="index-flexbox playlist-gradient">
           <div className="left-spacing">
-            <Topbar openModal={ openModal } modalType="create"/>
+            <Topbar openModal={ openModal } modalType="create" />
             <section className="collection-index-container">
               <div className="playlist-index">
                 { playlists.map(playlist => <PlaylistIndexItem
