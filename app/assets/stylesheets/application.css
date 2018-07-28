@@ -1140,7 +1140,6 @@ div[class*="track-index-highlight"]:hover #index-play:hover {
 .artist-cover-photo-container {
   position: absolute;
   z-index: -1;
-  /* opacity: .5; */
   height: 45%;
   width: 100%;
   overflow: hidden;
