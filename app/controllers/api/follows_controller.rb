@@ -29,6 +29,11 @@ class Api::FollowsController < ApplicationController
       @follow = @artist.follows.find_by(follower_id: current_user.id)
       @follow.destroy!
       render "api/artists/show"
+    elsif params[:playlistId]
+      @playlist = Playlist.find(params[:playlistId])
+      @follow = @playlist.follows.find_by(follower_id:; current_user.id)
+      @follow.destroy!
+      render "api/playlists/show"
     end
   end
 

@@ -4,7 +4,6 @@ import ReactDOM from 'react-dom';
 import Root from './components/root';
 import configureStore from './store/store';
 
-import { login, logout, signup } from './actions/session_actions';
 import { requestAllPlaylists, requestSinglePlaylist, addTrackToPlaylist } from './actions/playlist_actions';
 import { fetchResults } from './actions/search_actions';
 
