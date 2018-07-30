@@ -17,6 +17,11 @@ class ArtistDetail extends React.Component {
   }
 
   render() {
+    if (!this.props.currentUser) {
+      this.props.history.push("/");
+      return null;
+    }
+
     const { artist, tracks, albums, trackIndexType,
             openModal, followArtist, unfollowArtist } = this.props;
 
