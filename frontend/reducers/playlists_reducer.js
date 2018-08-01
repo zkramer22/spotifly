@@ -17,7 +17,7 @@ export default (state = {}, action) => {
     case RECEIVE_ALL_PLAYLISTS:
       return merge({}, state, action.playlists);
     case RECEIVE_PLAYLIST:
-      playlist = action.payload.playlist
+      playlist = action.payload.playlist;
       return merge({}, state, { [playlist.id]: playlist });
     case RECEIVE_TRACK_PLAYLIST:
       playlist = action.trackPlaylist.playlist;

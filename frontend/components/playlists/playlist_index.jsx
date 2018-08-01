@@ -8,7 +8,6 @@ import PlaylistIndexItem from './playlist_index_item';
 import Topbar from '../bars/topbar';
 
 class PlaylistIndex extends React.Component {
-
   componentDidMount() {
     this.props.requestAllPlaylists();
   }
