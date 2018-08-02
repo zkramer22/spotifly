@@ -5,7 +5,6 @@ import { requestSinglePlaylist, deletePlaylist } from '../../actions/playlist_ac
 import { selectPlaylistTracks } from '../../reducers/selectors';
 import { openModal } from '../../actions/modal_actions';
 import { receiveCurrentTrack, removeCurrentTrack } from '../../actions/track_actions';
-import PlaylistIndexItem from './playlist_index_item';
 import TrackIndex from '../tracks/track_index';
 import Topbar from '../bars/topbar';
 
