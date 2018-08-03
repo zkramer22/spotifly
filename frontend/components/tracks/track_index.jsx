@@ -20,12 +20,11 @@ class TrackIndex extends React.Component {
                 openModal={ openModal }
                 track={ track } num={ i } />
             );
-          })
+          });
         }
       </ol>
     );
   }
-
 }
 
 export default TrackIndex;
