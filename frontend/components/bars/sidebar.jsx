@@ -34,7 +34,7 @@ class Sidebar extends React.Component {
     e.preventDefault();
     this.props.removeCurrentTrack();
     this.props.logout();
-    setTimeout(() => this.props.history.push("/"), 100);
+    setTimeout(() => this.props.history.push("/"), 1000);
   }
 
   activePage(num) {
