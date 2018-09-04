@@ -72,7 +72,7 @@ h3 {
   min-width: 100%;
   position: absolute;
   z-index: -10;
-  overflow: auto;
+  /* overflow: auto; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -139,14 +139,13 @@ h3 {
   width: 100%;
   opacity: 0.35;
   z-index: -1;
-  overflow: hidden;
 }
 
-@media (max-width: 800px) {
+/* @media (max-width: 800px) {
   .BLACKround {
     overflow: scroll;
   }
-}
+} */
 
 .errors {
   position: absolute;
@@ -173,7 +172,7 @@ h3 {
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 325px;
+  height: 355px;
   margin-right: 30px;
   border-right: 0.5px solid white;
 }
@@ -328,6 +327,21 @@ h3 {
 .welcome-bullets {
   font-weight: 335;
   letter-spacing: 0.4px;
+}
+
+@media (max-width: 600px) {
+  .splash-flexbox {
+    flex-direction: column;
+  }
+
+  .greeting-cont {
+    border-right: none;
+    border-bottom: 0.5px solid white;
+    margin-right: 0;
+  }
+
+  #guest-login {
+  }
 }
 
 /*/////////////////////////////////////////////////

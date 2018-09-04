@@ -5,10 +5,12 @@ const Greeting = ({ currentUser, guestLogin, logout }) => {
 
   return (
     <div className="splash-flexbox">
-
+      { /*
+        */}
       <div className="BLACKround">
         <img className="greeting-background"
           src={ window.greetingBackground }/>
+      </div>
 
         <div id="greeting-cont" className="greeting-cont">
           <div className="main-logo">
@@ -35,7 +37,8 @@ const Greeting = ({ currentUser, guestLogin, logout }) => {
             <li><strong>&#10003;</strong> Create playlists of your favorites</li>
           </ul>
         </div>
-      </div>
+      { /*
+      */}
 
 
     </div>
